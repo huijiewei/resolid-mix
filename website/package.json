@@ -1,0 +1,31 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "scripts": {
+    "build": "remix vite:build",
+    "dev": "remix vite:dev",
+    "start": "remix-serve ./build/server/index.js"
+  },
+  "dependencies": {
+    "@remix-run/node": "^2.5.1",
+    "@remix-run/react": "^2.5.1",
+    "@remix-run/serve": "^2.5.1",
+    "isbot": "^4.4.0",
+    "react": "canary",
+    "react-dom": "canary"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^2.5.1",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "vite": "^5.0.11",
+    "vite-plugin-inspect": "^0.8.1",
+    "vite-tsconfig-paths": "^4.3.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

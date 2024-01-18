@@ -1,0 +1,6 @@
+**/dist
+**/build
+**/styled-system
+.vscode
+.idea
+pnpm-lock.yaml

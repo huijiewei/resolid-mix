@@ -1,0 +1,13 @@
+{
+  "name": "Resolid Remix",
+  "short_name": "resolid-remix",
+  "start_url": "/",
+  "theme_color": "#4586be",
+  "background_color": "#ffffff",
+  "description": "Get your app up and running with Remix.run!",
+  "display": "standalone",
+  "icons": [
+    { "src": "/icons/icon-192.png", "type": "image/png", "sizes": "192x192", "purpose": "any maskable" },
+    { "src": "/icons/icon-512.png", "type": "image/png", "sizes": "512x512", "purpose": "any maskable" }
+  ]
+}
