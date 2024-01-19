@@ -4,6 +4,7 @@ import { defineConfig } from 'vite';
 import Inspect from 'vite-plugin-inspect';
 import { stylexPlugin } from 'vite-plugin-stylex-dev';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import { deployBuild } from './plugins/node-deploy/build';
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig({
@@ -21,5 +22,6 @@ export default defineConfig({
     Inspect(),
     tsconfigPaths(),
     stylexPlugin(),
+    deployBuild({ entryPoints: ['plugins/node-deploy/entry.ts'] }),
   ],
 });
