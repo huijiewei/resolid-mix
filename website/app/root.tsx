@@ -7,6 +7,7 @@ import './root.css';
 const styles = stylex.create({
   root: {
     fontFamily: fonts.sans,
+    margin: 0,
   },
 });
 
