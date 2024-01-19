@@ -13,6 +13,8 @@
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
+    "@resolid-remix/stylex": "workspace:*",
+    "@stylexjs/stylex": "^0.4.1",
     "isbot": "^4.4.0",
     "react": "canary",
     "react-dom": "canary"
@@ -23,7 +25,8 @@
     "@types/react-dom": "^18.2.18",
     "vite": "^5.0.11",
     "vite-plugin-inspect": "^0.8.1",
-    "vite-tsconfig-paths": "^4.3.1"
+    "vite-tsconfig-paths": "^4.3.1",
+    "vite-plugin-stylex-dev": "^0.2.4"
   },
   "engines": {
     "node": ">=20.0.0"

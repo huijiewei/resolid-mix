@@ -1,4 +1,14 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { fonts } from '@resolid-remix/stylex/fonts.stylex';
+import * as stylex from '@stylexjs/stylex';
+
+import './root.css';
+
+const styles = stylex.create({
+  root: {
+    fontFamily: fonts.sans,
+  },
+});
 
 // noinspection JSUnusedGlobalSymbols
 export default function App() {
@@ -10,7 +20,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body {...stylex.props(styles.root)}>
         <Outlet />
         <ScrollRestoration />
         <Scripts />

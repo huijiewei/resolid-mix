@@ -1,0 +1,41 @@
+{
+  "name": "@resolid-remix/stylex",
+  "version": "1.0.0",
+  "type": "module",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc --project tsconfig.types.json && babel src/ --out-dir dist/ --extensions \".ts\""
+  },
+  "exports": {
+    "./colors.stylex": {
+      "default": "./dist/colors.stylex.js",
+      "types": "./dist/colors.stylex.d.ts"
+    },
+    "./fonts.stylex": {
+      "default": "./dist/fonts.stylex.js",
+      "types": "./dist/fonts.stylex.d.ts"
+    }
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.23.7",
+    "@babel/cli": "^7.23.4",
+    "@babel/preset-typescript": "^7.23.3",
+    "@stylexjs/stylex": "^0.4.1"
+  },
+  "peerDependencies": {
+    "@stylexjs/stylex": ">=0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/huijiewei/resolid-remix",
+    "directory": "packages/stylex"
+  },
+  "license": "MIT"
+}

@@ -1,6 +1,7 @@
 import { unstable_vitePlugin as remix } from '@remix-run/dev';
 import { defineConfig, splitVendorChunkPlugin, type UserConfig } from 'vite';
 import Inspect from 'vite-plugin-inspect';
+import { stylexPlugin } from 'vite-plugin-stylex-dev';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 // noinspection JSUnusedGlobalSymbols
@@ -15,6 +16,7 @@ export default defineConfig(({ isSsrBuild }) => {
       }),
       Inspect(),
       tsconfigPaths(),
+      stylexPlugin(),
       !isSsrBuild && splitVendorChunkPlugin(),
     ],
   };
@@ -32,10 +34,6 @@ export default defineConfig(({ isSsrBuild }) => {
               id.includes('/node_modules/prop-types/')
             ) {
               return 'react';
-            }
-
-            if (id.includes('/node_modules/react-router') || id.includes('/node_modules/@remix-run/')) {
-              return 'remix';
             }
 
             if (id.includes('/node_modules/')) {
