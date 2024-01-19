@@ -17,7 +17,10 @@
     "@resolid-remix/ui": "workspace:*",
     "@resolid-remix/utils": "workspace:*",
     "@stylexjs/stylex": "^0.4.1",
+    "dotenv": "^16.3.1",
+    "drizzle-orm": "^0.29.3",
     "isbot": "^4.4.0",
+    "mysql2": "^3.7.1",
     "react": "canary",
     "react-dom": "canary"
   },
@@ -25,6 +28,7 @@
     "@remix-run/dev": "^2.5.1",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "drizzle-kit": "^0.20.13",
     "vite": "^5.0.11",
     "vite-plugin-inspect": "^0.8.1",
     "vite-tsconfig-paths": "^4.3.1",
