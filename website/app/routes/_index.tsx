@@ -1,5 +1,6 @@
 import type { MetaFunction } from '@remix-run/node';
 import { colors } from '@resolid-remix/stylex/colors.stylex';
+import { Button } from '@resolid-remix/ui';
 import * as stylex from '@stylexjs/stylex';
 
 // noinspection JSUnusedGlobalSymbols
@@ -18,6 +19,9 @@ export default function Index() {
     <>
       <h2>Resolid Remix</h2>
       <p {...stylex.props(styles.root)}>Get your app up and running with Remix Run!</p>
+      <p>
+        <Button color={'green'}>Button</Button>
+      </p>
     </>
   );
 }

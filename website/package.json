@@ -14,6 +14,8 @@
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
     "@resolid-remix/stylex": "workspace:*",
+    "@resolid-remix/ui": "workspace:*",
+    "@resolid-remix/utils": "workspace:*",
     "@stylexjs/stylex": "^0.4.1",
     "isbot": "^4.4.0",
     "react": "canary",
