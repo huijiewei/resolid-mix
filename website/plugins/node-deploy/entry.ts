@@ -21,9 +21,7 @@ const cache = (seconds: number) =>
 
 const app = new Hono();
 
-app.use('/assets/*', cache(31536000), serveStatic({ root: build.assetsBuildDirectory }));
-
-app.use('*', cache(3600), serveStatic({ root: build.assetsBuildDirectory }));
+app.use('*', cache(31536000), serveStatic({ root: build.assetsBuildDirectory }));
 
 app.use(
   createMiddleware(async (c) => {
