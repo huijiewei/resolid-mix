@@ -1,0 +1,58 @@
+name: Deploy Website
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install PNPM
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Install Dependencies
+        shell: 'bash'
+        run: pnpm install
+
+      - name: Create env file
+        shell: 'bash'
+        run: |
+          echo "VITE_TURNSTILE_KEY=${{ secrets.TURNSTILE_KEY }}" >> .env
+
+      - name: Build
+        shell: 'bash'
+        run: pnpm run website:deploy
+
+      - name: Deploy
+        uses: Burnett01/rsync-deployments@6.0.0
+        with:
+          switches: -avzr --delete --exclude=".env" --exclude="node_modules"
+          path: website/build/
+          remote_host: ${{ secrets.REMOTE_HOST }}
+          remote_port: ${{ secrets.REMOTE_PORT }}
+          remote_user: ${{ secrets.REMOTE_USER }}
+          remote_key: ${{ secrets.SSH_PRIVATE_KEY }}
+          remote_path: /home/websites/remix/web/build/
+
+      - name: Remote install dependencies
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          port: ${{ secrets.REMOTE_PORT }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            cd /home/websites/remix/web/build/server
+            npm install
