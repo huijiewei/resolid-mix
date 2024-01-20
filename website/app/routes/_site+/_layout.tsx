@@ -37,7 +37,7 @@ export default function Layout() {
         <nav {...stylex.props([styles.nav])}>
           <div>
             <Link to={''}>
-              <img width={129} alt={'Resolid Remix'} src={ResolidBanner} />
+              <img width={130} height={30} alt={'Resolid Remix'} src={ResolidBanner} />
             </Link>
           </div>
           <div></div>
