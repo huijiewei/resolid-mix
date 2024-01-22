@@ -2,6 +2,7 @@ import type { MetaFunction } from '@remix-run/node';
 import { colors } from '@resolid-remix/stylex/colors.stylex';
 import { Button } from '@resolid-remix/ui';
 import * as stylex from '@stylexjs/stylex';
+import { HistoryLink } from '~/components/HistoryLink';
 import { Github } from '~/icons/Github';
 
 // noinspection JSUnusedGlobalSymbols
@@ -26,6 +27,7 @@ const styles = stylex.create({
     backgroundImage: 'linear-gradient(to right, #cd41a3, #a075e0, #509dfd, #00bbfc, #00d7dc, #009cff, #5f7cfb)',
   },
   p: {
+    fontSize: '1rem',
     marginTop: '2.5rem',
   },
   buttons: {
@@ -35,25 +37,6 @@ const styles = stylex.create({
     flexDirection: 'row',
     gap: '2.25rem',
   },
-  button: {
-    color: colors.gray900,
-    border: `1px solid ${colors.gray900}`,
-    borderRadius: '3px',
-    backgroundColor: {
-      default: colors.white,
-      ':hover': colors.gray50,
-    },
-    transitionProperty: 'background-color',
-    transitionDuration: '200ms',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
-    width: 'auto',
-    height: '2.5rem',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textDecoration: 'inherit',
-  },
   icon: {
     marginRight: '0.5rem',
   },
@@ -61,24 +44,23 @@ const styles = stylex.create({
 
 export default function Index() {
   return (
-    <div {...stylex.props([styles.root])}>
+    <main {...stylex.props([styles.root])}>
       <p {...stylex.props([styles.title])}>Resolid Remix</p>
       <p {...stylex.props([styles.p])}>
         这是一个很有趣的 Remix 全栈演示站点，Remix 是一个全栈 Web 框架，可让您专注于用户界面并通过 Web
         标准进行工作，以提供快速、流畅且有弹性的用户体验。人们会喜欢使用你的东西。
       </p>
       <p {...stylex.props([styles.p, styles.buttons])}>
-        <Button color={'green'}>Button</Button>
-        <a
-          {...stylex.props([styles.button])}
-          target={'_blank'}
-          rel={'noopener noreferrer'}
-          href={'https://github.com/huijiewei/resolid-remix'}
-        >
-          <Github {...stylex.props([styles.icon])} />
-          Github
-        </a>
+        <Button asChild size={'xl'} color={'blue'}>
+          <HistoryLink to={'/ui'}>快速开始</HistoryLink>
+        </Button>
+        <Button asChild size={'xl'} color={'gray'} variant={'outline'}>
+          <a target={'_blank'} rel={'noopener noreferrer'} href={'https://github.com/huijiewei/resolid-remix'}>
+            <Github {...stylex.props([styles.icon])} />
+            Github
+          </a>
+        </Button>
       </p>
-    </div>
+    </main>
   );
 }
