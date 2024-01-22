@@ -2,6 +2,7 @@ import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@re
 import { fonts } from '@resolid-remix/stylex/fonts.stylex';
 import * as stylex from '@stylexjs/stylex';
 
+import { RouteProgressBar } from '~/components/RouteProgressBar';
 import './root.css';
 
 const styles = stylex.create({
@@ -27,6 +28,7 @@ export default function App() {
         <Links />
       </head>
       <body {...stylex.props(styles.root)}>
+        <RouteProgressBar />
         <Outlet />
         <ScrollRestoration />
         <Scripts />

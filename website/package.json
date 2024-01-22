@@ -20,6 +20,7 @@
     "@resolid-remix/ui": "workspace:*",
     "@resolid-remix/utils": "workspace:*",
     "@stylexjs/stylex": "^0.4.1",
+    "@tanem/react-nprogress": "^5.0.51",
     "dotenv": "^16.3.2",
     "drizzle-orm": "^0.29.3",
     "hono": "^3.12.6",

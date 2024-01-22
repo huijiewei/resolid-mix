@@ -11,7 +11,7 @@ const styles = stylex.create({
     left: 0,
     right: 0,
     width: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.75)',
+    backgroundColor: `rgb(from ${colors.white} r g b / 75%)`,
     backdropFilter: 'blur(6px)',
   },
   nav: {
