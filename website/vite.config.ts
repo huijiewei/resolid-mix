@@ -21,7 +21,9 @@ export default defineConfig({
     }),
     Inspect(),
     tsconfigPaths(),
-    stylexPlugin(),
+    stylexPlugin({
+      useRemForFontSize: true,
+    }),
     deployBuild({ entryPoints: ['plugins/node-deploy/entry.ts'] }),
   ],
 });
