@@ -26,4 +26,13 @@ export default defineConfig({
     }),
     deployBuild({ entryPoints: ['plugins/node-deploy/entry.ts'] }),
   ],
+  build: {
+    minify: true,
+  },
+  ssr: {
+    external: ['@node-rs/bcrypt'],
+  },
+  optimizeDeps: {
+    exclude: ['@node-rs/bcrypt'],
+  },
 });

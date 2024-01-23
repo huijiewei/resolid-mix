@@ -14,7 +14,9 @@
     "website:dev": "pnpm run --filter website dev",
     "website:build": "pnpm run --filter website build",
     "website:serve": "pnpm run --filter website serve",
-    "website:deploy": "pnpm run --filter website... build"
+    "website:deploy": "pnpm run --filter website... build",
+    "drizzle": "pnpm run --filter website drizzle-kit",
+    "resolid": "pnpm run --filter website resolid"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.5.0",

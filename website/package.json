@@ -9,7 +9,8 @@
     "build": "remix vite:build",
     "dev": "remix vite:dev",
     "start": "remix-serve ./build/server/index.js",
-    "serve": "NODE_ENV=production node ./build/server/serve.mjs"
+    "serve": "NODE_ENV=production node ./build/server/serve.mjs",
+    "resolid": "npx tsx ./cli/index.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.4.1",
@@ -31,19 +32,22 @@
     "react-dom": "canary"
   },
   "devDependencies": {
+    "@faker-js/faker": "^8.3.1",
+    "@node-rs/bcrypt": "^1.9.2",
     "@remix-run/dev": "^2.5.1",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
+    "commander": "^11.1.0",
     "drizzle-kit": "^0.20.13",
     "esbuild": "^0.19.11",
     "remix-flat-routes": "^0.6.4",
     "rollup": "^4.9.6",
     "type-fest": "^4.10.0",
     "vite": "^5.0.12",
-    "vite-plugin-inspect": "^0.8.1",
+    "vite-plugin-inspect": "^0.8.2",
     "vite-plugin-stylex-dev": "^0.2.4",
     "vite-tsconfig-paths": "^4.3.1"
   },
