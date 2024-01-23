@@ -13,7 +13,7 @@
     "resolid": "npx tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hono/node-server": "^1.4.1",
+    "@hono/node-server": "^1.5.0",
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
