@@ -1,9 +1,11 @@
 import { colors, type Colors } from '@resolid-remix/stylex/colors.stylex';
+import { fontSizes, lineHeights } from '@resolid-remix/stylex/fonts.stylex';
+import { heights, rounded } from '@resolid-remix/stylex/sizes.stylex';
 import * as stylex from '@stylexjs/stylex';
 
 export const buttonStyles = stylex.create({
   base: {
-    borderRadius: '3px',
+    borderRadius: rounded.md,
     borderStyle: 'solid',
     borderWidth: 1,
     transitionProperty: 'color,background-color,border-color,text-decoration-color,fill,stroke',
@@ -20,6 +22,11 @@ export const buttonStyles = stylex.create({
   },
   fullWidth: {
     width: '100%',
+  },
+  aspectSquare: {
+    paddingLeft: 0,
+    paddingRight: 0,
+    aspectRatio: '1/1',
   },
   disabled: {
     pointerEvents: 'none',
@@ -39,6 +46,8 @@ export const buttonVariantStyles = stylex.create({
   light: {},
   subtle: {},
   link: {
+    backgroundColor: colors.transparent,
+    borderColor: colors.transparent,
     textDecoration: 'underline',
   },
 });
@@ -119,32 +128,36 @@ export const buttonVariantLinkStyles = stylex.create({
 
 export const buttonSizeStyles = stylex.create({
   xs: {
-    fontSize: '.8125rem',
-    lineHeight: '1.25rem',
+    fontSize: fontSizes.xs,
+    lineHeight: lineHeights.xs,
     paddingLeft: '0.5rem',
     paddingRight: '0.5rem',
-    height: '1.5rem',
+    height: heights.xs,
   },
   sm: {
+    fontSize: fontSizes.sm,
+    lineHeight: lineHeights.sm,
     paddingLeft: '0.75rem',
     paddingRight: '0.75rem',
-    height: '1.75rem',
+    height: heights.sm,
   },
   md: {
     paddingLeft: '1rem',
     paddingRight: '1rem',
-    height: '2rem',
+    height: heights.md,
   },
   lg: {
+    fontSize: fontSizes.md,
+    lineHeight: lineHeights.lg,
     paddingLeft: '1rem',
     paddingRight: '1rem',
-    height: '2.25rem',
+    height: heights.lg,
   },
   xl: {
-    fontSize: '1rem',
-    lineHeight: '1.5rem',
+    fontSize: fontSizes.lg,
+    lineHeight: lineHeights.xl,
     paddingLeft: '1rem',
     paddingRight: '1rem',
-    height: '2.5rem',
+    height: heights.xl,
   },
 });

@@ -22,6 +22,7 @@ export type ButtonProps = {
   size?: keyof typeof buttonSizeStyles;
   disabled?: boolean;
   fullWidth?: boolean;
+  aspectSquare?: boolean;
 };
 
 export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', ButtonProps>>((props, ref) => {
@@ -34,6 +35,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', Butto
     variant = 'solid',
     disabled,
     fullWidth,
+    aspectSquare,
     children,
     ...rest
   } = props;
@@ -56,6 +58,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', Butto
         variant == 'subtle' && buttonVariantSubtleStyles.color(color),
         variant == 'link' && buttonVariantLinkStyles.color(color),
         buttonSizeStyles[size],
+        aspectSquare && buttonStyles.aspectSquare,
         styles,
       )}
       disabled={disabled}
