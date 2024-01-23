@@ -6,7 +6,7 @@ const styles = stylex.create({
   main: {
     marginLeft: 'auto',
     marginRight: 'auto',
-    maxWidth: '80rem',
+    maxWidth: '70rem',
   },
   footer: {
     borderTop: `1px solid ${colors.gray200}`,
