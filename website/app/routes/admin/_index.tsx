@@ -1,7 +1,7 @@
 import { Outlet } from '@remix-run/react';
 import { Button } from '@resolid-remix/ui';
 
-export default function Index() {
+export default function _index() {
   return (
     <>
       <h2>Resolid Remix Admin</h2>

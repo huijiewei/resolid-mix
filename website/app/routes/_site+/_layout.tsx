@@ -38,6 +38,19 @@ const styles = stylex.create({
     display: 'flex',
     gap: '1rem',
   },
+  link: {
+    textDecoration: 'none',
+    padding: '0.5rem',
+    fontWeight: 'bold',
+    color: {
+      default: colors.gray700,
+      ':hover': colors.blue500,
+      ':active': colors.blue700,
+    },
+  },
+  linkActive: {
+    color: colors.blue500,
+  },
   main: {
     paddingTop: '4rem',
   },
@@ -55,11 +68,21 @@ export default function Layout() {
           </div>
           <div {...stylex.props(styles.banner)}>
             <div {...stylex.props(styles.menu)}>
-              <HistoryNavLink to={''}>主页</HistoryNavLink>
-              <HistoryNavLink to={'ui'}>组件库</HistoryNavLink>
-              <HistoryNavLink to={'blog'}>博客</HistoryNavLink>
-              <HistoryNavLink to={'forum'}>论坛</HistoryNavLink>
-              <HistoryNavLink to={'about'}>关于</HistoryNavLink>
+              <HistoryNavLink {...stylex.props(styles.link)} to={''} end>
+                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>主页</span>}
+              </HistoryNavLink>
+              <HistoryNavLink {...stylex.props(styles.link)} to={'ui'}>
+                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>组件库</span>}
+              </HistoryNavLink>
+              <HistoryNavLink {...stylex.props(styles.link)} to={'blog'}>
+                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>博客</span>}
+              </HistoryNavLink>
+              <HistoryNavLink {...stylex.props(styles.link)} to={'forum'}>
+                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>论坛</span>}
+              </HistoryNavLink>
+              <HistoryNavLink {...stylex.props(styles.link)} to={'about'}>
+                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>关于</span>}
+              </HistoryNavLink>
             </div>
             <div>
               <Button variant={'subtle'} color={'gray'} asChild>

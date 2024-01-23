@@ -42,7 +42,7 @@ const styles = stylex.create({
   },
 });
 
-export default function Index() {
+export default function _index() {
   return (
     <main {...stylex.props([styles.root])}>
       <p {...stylex.props([styles.title])}>Resolid Remix</p>
