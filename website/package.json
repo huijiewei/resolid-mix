@@ -40,7 +40,7 @@
     "esbuild": "^0.19.11",
     "remix-flat-routes": "^0.6.4",
     "rollup": "^4.9.6",
-    "type-fest": "^4.9.0",
+    "type-fest": "^4.10.0",
     "vite": "^5.0.12",
     "vite-plugin-inspect": "^0.8.1",
     "vite-plugin-stylex-dev": "^0.2.4",
