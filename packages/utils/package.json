@@ -10,6 +10,7 @@
     "dist"
   ],
   "scripts": {
+    "lint": "eslint .",
     "build": "tsup"
   },
   "main": "./dist/index.cjs",

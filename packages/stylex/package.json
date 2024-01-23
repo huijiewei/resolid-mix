@@ -10,6 +10,7 @@
     "dist"
   ],
   "scripts": {
+    "lint": "eslint .",
     "build": "tsc --project tsconfig.types.json && babel src/ --out-dir dist/ --extensions \".ts\""
   },
   "exports": {
