@@ -33,7 +33,15 @@ export const buttonStyles = stylex.create({
   }),
 });
 
-export type ButtonVariant = 'solid' | 'outline' | 'light' | 'subtle' | 'link';
+export const buttonVariantStyles = stylex.create({
+  solid: {},
+  outline: {},
+  light: {},
+  subtle: {},
+  link: {
+    textDecoration: 'underline',
+  },
+});
 
 export const buttonVariantSolidStyles = stylex.create({
   color: (color: Colors) => ({
@@ -63,6 +71,48 @@ export const buttonVariantOutlineStyles = stylex.create({
       default: colors.white,
       ':hover': colors[`${color}100`],
       ':active': colors[`${color}200`],
+    },
+  }),
+});
+
+export const buttonVariantLightStyles = stylex.create({
+  color: (color: Colors) => ({
+    color: colors[`${color}700`],
+    borderColor: {
+      default: colors[`${color}50`],
+      ':hover': colors[`${color}100`],
+      ':active': colors[`${color}200`],
+    },
+    backgroundColor: {
+      default: colors[`${color}50`],
+      ':hover': colors[`${color}100`],
+      ':active': colors[`${color}200`],
+    },
+  }),
+});
+
+export const buttonVariantSubtleStyles = stylex.create({
+  color: (color: Colors) => ({
+    color: colors[`${color}700`],
+    borderColor: {
+      default: colors.transparent,
+      ':hover': colors[`${color}100`],
+      ':active': colors[`${color}200`],
+    },
+    backgroundColor: {
+      default: colors.white,
+      ':hover': colors[`${color}100`],
+      ':active': colors[`${color}200`],
+    },
+  }),
+});
+
+export const buttonVariantLinkStyles = stylex.create({
+  color: (color: Colors) => ({
+    color: {
+      default: colors[`${color}700`],
+      ':hover': colors[`${color}800`],
+      ':active': colors[`${color}900`],
     },
   }),
 });

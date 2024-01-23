@@ -7,15 +7,18 @@ import { Slot, type AsChildProps } from '../slot/Slot';
 import {
   buttonSizeStyles,
   buttonStyles,
+  buttonVariantLightStyles,
+  buttonVariantLinkStyles,
   buttonVariantOutlineStyles,
   buttonVariantSolidStyles,
-  type ButtonVariant,
+  buttonVariantStyles,
+  buttonVariantSubtleStyles,
 } from './Button.styles';
 
 export type ButtonProps = {
   styles?: StyleXStyles;
   color?: Colors;
-  variant?: ButtonVariant;
+  variant?: keyof typeof buttonVariantStyles;
   size?: keyof typeof buttonSizeStyles;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -46,8 +49,12 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', Butto
         disabled && buttonStyles.disabled,
         fullWidth && buttonStyles.fullWidth,
         buttonStyles.color(color),
+        buttonVariantStyles[variant],
         variant == 'solid' && buttonVariantSolidStyles.color(color),
         variant == 'outline' && buttonVariantOutlineStyles.color(color),
+        variant == 'light' && buttonVariantLightStyles.color(color),
+        variant == 'subtle' && buttonVariantSubtleStyles.color(color),
+        variant == 'link' && buttonVariantLinkStyles.color(color),
         buttonSizeStyles[size],
         styles,
       )}
