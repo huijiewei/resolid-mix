@@ -85,7 +85,7 @@ export default function Layout() {
               </HistoryNavLink>
             </div>
             <div>
-              <Button variant={'subtle'} color={'gray'} asChild>
+              <Button variant={'subtle'} color={'gray'} aspectSquare asChild>
                 <a
                   aria-label={'Go to Resolid Remix on Github'}
                   rel="noreferrer"

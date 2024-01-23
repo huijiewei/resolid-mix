@@ -51,10 +51,10 @@ export default function _index() {
         标准进行工作，以提供快速、流畅且有弹性的用户体验。人们会喜欢使用你的东西。
       </p>
       <p {...stylex.props([styles.p, styles.buttons])}>
-        <Button asChild size={'xl'} color={'blue'}>
+        <Button asChild size={'lg'} color={'blue'}>
           <HistoryLink to={'/ui'}>快速开始</HistoryLink>
         </Button>
-        <Button asChild size={'xl'} color={'gray'} variant={'outline'}>
+        <Button asChild size={'lg'} color={'gray'} variant={'outline'}>
           <a target={'_blank'} rel={'noopener noreferrer'} href={'https://github.com/huijiewei/resolid-remix'}>
             <Github {...stylex.props([styles.icon])} />
             Github

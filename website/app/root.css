@@ -35,8 +35,6 @@ ol[role='list'] {
 /* Set core body defaults */
 body {
   min-height: 100vh;
-  font-size: 0.875rem;
-  line-height: 1.5;
   overflow-y: scroll;
 }
 

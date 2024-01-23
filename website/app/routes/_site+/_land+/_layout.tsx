@@ -1,5 +1,6 @@
 import { Outlet } from '@remix-run/react';
 import { colors } from '@resolid-remix/stylex/colors.stylex';
+import { fontSizes } from '@resolid-remix/stylex/fonts.stylex';
 import * as stylex from '@stylexjs/stylex';
 
 const styles = stylex.create({
@@ -12,7 +13,7 @@ const styles = stylex.create({
     borderTop: `1px solid ${colors.gray200}`,
     marginTop: '3rem',
     textAlign: 'center',
-    fontSize: '0.85rem',
+    fontSize: fontSizes.sm,
     paddingBottom: '1rem',
   },
   flag: {

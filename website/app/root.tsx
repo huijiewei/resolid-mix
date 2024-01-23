@@ -1,5 +1,5 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
-import { fonts } from '@resolid-remix/stylex/fonts.stylex';
+import { fontSizes, fonts, lineHeights } from '@resolid-remix/stylex/fonts.stylex';
 import * as stylex from '@stylexjs/stylex';
 
 import { RouteProgressBar } from '~/components/RouteProgressBar';
@@ -8,6 +8,8 @@ import './root.css';
 const styles = stylex.create({
   root: {
     fontFamily: fonts.sans,
+    fontSize: fontSizes.md,
+    lineHeight: lineHeights.md,
     margin: 0,
   },
 });
