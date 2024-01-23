@@ -21,6 +21,10 @@
     "./fonts.stylex": {
       "default": "./dist/fonts.stylex.js",
       "types": "./dist/fonts.stylex.d.ts"
+    },
+    "./sizes.stylex": {
+      "default": "./dist/sizes.stylex.js",
+      "types": "./dist/sizes.stylex.d.ts"
     }
   },
   "dependencies": {},
