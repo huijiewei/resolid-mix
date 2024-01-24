@@ -3,9 +3,9 @@ import { colors } from '@resolid-remix/stylex/colors.stylex';
 import * as stylex from '@stylexjs/stylex';
 
 import { Button } from '@resolid-remix/ui';
+import { Github } from '~/assets/icons/Github';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
-import { Github } from '~/icons/Github';
 
 const styles = stylex.create({
   headers: {

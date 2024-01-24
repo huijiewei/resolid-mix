@@ -2,8 +2,8 @@ import type { MetaFunction } from '@remix-run/node';
 import { colors } from '@resolid-remix/stylex/colors.stylex';
 import { Button } from '@resolid-remix/ui';
 import * as stylex from '@stylexjs/stylex';
+import { Github } from '~/assets/icons/Github';
 import { HistoryLink } from '~/components/HistoryLink';
-import { Github } from '~/icons/Github';
 
 // noinspection JSUnusedGlobalSymbols
 export const meta: MetaFunction = () => {
