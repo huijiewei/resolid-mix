@@ -8,7 +8,7 @@ import os from 'node:os';
 // @ts-expect-error Cannot find module
 import * as build from './index.js';
 
-const cache = (seconds: number) =>
+const cache = (seconds: number, immutable = false) =>
   createMiddleware(async (c, next) => {
     await next();
 
@@ -16,7 +16,7 @@ const cache = (seconds: number) =>
       return;
     }
 
-    c.res.headers.set('cache-control', `public, immutable, max-age=${seconds}`);
+    c.res.headers.set('cache-control', `public, max-age=${seconds}${immutable ? ', immutable' : ''}`);
   });
 
 const remix = () =>
@@ -29,7 +29,7 @@ const remix = () =>
 const app = new Hono();
 
 app
-  .use('/assets/*', cache(60 * 60 * 24 * 365), serveStatic({ root: build.assetsBuildDirectory }))
+  .use('/assets/*', cache(60 * 60 * 24 * 365, true), serveStatic({ root: build.assetsBuildDirectory }))
   .use('*', cache(60 * 60), serveStatic({ root: build.assetsBuildDirectory }))
   .use(remix());
 
