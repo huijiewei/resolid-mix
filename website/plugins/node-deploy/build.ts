@@ -10,7 +10,6 @@ import type { Plugin, RollupCommonJSOptions } from 'vite';
 
 export const deployBuild = ({ entryPoints }: { entryPoints: string[] }): Plugin => {
   let root = '';
-  let isSSR = false;
   let outDir = '';
   let ssrExternal: string[] | undefined;
   let commonjsOptions: RollupCommonJSOptions;
@@ -18,84 +17,83 @@ export const deployBuild = ({ entryPoints }: { entryPoints: string[] }): Plugin 
   // noinspection JSUnusedGlobalSymbols
   return {
     name: 'vite-plugin-build',
-    apply: 'build',
+    apply(config, { command }) {
+      return command === 'build' && !!config.build?.ssr;
+    },
     enforce: 'post',
     configResolved(config) {
       root = config.root || process.cwd();
-      isSSR = !!config.build.ssr;
       outDir = config.build.outDir;
       ssrExternal = config.ssr.external;
       commonjsOptions = config.build.commonjsOptions;
     },
     async closeBundle() {
-      if (isSSR) {
-        const outfile = join(outDir, 'entry.js');
+      const outfile = join(outDir, 'entry.js');
 
-        await esbuild
-          .build({
-            outfile: outfile,
-            entryPoints: entryPoints,
-            external: ['./index.js'],
-            platform: 'node',
-            format: 'esm',
-            packages: 'external',
-            bundle: true,
-          })
-          .catch((error: unknown) => {
-            console.error(error);
-            process.exit(1);
-          });
-
-        const bundle = await rollup({
-          input: outfile,
-          plugins: [
-            json(),
-            nodeResolve({
-              preferBuiltins: true,
-              exportConditions: ['node'],
-            }),
-            common({ strictRequires: true, ...commonjsOptions }),
-          ],
-          external: [...(ssrExternal ?? [])],
-          logLevel: 'silent',
-        });
-
-        await bundle.write({
+      await esbuild
+        .build({
+          outfile: outfile,
+          entryPoints: entryPoints,
+          external: ['./index.js'],
+          platform: 'node',
           format: 'esm',
-          file: join(outDir, 'serve.mjs'),
-          inlineDynamicImports: true,
+          packages: 'external',
+          bundle: true,
+        })
+        .catch((error: unknown) => {
+          console.error(error);
+          process.exit(1);
         });
 
-        await bundle.close();
+      const bundle = await rollup({
+        input: outfile,
+        plugins: [
+          json(),
+          nodeResolve({
+            preferBuiltins: true,
+            exportConditions: ['node'],
+          }),
+          common({ strictRequires: true, ...commonjsOptions }),
+        ],
+        external: [...(ssrExternal ?? [])],
+        logLevel: 'silent',
+      });
 
-        const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as PackageJson;
+      await bundle.write({
+        format: 'esm',
+        file: join(outDir, 'serve.mjs'),
+        inlineDynamicImports: true,
+      });
 
-        const distPkg = {
-          name: pkg.name,
-          type: pkg.type,
-          scripts: {
-            postinstall: pkg.scripts?.postinstall ?? '',
-          },
-          dependencies: {
-            ...Object.keys(pkg.dependencies ?? {})
-              .filter((key) => ssrExternal?.includes(key))
-              .reduce((obj: Record<string, string>, key) => {
-                obj[key] = pkg.dependencies?.[key] ?? '';
+      await bundle.close();
 
-                return obj;
-              }, {}),
-            ...Object.keys(pkg.devDependencies ?? {})
-              .filter((key) => ssrExternal?.includes(key))
-              .reduce((obj: Record<string, string>, key) => {
-                obj[key] = pkg.devDependencies?.[key] ?? '';
+      const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as PackageJson;
 
-                return obj;
-              }, {}),
-          },
-        };
+      const distPkg = {
+        name: pkg.name,
+        type: pkg.type,
+        scripts: {
+          postinstall: pkg.scripts?.postinstall ?? '',
+        },
+        dependencies: {
+          ...Object.keys(pkg.dependencies ?? {})
+            .filter((key) => ssrExternal?.includes(key))
+            .reduce((obj: Record<string, string>, key) => {
+              obj[key] = pkg.dependencies?.[key] ?? '';
 
-        writeFileSync(join(outDir, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
-      }
+              return obj;
+            }, {}),
+          ...Object.keys(pkg.devDependencies ?? {})
+            .filter((key) => ssrExternal?.includes(key))
+            .reduce((obj: Record<string, string>, key) => {
+              obj[key] = pkg.devDependencies?.[key] ?? '';
+
+              return obj;
+            }, {}),
+        },
+      };
+
+      writeFileSync(join(outDir, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
     },
   };
 };
