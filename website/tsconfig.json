@@ -6,6 +6,7 @@
     "jsx": "react-jsx",
     "paths": {
       "~/*": ["./app/*"],
+      "@resolid-remix/stylex/*": ["../packages/stylex/src/*"],
       "@resolid-remix/ui": ["../packages/ui/src"],
       "@resolid-remix/utils": ["../packages/utils/src"],
     },
