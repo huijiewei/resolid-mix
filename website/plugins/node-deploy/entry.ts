@@ -19,17 +19,19 @@ const cache = (seconds: number) =>
     c.res.headers.set('cache-control', `public, immutable, max-age=${seconds}`);
   });
 
-const app = new Hono();
-
-app.use('*', cache(31536000), serveStatic({ root: build.assetsBuildDirectory }));
-
-app.use(
+const remix = () =>
   createMiddleware(async (c) => {
     const requestHandler = createRequestHandler(build, 'production');
 
     return await requestHandler(c.req.raw);
-  }),
-);
+  });
+
+const app = new Hono();
+
+app
+  .use('/assets/*', cache(60 * 60 * 24 * 365), serveStatic({ root: build.assetsBuildDirectory }))
+  .use('*', cache(60 * 60), serveStatic({ root: build.assetsBuildDirectory }))
+  .use(remix());
 
 serve(
   {
