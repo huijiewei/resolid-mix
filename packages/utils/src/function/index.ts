@@ -1,10 +1,8 @@
-// eslint-disable-next-line @typescript-eslint/ban-types
-export const isFunction = (value: unknown): value is Function => {
-  return typeof value === 'function';
-};
+export type AnyFunction<A = unknown, R = unknown> = (...args: A[]) => R;
+export type MaybeFunction<T, A extends unknown[] = []> = T | AnyFunction<A, T>;
 
-export type MaybeFunction<T, Args extends unknown[] = []> = T | ((...args: Args) => T);
+export const isFunction = <T = AnyFunction>(value: unknown): value is T => typeof value === 'function';
 
-export const runIfFn = <T, U>(valueOrFn: T | ((...fnArgs: U[]) => T), ...args: U[]): T => {
-  return isFunction(valueOrFn) ? valueOrFn(...args) : valueOrFn;
+export const runIfFn = <R, A>(valueOrFn: R | ((...fnArgs: A[]) => R), ...args: A[]): R => {
+  return isFunction<AnyFunction<A, R>>(valueOrFn) ? valueOrFn(...args) : valueOrFn;
 };

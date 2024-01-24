@@ -1,10 +1,11 @@
+import { isFunction } from '@resolid-remix/utils';
 import type { MutableRefObject, Ref, RefCallback } from 'react';
 import { useCallback } from 'react';
 
 type PossibleRef<T> = Ref<T> | undefined;
 
 export const assignRef = <T>(ref: PossibleRef<T>, value: T) => {
-  if (typeof ref === 'function') {
+  if (isFunction(ref)) {
     ref(value);
   } else if (ref != null) {
     (ref as MutableRefObject<T>).current = value;

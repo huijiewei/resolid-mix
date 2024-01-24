@@ -1,4 +1,4 @@
-import { __DEV__, hasOwnProperty, type Assign } from '@resolid-remix/utils';
+import { __DEV__, hasOwnProperty, isFunction, type Overwrite } from '@resolid-remix/utils';
 import {
   Children,
   cloneElement,
@@ -12,7 +12,7 @@ import {
 } from 'react';
 import { mergeRefs } from '../../hooks';
 
-export type AsChildProps<T extends keyof JSX.IntrinsicElements, P extends object = never> = Assign<
+export type AsChildProps<T extends keyof JSX.IntrinsicElements, P extends object = never> = Overwrite<
   ComponentPropsWithoutRef<T>,
   P
 > & {
@@ -62,10 +62,10 @@ const mergeProps = <T extends HTMLAttributes<Element>>(base: T, overrides: T) =>
 
     const overrideValue = overrides[key];
 
-    if (typeof overrideValue === 'function' && key.startsWith('on')) {
+    if (isFunction(overrideValue) && key.startsWith('on')) {
       const baseValue = base[key];
 
-      if (typeof baseValue === 'function') {
+      if (isFunction(baseValue)) {
         type EventKey = Extract<keyof HTMLAttributes<Element>, `on${string}`>;
         props[key as EventKey] = (...args) => {
           overrideValue(...args);
