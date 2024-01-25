@@ -78,12 +78,12 @@ importers:
       '@floating-ui/react':
         specifier: ^0.26.6
         version: 0.26.6(react-dom@18.2.0)(react@18.2.0)
-      '@klass/core':
-        specifier: next
-        version: 4.0.0-next.5
       '@resolid-remix/utils':
         specifier: workspace:*
         version: link:../utils
+      '@tw-classed/core':
+        specifier: ^1.7.0
+        version: 1.7.0
       clsx:
         specifier: ^2.1.0
         version: 2.1.0
@@ -113,7 +113,7 @@ importers:
         version: 2.5.1(typescript@5.3.3)
       '@remix-run/react':
         specifier: ^2.5.1
-        version: 2.5.1(react-dom@18.3.0-canary-3d9b20132-20240124)(react@18.3.0-canary-3d9b20132-20240124)(typescript@5.3.3)
+        version: 2.5.1(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125)(typescript@5.3.3)
       '@remix-run/serve':
         specifier: ^2.5.1
         version: 2.5.1(typescript@5.3.3)
@@ -128,13 +128,13 @@ importers:
         version: link:../packages/utils
       '@tanem/react-nprogress':
         specifier: ^5.0.51
-        version: 5.0.51(react-dom@18.3.0-canary-3d9b20132-20240124)(react@18.3.0-canary-3d9b20132-20240124)
+        version: 5.0.51(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125)
       dotenv:
         specifier: ^16.4.1
         version: 16.4.1
       drizzle-orm:
         specifier: ^0.29.3
-        version: 0.29.3(@types/react@18.2.48)(mysql2@3.8.0)(react@18.3.0-canary-3d9b20132-20240124)
+        version: 0.29.3(@types/react@18.2.48)(mysql2@3.8.0)(react@18.3.0-canary-8bb6ee1d3-20240125)
       hono:
         specifier: ^3.12.7
         version: 3.12.7
@@ -146,10 +146,10 @@ importers:
         version: 3.8.0
       react:
         specifier: canary
-        version: 18.3.0-canary-3d9b20132-20240124
+        version: 18.3.0-canary-8bb6ee1d3-20240125
       react-dom:
         specifier: canary
-        version: 18.3.0-canary-3d9b20132-20240124(react@18.3.0-canary-3d9b20132-20240124)
+        version: 18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125)
     devDependencies:
       '@faker-js/faker':
         specifier: ^8.4.0
@@ -1552,12 +1552,6 @@ packages:
     resolution: {integrity: sha512-Lg3PnLp0QXpxwLIAuuJboLeRaIhrgJjeuh797QADg3xz8wGLugQOS5DpsE8A6i6Adgzf+bacllkKZG3J0tGfDw==}
     dev: true
 
-  /@klass/core@4.0.0-next.5:
-    resolution: {integrity: sha512-FDOnbfCfk7p/X2rExwnHPI8utvdqSvf84HkYczwNElrJxq5ZuJlZgVrZslRTSnydZsx9cI2lERDWmIndmDwI2Q==}
-    dependencies:
-      clsx: 2.1.0
-    dev: false
-
   /@mdx-js/mdx@2.3.0:
     resolution: {integrity: sha512-jLuwRlz8DQfQNiUCJR50Y09CGPq3fLtmtUQfVrj79E0JWu3dvsVcxVIcfhR5h0iXu+/z++zDrYeiJqifRynJkA==}
     dependencies:
@@ -1936,7 +1930,7 @@ packages:
       stream-slice: 0.1.2
       typescript: 5.3.3
 
-  /@remix-run/react@2.5.1(react-dom@18.3.0-canary-3d9b20132-20240124)(react@18.3.0-canary-3d9b20132-20240124)(typescript@5.3.3):
+  /@remix-run/react@2.5.1(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125)(typescript@5.3.3):
     resolution: {integrity: sha512-MNXHLj4Iu9Iyi+3uY61JZJ1Rtx2nM/z11j9AtwQdEADkh1/t9GruhtT/8VLplToOl0qWZKItboWScKf6uRQsrw==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
@@ -1949,10 +1943,10 @@ packages:
     dependencies:
       '@remix-run/router': 1.14.2
       '@remix-run/server-runtime': 2.5.1(typescript@5.3.3)
-      react: 18.3.0-canary-3d9b20132-20240124
-      react-dom: 18.3.0-canary-3d9b20132-20240124(react@18.3.0-canary-3d9b20132-20240124)
-      react-router: 6.21.3(react@18.3.0-canary-3d9b20132-20240124)
-      react-router-dom: 6.21.3(react-dom@18.3.0-canary-3d9b20132-20240124)(react@18.3.0-canary-3d9b20132-20240124)
+      react: 18.3.0-canary-8bb6ee1d3-20240125
+      react-dom: 18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125)
+      react-router: 6.21.3(react@18.3.0-canary-8bb6ee1d3-20240125)
+      react-router-dom: 6.21.3(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125)
       typescript: 5.3.3
     dev: false
 
@@ -2205,7 +2199,7 @@ packages:
     dev: true
     optional: true
 
-  /@tanem/react-nprogress@5.0.51(react-dom@18.3.0-canary-3d9b20132-20240124)(react@18.3.0-canary-3d9b20132-20240124):
+  /@tanem/react-nprogress@5.0.51(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-YxNUCpznuBVA+PhjEzFmxaa1czXgU+5Ojchw5JBK7DQS6SHIgNudpFohWpNBWMu2KWByGJ2OLH2OwbM/XyP18Q==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -2213,8 +2207,8 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.8
       hoist-non-react-statics: 3.3.2
-      react: 18.3.0-canary-3d9b20132-20240124
-      react-dom: 18.3.0-canary-3d9b20132-20240124(react@18.3.0-canary-3d9b20132-20240124)
+      react: 18.3.0-canary-8bb6ee1d3-20240125
+      react-dom: 18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125)
     dev: false
 
   /@tsconfig/node10@1.0.9:
@@ -2232,6 +2226,10 @@ packages:
   /@tsconfig/node16@1.0.4:
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
     dev: true
+
+  /@tw-classed/core@1.7.0:
+    resolution: {integrity: sha512-D57pNSN3JY2pRB6iPzZKB0m0hWfNGZ6MkxavYxgTDp+YIosi9VwDn6Cc87qcOM3ogu2CFvIAi2XXoAREnz0UFQ==}
+    dev: false
 
   /@tybys/wasm-util@0.8.1:
     resolution: {integrity: sha512-GSsTwyBl4pIzsxAY5wroZdyQKyhXk0d8PCRZtrSZ2WEB1cBdrp2EgGBwHOGCZtIIPun/DL3+AykCv+J6fyRH4Q==}
@@ -3507,7 +3505,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.29.3(@types/react@18.2.48)(mysql2@3.8.0)(react@18.3.0-canary-3d9b20132-20240124):
+  /drizzle-orm@0.29.3(@types/react@18.2.48)(mysql2@3.8.0)(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-uSE027csliGSGYD0pqtM+SAQATMREb3eSM/U8s6r+Y0RFwTKwftnwwSkqx3oS65UBgqDOM0gMTl5UGNpt6lW0A==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3580,7 +3578,7 @@ packages:
     dependencies:
       '@types/react': 18.2.48
       mysql2: 3.8.0
-      react: 18.3.0-canary-3d9b20132-20240124
+      react: 18.3.0-canary-8bb6ee1d3-20240125
     dev: false
 
   /duplexify@3.7.1:
@@ -6931,14 +6929,14 @@ packages:
       react: 18.2.0
       scheduler: 0.23.0
 
-  /react-dom@18.3.0-canary-3d9b20132-20240124(react@18.3.0-canary-3d9b20132-20240124):
-    resolution: {integrity: sha512-aI9vs7J0RFJsStEpdCdyR9YMjFzHXdQzfF1fgBCs47PUt8HrkOxpxTp00RO2lpL5eCps8dR8SGCQJN49o3Kb5Q==}
+  /react-dom@18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125):
+    resolution: {integrity: sha512-mjLnpbMuu60ZzXKMaU+/8TLqbdR65gUYK62TkXx8jcz+n5VJwjR3xMmcBrdeKTCZVTHy3WSRFGYLsF3ignmxdQ==}
     peerDependencies:
-      react: 18.3.0-canary-3d9b20132-20240124
+      react: 18.3.0-canary-8bb6ee1d3-20240125
     dependencies:
       loose-envify: 1.4.0
-      react: 18.3.0-canary-3d9b20132-20240124
-      scheduler: 0.24.0-canary-3d9b20132-20240124
+      react: 18.3.0-canary-8bb6ee1d3-20240125
+      scheduler: 0.24.0-canary-8bb6ee1d3-20240125
     dev: false
 
   /react-is@16.13.1:
@@ -6964,7 +6962,7 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /react-router-dom@6.21.3(react-dom@18.3.0-canary-3d9b20132-20240124)(react@18.3.0-canary-3d9b20132-20240124):
+  /react-router-dom@6.21.3(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-kNzubk7n4YHSrErzjLK72j0B5i969GsuCGazRl3G6j1zqZBLjuSlYBdVdkDOgzGdPIffUOc9nmgiadTEVoq91g==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
@@ -6972,19 +6970,19 @@ packages:
       react-dom: '>=16.8'
     dependencies:
       '@remix-run/router': 1.14.2
-      react: 18.3.0-canary-3d9b20132-20240124
-      react-dom: 18.3.0-canary-3d9b20132-20240124(react@18.3.0-canary-3d9b20132-20240124)
-      react-router: 6.21.3(react@18.3.0-canary-3d9b20132-20240124)
+      react: 18.3.0-canary-8bb6ee1d3-20240125
+      react-dom: 18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125)
+      react-router: 6.21.3(react@18.3.0-canary-8bb6ee1d3-20240125)
     dev: false
 
-  /react-router@6.21.3(react@18.3.0-canary-3d9b20132-20240124):
+  /react-router@6.21.3(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-a0H638ZXULv1OdkmiK6s6itNhoy33ywxmUFT/xtSoVyf9VnC7n7+VT4LjVzdIHSaF5TIh9ylUgxMXksHTgGrKg==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
       react: '>=16.8'
     dependencies:
       '@remix-run/router': 1.14.2
-      react: 18.3.0-canary-3d9b20132-20240124
+      react: 18.3.0-canary-8bb6ee1d3-20240125
     dev: false
 
   /react-style-singleton@2.2.1(react@18.2.0):
@@ -7009,8 +7007,8 @@ packages:
     dependencies:
       loose-envify: 1.4.0
 
-  /react@18.3.0-canary-3d9b20132-20240124:
-    resolution: {integrity: sha512-O05NKO7kZMzJ9HMXLQRRktPNv4dPHEYTWZCLHlyb6UoApn/PMRP3QNnsrCjKtf+w6OUh+nUkp8vtJ36Rr5zufw==}
+  /react@18.3.0-canary-8bb6ee1d3-20240125:
+    resolution: {integrity: sha512-SpQ4opohgJaTNHHjdyFDlawfgRwl8boAvGpwTE8gM4dzojJ7+PoczCqouLq+g/QfFFyWESF4M3YiylHN19tOGg==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
@@ -7316,8 +7314,8 @@ packages:
     dependencies:
       loose-envify: 1.4.0
 
-  /scheduler@0.24.0-canary-3d9b20132-20240124:
-    resolution: {integrity: sha512-ymwFB1diE6U0VHO3MOiX9SptXqS+BuXqIIFdqobFdnUfJu9zqHxjxVyZ9p85oQ8BkY9xD0OARY0+4ViuN0ZIKA==}
+  /scheduler@0.24.0-canary-8bb6ee1d3-20240125:
+    resolution: {integrity: sha512-yD0/B8lFmvBUATckaAzzf8KKMDU0bysdH8imBlgHuW7SUVmHrx2H8GFn8a9/i2vFYK8jLHlZHSaJXL5lKuY2nA==}
     dependencies:
       loose-envify: 1.4.0
     dev: false

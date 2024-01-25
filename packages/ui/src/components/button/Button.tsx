@@ -1,13 +1,13 @@
 import { __DEV__ } from '@resolid-remix/utils';
 import { forwardRef } from 'react';
-import { clsx } from '../../utils/klass';
+import { clsx } from '../../utils/classed';
 import { Slot, type AsChildProps } from '../slot/Slot';
-import { buttonStyles, type ButtonStyles } from './Button.styles';
+import { buttonStyles, type ButtonStyleProps } from './Button.styles';
 import { useButtonGroup } from './ButtonGroupContext';
 
 export type ButtonProps = {
   disabled?: boolean;
-} & ButtonStyles;
+} & ButtonStyleProps;
 
 export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', ButtonProps>>((props, ref) => {
   const group = useButtonGroup();

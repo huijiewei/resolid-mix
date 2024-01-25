@@ -29,8 +29,8 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.6",
-    "@klass/core": "next",
     "@resolid-remix/utils": "workspace:*",
+    "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.0",
     "react-remove-scroll-bar": "^2.3.4"
   },

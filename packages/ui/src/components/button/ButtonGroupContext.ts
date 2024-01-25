@@ -1,24 +1,24 @@
 import { createContext } from '../../utils/context';
-import type { ButtonStyles } from './Button.styles';
+import type { ButtonStyleProps } from './Button.styles';
 
 export type ButtonBaseProps = {
   /**
    * Size
    * @default 'md'
    */
-  size?: ButtonStyles['size'];
+  size?: ButtonStyleProps['size'];
 
   /**
    * Color
    * @default 'primary'
    */
-  color?: ButtonStyles['color'];
+  color?: ButtonStyleProps['color'];
 
   /**
    * Variant
    * @default 'solid'
    */
-  variant?: ButtonStyles['variant'];
+  variant?: ButtonStyleProps['variant'];
 
   /**
    * Disabled
