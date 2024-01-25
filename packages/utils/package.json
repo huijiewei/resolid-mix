@@ -28,9 +28,7 @@
     }
   },
   "dependencies": {},
-  "devDependencies": {
-    "tsup": "^8.0.1"
-  },
+  "devDependencies": {},
   "peerDependencies": {},
   "repository": {
     "type": "git",

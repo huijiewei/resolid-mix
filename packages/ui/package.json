@@ -35,8 +35,7 @@
     "@resolid-remix/stylex": "workspace:*",
     "@stylexjs/stylex": "^0.4.1",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "tsup": "^8.0.1"
+    "react-dom": "^18.2.0"
   },
   "peerDependencies": {
     "@resolid-remix/stylex": "*",
