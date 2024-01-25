@@ -20,6 +20,8 @@ export const HistoryBackButton = (props: Omit<HTMLAttributes<HTMLButtonElement> 
 
   return (
     <Button
+      size={'xl'}
+      color={'neutral'}
       onClick={(e) => {
         onClick && onClick(e);
         historyBack();

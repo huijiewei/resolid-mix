@@ -1,0 +1,10 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["src", "tsup.config.ts"],
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "@resolid-remix/utils": ["../utils/src"],
+    },
+  },
+}

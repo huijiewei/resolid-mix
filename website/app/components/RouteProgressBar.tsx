@@ -1,37 +1,9 @@
 import { useLocation, useNavigation } from '@remix-run/react';
-import { colors } from '@resolid-remix/stylex/colors.stylex';
-import * as stylex from '@stylexjs/stylex';
+import { clsx } from '@resolid-remix/ui';
 import { useNProgress } from '@tanem/react-nprogress';
+import type { CSSProperties } from 'react';
 
 const ANIMATION_DURATION = 200;
-
-const progressBarStyles = stylex.create({
-  base: {
-    opacity: 1,
-    transitionProperty: 'opacity',
-    transitionDuration: ANIMATION_DURATION,
-    transitionTimingFunction: 'linear',
-    pointerEvents: 'none',
-  },
-  bar: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    zIndex: 5000,
-    height: 3,
-    width: '100%',
-    backgroundColor: colors.blue400,
-    transitionProperty: 'margin-start',
-    transitionDuration: ANIMATION_DURATION,
-    transitionTimingFunction: 'linear',
-  },
-  finished: {
-    opacity: 0,
-  },
-  marginStart: (progress: number) => ({
-    marginStart: `${(-1 + progress) * 100}%`,
-  }),
-});
 
 const RouteNProgressBar = ({ isLoading }: { isLoading: boolean }) => {
   const { isFinished, progress } = useNProgress({
@@ -40,8 +12,25 @@ const RouteNProgressBar = ({ isLoading }: { isLoading: boolean }) => {
   });
 
   return (
-    <div {...stylex.props(progressBarStyles.base, isFinished && progressBarStyles.finished)}>
-      <div {...stylex.props(progressBarStyles.bar, progressBarStyles.marginStart(progress))}></div>
+    <div
+      className={clsx(
+        isFinished ? 'opacity-0' : 'opacity-100',
+        'transition-opacity ease-linear',
+        `duration-[var(--animation-duration)]`,
+        'pointer-events-none',
+      )}
+      style={{ ['--animation-duration']: `${ANIMATION_DURATION}ms` } as CSSProperties}
+    >
+      <div
+        className={
+          'fixed left-0 top-0 z-[5000] ml-[var(--progress)] h-[3px] w-full bg-blue-400 transition-[margin-left] duration-[var(--animation-duration)] ease-linear'
+        }
+        style={
+          {
+            ['--progress']: `${(-1 + progress) * 100}%`,
+          } as CSSProperties
+        }
+      ></div>
     </div>
   );
 };

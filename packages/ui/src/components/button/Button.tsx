@@ -1,41 +1,27 @@
-import { type Colors } from '@resolid-remix/stylex/colors.stylex';
 import { __DEV__ } from '@resolid-remix/utils';
-import type { StyleXStyles } from '@stylexjs/stylex';
-import * as stylex from '@stylexjs/stylex';
 import { forwardRef } from 'react';
+import { clsx } from '../../utils/klass';
 import { Slot, type AsChildProps } from '../slot/Slot';
-import {
-  buttonSizeStyles,
-  buttonStyles,
-  buttonVariantLightStyles,
-  buttonVariantLinkStyles,
-  buttonVariantOutlineStyles,
-  buttonVariantSolidStyles,
-  buttonVariantStyles,
-  buttonVariantSubtleStyles,
-} from './Button.styles';
+import { buttonStyles, type ButtonStyles } from './Button.styles';
+import { useButtonGroup } from './ButtonGroupContext';
 
 export type ButtonProps = {
-  styles?: StyleXStyles;
-  color?: Colors;
-  variant?: keyof typeof buttonVariantStyles;
-  size?: keyof typeof buttonSizeStyles;
   disabled?: boolean;
-  fullWidth?: boolean;
-  aspectSquare?: boolean;
-};
+} & ButtonStyles;
 
 export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', ButtonProps>>((props, ref) => {
+  const group = useButtonGroup();
+
   const {
     asChild,
-    styles,
+    color = group?.color ?? 'primary',
+    size = group?.size ?? 'md',
+    variant = group?.variant ?? 'solid',
     type,
-    color = 'blue',
-    size = 'md',
-    variant = 'solid',
     disabled,
     fullWidth,
     aspectSquare,
+    className,
     children,
     ...rest
   } = props;
@@ -44,23 +30,17 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', Butto
 
   return (
     <Comp
+      className={clsx(
+        buttonStyles({ variant, size, color, aspectSquare, fullWidth }),
+        group
+          ? group.vertical
+            ? 'border-y-[0.5px] first:rounded-t first:border-t last:rounded-b last:border-b'
+            : 'border-x-[0.5px] first:rounded-s first:border-s last:rounded-e last:border-e'
+          : 'rounded',
+        className,
+      )}
       type={type ?? asChild ? undefined : 'button'}
       ref={ref}
-      {...stylex.props(
-        buttonStyles.base,
-        disabled && buttonStyles.disabled,
-        fullWidth && buttonStyles.fullWidth,
-        buttonStyles.color(color),
-        buttonVariantStyles[variant],
-        variant == 'solid' && buttonVariantSolidStyles.color(color),
-        variant == 'outline' && buttonVariantOutlineStyles.color(color),
-        variant == 'light' && buttonVariantLightStyles.color(color),
-        variant == 'subtle' && buttonVariantSubtleStyles.color(color),
-        variant == 'link' && buttonVariantLinkStyles.color(color),
-        buttonSizeStyles[size],
-        aspectSquare && buttonStyles.aspectSquare,
-        styles,
-      )}
       disabled={disabled}
       {...rest}
     >

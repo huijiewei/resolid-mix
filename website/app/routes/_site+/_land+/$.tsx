@@ -25,11 +25,7 @@ export const ErrorBoundary = () => {
   const error = useRouteError();
 
   if (isRouteErrorResponse(error)) {
-    return (
-      <div>
-        <NotFound />
-      </div>
-    );
+    return <NotFound />;
   }
 
   throw error;

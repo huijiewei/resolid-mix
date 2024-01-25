@@ -1,91 +1,88 @@
 import { Link, Outlet } from '@remix-run/react';
-import { colors } from '@resolid-remix/stylex/colors.stylex';
-import * as stylex from '@stylexjs/stylex';
 
-import { Button } from '@resolid-remix/ui';
+import { Button, clsx, noScrollbarsClassName } from '@resolid-remix/ui';
 import { Github } from '~/assets/icons/Github';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
 
-const styles = stylex.create({
-  headers: {
-    position: 'fixed',
-    borderBottom: `1px solid ${colors.gray200}`,
-    left: 0,
-    right: 0,
-    width: '100%',
-    backgroundColor: `rgb(from ${colors.white} r g b / 75%)`,
-    backdropFilter: 'blur(6px)',
-    zIndex: 20,
-  },
-  nav: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    maxWidth: '70rem',
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
-    alignItems: 'center',
-    height: '4rem',
-  },
-  banner: {
-    display: 'flex',
-    alignItems: 'center',
-    gap: '1rem',
-  },
-  menu: {
-    display: 'flex',
-    gap: '1rem',
-  },
-  link: {
-    textDecoration: 'none',
-    padding: '0.5rem',
-    fontWeight: 'bold',
-    color: {
-      default: colors.gray700,
-      ':hover': colors.blue500,
-      ':active': colors.blue700,
-    },
-  },
-  linkActive: {
-    color: colors.blue500,
-  },
-  main: {
-    paddingTop: '4rem',
-  },
-});
-
 export default function Layout() {
   return (
     <>
-      <header {...stylex.props(styles.headers)}>
-        <nav {...stylex.props(styles.nav)}>
-          <div {...stylex.props(styles.banner)}>
+      <header
+        className={clsx('bg-bg-default/75 fixed inset-x-0 z-20 w-full border-b backdrop-blur', noScrollbarsClassName)}
+      >
+        <nav className={'desktop:max-w-6xl mx-auto flex h-16 items-center justify-between px-4'}>
+          <div className={'flex items-center gap-4'}>
             <Link to={''}>
               <img width={130} height={30} alt={'Resolid Remix'} src={ResolidBanner} />
             </Link>
           </div>
-          <div {...stylex.props(styles.banner)}>
-            <div {...stylex.props(styles.menu)}>
-              <HistoryNavLink {...stylex.props(styles.link)} to={''} end>
-                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>主页</span>}
-              </HistoryNavLink>
-              <HistoryNavLink {...stylex.props(styles.link)} to={'ui'}>
-                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>组件库</span>}
-              </HistoryNavLink>
-              <HistoryNavLink {...stylex.props(styles.link)} to={'blog'}>
-                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>博客</span>}
-              </HistoryNavLink>
-              <HistoryNavLink {...stylex.props(styles.link)} to={'forum'}>
-                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>论坛</span>}
-              </HistoryNavLink>
-              <HistoryNavLink {...stylex.props(styles.link)} to={'about'}>
-                {({ isActive }) => <span {...stylex.props(isActive && styles.linkActive)}>关于</span>}
-              </HistoryNavLink>
+          <div className={'flex items-center gap-4'}>
+            <div
+              className={
+                'bg-bg-default tablet:relative tablet:top-0 tablet:block tablet:h-auto tablet:bg-inherit absolute inset-x-0 top-[calc(4rem+1px)] z-20 hidden h-screen p-0'
+              }
+            >
+              <ul
+                className={
+                  'tablet:max-w-none tablet:flex-row tablet:p-0 mx-auto flex max-w-xs list-none flex-col p-4 font-medium tracking-wide'
+                }
+              >
+                <li className={''}>
+                  <HistoryNavLink
+                    className={({ isActive }) => {
+                      return clsx('hover:text-link-pressed tablet:px-4 block p-2', isActive && 'text-link');
+                    }}
+                    to={''}
+                    end
+                  >
+                    主页
+                  </HistoryNavLink>
+                </li>
+                <li>
+                  <HistoryNavLink
+                    className={({ isActive }) => {
+                      return clsx('hover:text-link-pressed tablet:px-4 block p-2', isActive && 'text-link');
+                    }}
+                    to={'ui'}
+                  >
+                    组件库
+                  </HistoryNavLink>
+                </li>
+                <li>
+                  <HistoryNavLink
+                    className={({ isActive }) => {
+                      return clsx('hover:text-link-pressed tablet:px-4 block p-2', isActive && 'text-link');
+                    }}
+                    to={'blog'}
+                  >
+                    博客
+                  </HistoryNavLink>
+                </li>
+                <li>
+                  <HistoryNavLink
+                    className={({ isActive }) => {
+                      return clsx('hover:text-link-pressed tablet:px-4 block p-2', isActive && 'text-link');
+                    }}
+                    to={'forum'}
+                  >
+                    论坛
+                  </HistoryNavLink>
+                </li>
+                <li>
+                  <HistoryNavLink
+                    className={({ isActive }) => {
+                      return clsx('hover:text-link-pressed tablet:px-4 block p-2', isActive && 'text-link');
+                    }}
+                    to={'about'}
+                  >
+                    关于
+                  </HistoryNavLink>
+                </li>
+              </ul>
             </div>
-            <div>
-              <Button variant={'subtle'} color={'gray'} aspectSquare asChild>
+            <div className={'flex flex-row items-center gap-1'}>
+              <Button aspectSquare variant={'subtle'} asChild>
                 <a
                   aria-label={'Go to Resolid Remix on Github'}
                   rel="noreferrer"
@@ -99,7 +96,7 @@ export default function Layout() {
           </div>
         </nav>
       </header>
-      <div {...stylex.props([styles.main])}>
+      <div className={'pt-16'}>
         <Outlet />
       </div>
     </>

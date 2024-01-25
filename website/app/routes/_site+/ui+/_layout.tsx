@@ -1,5 +1,4 @@
 import { Outlet } from '@remix-run/react';
-import * as stylex from '@stylexjs/stylex';
 import { HistoryLink } from '~/components/HistoryLink';
 
 export const meta = () => {
@@ -10,17 +9,9 @@ export const meta = () => {
   ];
 };
 
-const styles = stylex.create({
-  main: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    maxWidth: '70rem',
-  },
-});
-
 export default function Layout() {
   return (
-    <div {...stylex.props(styles.main)}>
+    <div className={'desktop:max-w-6xl mx-auto'}>
       <div>
         <ul>
           <li>
@@ -31,7 +22,7 @@ export default function Layout() {
           </li>
         </ul>
       </div>
-      <div>
+      <div className={'p-4'}>
         <Outlet />
       </div>
     </div>

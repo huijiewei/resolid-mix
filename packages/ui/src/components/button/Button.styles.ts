@@ -1,163 +1,73 @@
-import { colors, type Colors } from '@resolid-remix/stylex/colors.stylex';
-import { fontSizes, lineHeights } from '@resolid-remix/stylex/fonts.stylex';
-import { heights, rounded } from '@resolid-remix/stylex/sizes.stylex';
-import * as stylex from '@stylexjs/stylex';
+import { klass, type VariantsOf } from '@klass/core';
 
-export const buttonStyles = stylex.create({
-  base: {
-    borderRadius: rounded.md,
-    borderStyle: 'solid',
-    borderWidth: 1,
-    transitionProperty: 'color,background-color,border-color,text-decoration-color,fill,stroke',
-    transitionDuration: 200,
-    width: 'auto',
-    display: 'inline-flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    textDecoration: 'inherit',
-    outline: `2px solid ${colors.transparent}`,
-    outlineOffset: 2,
-    appearance: 'none',
-    cursor: 'pointer',
-  },
-  fullWidth: {
-    width: '100%',
-  },
-  aspectSquare: {
-    paddingLeft: 0,
-    paddingRight: 0,
-    aspectRatio: '1/1',
-  },
-  disabled: {
-    pointerEvents: 'none',
-    cursor: 'not-allowed',
-    opacity: 0.5,
-  },
-  color: (color: Colors) => ({
-    boxShadow: {
-      ':focus-visible': `0 0 0 0 #fff,0 0 0 3px rgb(from ${colors[`${color}500`]} r g b / 35%),0 0 #0000`,
-    },
-  }),
-});
-
-export const buttonVariantStyles = stylex.create({
-  solid: {},
-  outline: {},
-  light: {},
-  subtle: {},
-  link: {
-    backgroundColor: colors.transparent,
-    borderColor: colors.transparent,
-    textDecoration: 'underline',
-  },
-});
-
-export const buttonVariantSolidStyles = stylex.create({
-  color: (color: Colors) => ({
-    color: colors.white,
-    borderColor: {
-      default: colors[`${color}500`],
-      ':hover': colors[`${color}600`],
-      ':active': colors[`${color}700`],
-    },
-    backgroundColor: {
-      default: colors[`${color}500`],
-      ':hover': colors[`${color}600`],
-      ':active': colors[`${color}700`],
-    },
-  }),
-});
-
-export const buttonVariantOutlineStyles = stylex.create({
-  color: (color: Colors) => ({
-    color: colors[`${color}700`],
-    borderColor: {
-      default: colors[`${color}500`],
-      ':hover': colors[`${color}600`],
-      ':active': colors[`${color}700`],
-    },
-    backgroundColor: {
-      default: colors.white,
-      ':hover': colors[`${color}100`],
-      ':active': colors[`${color}200`],
-    },
-  }),
-});
-
-export const buttonVariantLightStyles = stylex.create({
-  color: (color: Colors) => ({
-    color: colors[`${color}700`],
-    borderColor: {
-      default: colors[`${color}50`],
-      ':hover': colors[`${color}100`],
-      ':active': colors[`${color}200`],
-    },
-    backgroundColor: {
-      default: colors[`${color}50`],
-      ':hover': colors[`${color}100`],
-      ':active': colors[`${color}200`],
-    },
-  }),
-});
-
-export const buttonVariantSubtleStyles = stylex.create({
-  color: (color: Colors) => ({
-    color: colors[`${color}700`],
-    borderColor: {
-      default: colors.transparent,
-      ':hover': colors[`${color}100`],
-      ':active': colors[`${color}200`],
-    },
-    backgroundColor: {
-      default: colors.white,
-      ':hover': colors[`${color}100`],
-      ':active': colors[`${color}200`],
-    },
-  }),
-});
-
-export const buttonVariantLinkStyles = stylex.create({
-  color: (color: Colors) => ({
+export const buttonStyles = klass({
+  base: [
+    'inline-flex items-center justify-center',
+    'select-none appearance-none outline-none',
+    'whitespace-nowrap border transition-colors',
+    'focus-visible:ring',
+  ],
+  variants: {
     color: {
-      default: colors[`${color}700`],
-      ':hover': colors[`${color}800`],
-      ':active': colors[`${color}900`],
+      primary: 'focus-visible:ring-bg-primary-emphasis/35',
+      neutral: 'focus-visible:ring-bg-neutral-emphasis/35',
+      success: 'focus-visible:ring-bg-success-emphasis/35',
+      warning: 'focus-visible:ring-bg-warning-emphasis/35',
+      danger: 'focus-visible:ring-bg-danger-emphasis/35',
     },
-  }),
+    variant: {
+      solid: '',
+      outline: '',
+      light: '',
+      subtle: 'border-transparent bg-bg-default',
+      link: '',
+    },
+    size: {
+      xs: 'h-6 text-sm',
+      sm: 'h-7',
+      md: 'h-8',
+      lg: 'h-9',
+      xl: 'h-10 text-lg',
+    },
+    fullWidth: {
+      true: 'w-full',
+      false: 'w-auto',
+    },
+    aspectSquare: {
+      true: 'aspect-square',
+      false: 'px-4',
+    },
+  },
+  defaults: {
+    color: 'primary',
+    size: 'md',
+    variant: 'solid',
+    fullWidth: false,
+    aspectSquare: false,
+  },
+  compounds: [
+    [
+      {
+        size: 'xs',
+        aspectSquare: false,
+      },
+      'px-2',
+    ],
+    [
+      {
+        size: 'sm',
+        aspectSquare: false,
+      },
+      'px-3',
+    ],
+    [
+      {
+        size: 'xl',
+        aspectSquare: false,
+      },
+      'px-5',
+    ],
+  ],
 });
 
-export const buttonSizeStyles = stylex.create({
-  xs: {
-    fontSize: fontSizes.xs,
-    lineHeight: lineHeights.xs,
-    paddingLeft: '0.5rem',
-    paddingRight: '0.5rem',
-    height: heights.xs,
-  },
-  sm: {
-    fontSize: fontSizes.sm,
-    lineHeight: lineHeights.sm,
-    paddingLeft: '0.75rem',
-    paddingRight: '0.75rem',
-    height: heights.sm,
-  },
-  md: {
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
-    height: heights.md,
-  },
-  lg: {
-    fontSize: fontSizes.md,
-    lineHeight: lineHeights.lg,
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
-    height: heights.lg,
-  },
-  xl: {
-    fontSize: fontSizes.lg,
-    lineHeight: lineHeights.xl,
-    paddingLeft: '1rem',
-    paddingRight: '1rem',
-    height: heights.xl,
-  },
-});
+export type ButtonStyles = VariantsOf<typeof buttonStyles>;

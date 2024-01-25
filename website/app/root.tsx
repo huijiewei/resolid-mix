@@ -1,18 +1,7 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
-import { fontSizes, fonts, lineHeights } from '@resolid-remix/stylex/fonts.stylex';
-import * as stylex from '@stylexjs/stylex';
 
 import { RouteProgressBar } from '~/components/RouteProgressBar';
 import './root.css';
-
-const styles = stylex.create({
-  root: {
-    fontFamily: fonts.sans,
-    fontSize: fontSizes.md,
-    lineHeight: lineHeights.md,
-    margin: 0,
-  },
-});
 
 // noinspection JSUnusedGlobalSymbols
 export default function App() {
@@ -23,13 +12,13 @@ export default function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#4586be" />
         <Meta />
-        <link rel="manifest" href="/manifest.webmanifest" />
-        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.webmanifest" />
         <Links />
       </head>
-      <body {...stylex.props(styles.root)}>
+      <body className={'min-h-screen overflow-y-scroll antialiased'}>
         <RouteProgressBar />
         <Outlet />
         <ScrollRestoration />

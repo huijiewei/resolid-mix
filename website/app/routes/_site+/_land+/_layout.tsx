@@ -1,38 +1,16 @@
 import { Outlet } from '@remix-run/react';
-import { colors } from '@resolid-remix/stylex/colors.stylex';
-import { fontSizes } from '@resolid-remix/stylex/fonts.stylex';
-import * as stylex from '@stylexjs/stylex';
-
-const styles = stylex.create({
-  main: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    maxWidth: '70rem',
-  },
-  footer: {
-    borderTop: `1px solid ${colors.gray200}`,
-    marginTop: '3rem',
-    textAlign: 'center',
-    fontSize: fontSizes.sm,
-    paddingBottom: '1rem',
-  },
-  flag: {
-    marginLeft: '0.5rem',
-    marginRight: '0.5rem',
-  },
-});
 
 export default function Layout() {
   return (
     <>
-      <div {...stylex.props([styles.main])}>
+      <div className={'desktop:max-w-6xl mx-auto min-h-[calc(100vh-13rem)] p-4'}>
         <Outlet />
       </div>
-      <footer {...stylex.props([styles.footer])}>
+      <footer className={'mt-12 border-t py-4 text-center'}>
         <p>Released under the MIT License</p>
-        <p>
+        <p className={'mt-1'}>
           Proudly made in
-          <span {...stylex.props([styles.flag])} aria-label="中国" role="img">
+          <span className={'mx-1'} aria-label="中国" role="img">
             🇨🇳
           </span>
           by Resolid Tech, 2024

@@ -2,7 +2,6 @@ import { unstable_vitePlugin as remix } from '@remix-run/dev';
 import { flatRoutes } from 'remix-flat-routes';
 import { defineConfig } from 'vite';
 import Inspect from 'vite-plugin-inspect';
-import { stylexPlugin } from 'vite-plugin-stylex-dev';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { deployBuild } from './plugins/node-deploy/build';
 
@@ -21,9 +20,6 @@ export default defineConfig({
     }),
     Inspect(),
     tsconfigPaths(),
-    stylexPlugin({
-      useRemForFontSize: true,
-    }),
     deployBuild({ entryPoints: ['plugins/node-deploy/entry.ts'] }),
   ],
   build: {

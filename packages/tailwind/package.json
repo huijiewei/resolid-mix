@@ -1,6 +1,7 @@
 {
-  "name": "@resolid-remix/ui",
+  "name": "@resolid-remix/tailwind",
   "version": "1.0.0",
+  "description": "Resolid Remix UI preset for TailwindCSS.",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {
@@ -28,26 +29,21 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.6",
-    "@klass/core": "next",
-    "@resolid-remix/utils": "workspace:*",
-    "clsx": "^2.1.0",
-    "react-remove-scroll-bar": "^2.3.4"
+    "@resolid-remix/utils": "workspace:*"
   },
   "devDependencies": {
-    "@resolid-remix/tailwind": "workspace:*",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "tailwindcss": "^3.4.1"
   },
   "peerDependencies": {
-    "@resolid-remix/tailwind": "*",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "autoprefixer": ">=10",
+    "postcss": ">=8",
+    "tailwindcss": ">=3"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/huijiewei/resolid-remix",
-    "directory": "packages/ui"
+    "directory": "packages/tailwind"
   },
+  "homepage": "https://remix.resolid.tech",
   "license": "MIT"
 }

@@ -1,14 +1,20 @@
 {
   "extends": "../tsconfig.base.json",
-  "include": ["app", "cli", "plugins", "vite.config.ts", "env.d.ts"],
+  "include": ["app", "cli", "plugins", "vite.config.ts", "tailwind.config.ts", "postcss.config.ts", "env.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",
     "paths": {
       "~/*": ["./app/*"],
-      "@resolid-remix/stylex/*": ["../packages/stylex/src/*"],
       "@resolid-remix/ui": ["../packages/ui/src"],
       "@resolid-remix/utils": ["../packages/utils/src"],
+    },
+  },
+  "ts-node": {
+    "esm": true,
+    "compilerOptions": {
+      "module": "ESNext",
+      "moduleResolution": "Node",
     },
   },
 }
