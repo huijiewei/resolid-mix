@@ -1,3 +1,4 @@
+import typography from '@tailwindcss/typography';
 import type { Config } from 'tailwindcss';
 import resolidRemix from '../packages/tailwind/src';
 
@@ -7,8 +8,8 @@ export default {
   content: [
     './app/**/*.{js,ts,tsx}',
     './node_modules/@resolid-remix/ui/dist/*.{js,cjs,mjs}',
-    './node_modules/@resolid-remix/ui/src/**/*.{ts,tsx}',
+    './node_modules/@resolid-remix/ui/src/**/*.{ts,tsx,mdx}',
   ],
   theme: {},
-  plugins: [],
+  plugins: [typography],
 } satisfies Config;

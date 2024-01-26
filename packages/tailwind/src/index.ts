@@ -123,6 +123,12 @@ const preset = (config: PresetConfig | undefined = {}): Partial<Config> => {
           },
           'p, h1, h2, h3, h4, h5, h6': {
             overflowWrap: 'break-word',
+            font: 'inherit',
+          },
+          'ol, ul, menu': {
+            listStyle: 'none',
+            margin: '0',
+            padding: '0',
           },
           'code, kbd, samp, pre': {
             fontFamily: theme('fontFamily.mono'),
