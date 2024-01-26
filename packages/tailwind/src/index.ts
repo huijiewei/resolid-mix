@@ -118,8 +118,9 @@ const preset = (config: PresetConfig | undefined = {}): Partial<Config> => {
             display: 'block',
             maxWidth: '100%',
           },
-          'input, button, textarea, select': {
+          'button, input, optgroup, select, textarea': {
             font: 'inherit',
+            color: 'inherit',
           },
           'p, h1, h2, h3, h4, h5, h6': {
             overflowWrap: 'break-word',

@@ -85,7 +85,7 @@ export const buttonStyles = classed(
       {
         color: 'neutral',
         variant: ['outline', 'subtle', 'light'],
-        className: 'text-fg-neutral',
+        className: 'text-fg-default',
       },
       {
         color: 'neutral',
