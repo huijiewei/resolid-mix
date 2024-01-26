@@ -12,10 +12,17 @@ import {
 } from 'react';
 import { mergeRefs } from '../../hooks';
 
-export type AsChildProps<T extends keyof JSX.IntrinsicElements, P extends object = never> = Overwrite<
-  ComponentPropsWithoutRef<T>,
-  P
-> & {
+export type Props<
+  T extends keyof JSX.IntrinsicElements,
+  P extends object = never,
+  O extends string | number | symbol = never,
+> = Overwrite<Omit<ComponentPropsWithoutRef<T>, O>, P>;
+
+export type AsChildProps<
+  T extends keyof JSX.IntrinsicElements,
+  P extends object = never,
+  O extends string | number | symbol = never,
+> = Props<T, P, O> & {
   asChild?: boolean;
 };
 

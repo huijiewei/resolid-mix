@@ -1,11 +1,12 @@
-import { __DEV__, type Overwrite } from '@resolid-remix/utils';
-import { useMemo, type ComponentPropsWithoutRef } from 'react';
-import { clsx } from '../../utils/klass';
+import { __DEV__ } from '@resolid-remix/utils';
+import { useMemo } from 'react';
+import { clsx } from '../../utils/classed';
+import type { Props } from '../slot/Slot';
 import { ButtonGroupProvider, type ButtonGroupContext } from './ButtonGroupContext';
 
 export type ButtonGroupProps = ButtonGroupContext;
 
-export const ButtonGroup = (props: Overwrite<ComponentPropsWithoutRef<'div'>, ButtonGroupProps>) => {
+export const ButtonGroup = (props: Props<'div', ButtonGroupProps, 'role'>) => {
   const { children, vertical = false, disabled, size, color, variant, className, ...rest } = props;
 
   const context = useMemo(
