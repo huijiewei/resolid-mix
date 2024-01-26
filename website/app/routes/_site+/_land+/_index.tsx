@@ -26,7 +26,7 @@ export default function _index() {
         <Button size={'xl'} asChild>
           <HistoryLink to={'/ui'}>快速开始</HistoryLink>
         </Button>
-        <Button size={'xl'} variant={'outline'} asChild>
+        <Button size={'xl'} variant={'outline'} color={'neutral'} asChild>
           <a target={'_blank'} rel={'noopener noreferrer'} href={'https://github.com/huijiewei/resolid-remix'}>
             <Github className={'mr-1'} />
             Github
