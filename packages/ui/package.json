@@ -28,7 +28,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.6",
+    "@floating-ui/react": "^0.26.7",
     "@resolid-remix/utils": "workspace:*",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.0",
