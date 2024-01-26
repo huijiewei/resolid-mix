@@ -124,6 +124,21 @@ const preset = (config: PresetConfig | undefined = {}): Partial<Config> => {
           'p, h1, h2, h3, h4, h5, h6': {
             overflowWrap: 'break-word',
           },
+          'code, kbd, samp, pre': {
+            fontFamily: theme('fontFamily.mono'),
+            fontFeatureSettings: theme('fontFamily.mono[1].fontFeatureSettings', 'normal'),
+            fontVariationSettings: theme('fontFamily.mono[1].fontVariationSettings', 'normal'),
+          },
+          a: {
+            color: 'inherit',
+            textDecoration: 'inherit',
+          },
+          'button, [role=button]': { cursor: 'pointer' },
+          'button, [type=button], [type=reset], [type=submit]': {
+            appearance: 'button',
+            backgroundColor: 'transparent',
+            backgroundImage: 'none',
+          },
           '#root, #__next': {
             isolation: 'isolate',
           },
