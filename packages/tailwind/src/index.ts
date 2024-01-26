@@ -116,7 +116,7 @@ const preset = (config: PresetConfig | undefined = {}): Partial<Config> => {
           },
           'img, picture, video, canvas, svg': {
             display: 'block',
-            maxWidth: '100%',
+            verticalAlign: 'middle',
           },
           'button, input, optgroup, select, textarea': {
             font: 'inherit',
