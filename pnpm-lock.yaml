@@ -77,7 +77,7 @@ importers:
     dependencies:
       '@floating-ui/react':
         specifier: ^0.26.7
-        version: 0.26.7(react-dom@18.2.0)(react@18.2.0)
+        version: 0.26.7(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125)
       '@resolid-remix/utils':
         specifier: workspace:*
         version: link:../utils
@@ -89,17 +89,17 @@ importers:
         version: 2.1.0
       react-remove-scroll-bar:
         specifier: ^2.3.4
-        version: 2.3.4(react@18.2.0)
+        version: 2.3.4(react@18.3.0-canary-8bb6ee1d3-20240125)
     devDependencies:
       '@resolid-remix/tailwind':
         specifier: workspace:*
         version: link:../tailwind
       react:
-        specifier: ^18.2.0
-        version: 18.2.0
+        specifier: canary
+        version: 18.3.0-canary-8bb6ee1d3-20240125
       react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
+        specifier: canary
+        version: 18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125)
 
   packages/utils: {}
 
@@ -1461,27 +1461,27 @@ packages:
       '@floating-ui/utils': 0.2.1
     dev: false
 
-  /@floating-ui/react-dom@2.0.7(react-dom@18.2.0)(react@18.2.0):
+  /@floating-ui/react-dom@2.0.7(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-B5GJxKUyPcGsvE1vua+Abvw0t6zVMyTbtG+Jk7BoI4hfc5Ahv50dstRIAn0nS0274kR9gnKwxIXyGA8EzBZJrA==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
       '@floating-ui/dom': 1.6.0
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.0-canary-8bb6ee1d3-20240125
+      react-dom: 18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125)
     dev: false
 
-  /@floating-ui/react@0.26.7(react-dom@18.2.0)(react@18.2.0):
+  /@floating-ui/react@0.26.7(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-0uMI9IBJBPPt8N+8uRg4gazJvQReWTu/fVUHHLfAOuy1WB6f242jtjWm52hLJG8nzuZVuU+2crW4lJbJQoqeIA==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/react-dom': 2.0.7(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react-dom': 2.0.7(react-dom@18.3.0-canary-8bb6ee1d3-20240125)(react@18.3.0-canary-8bb6ee1d3-20240125)
       '@floating-ui/utils': 0.2.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react: 18.3.0-canary-8bb6ee1d3-20240125
+      react-dom: 18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125)
       tabbable: 6.2.0
     dev: false
 
@@ -7691,15 +7691,6 @@ packages:
       iconv-lite: 0.4.24
       unpipe: 1.0.0
 
-  /react-dom@18.2.0(react@18.2.0):
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
-    peerDependencies:
-      react: ^18.2.0
-    dependencies:
-      loose-envify: 1.4.0
-      react: 18.2.0
-      scheduler: 0.23.0
-
   /react-dom@18.3.0-canary-8bb6ee1d3-20240125(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-mjLnpbMuu60ZzXKMaU+/8TLqbdR65gUYK62TkXx8jcz+n5VJwjR3xMmcBrdeKTCZVTHy3WSRFGYLsF3ignmxdQ==}
     peerDependencies:
@@ -7708,7 +7699,6 @@ packages:
       loose-envify: 1.4.0
       react: 18.3.0-canary-8bb6ee1d3-20240125
       scheduler: 0.24.0-canary-8bb6ee1d3-20240125
-    dev: false
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
@@ -7718,7 +7708,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /react-remove-scroll-bar@2.3.4(react@18.2.0):
+  /react-remove-scroll-bar@2.3.4(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-63C4YQBUt0m6ALadE9XV56hV8BgJWDmmTPY758iIJjfQKt2nYwoUrPk0LXRXcB/yIj82T1/Ixfdpdk68LwIB0A==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -7728,8 +7718,8 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      react: 18.2.0
-      react-style-singleton: 2.2.1(react@18.2.0)
+      react: 18.3.0-canary-8bb6ee1d3-20240125
+      react-style-singleton: 2.2.1(react@18.3.0-canary-8bb6ee1d3-20240125)
       tslib: 2.6.2
     dev: false
 
@@ -7756,7 +7746,7 @@ packages:
       react: 18.3.0-canary-8bb6ee1d3-20240125
     dev: false
 
-  /react-style-singleton@2.2.1(react@18.2.0):
+  /react-style-singleton@2.2.1(react@18.3.0-canary-8bb6ee1d3-20240125):
     resolution: {integrity: sha512-ZWj0fHEMyWkHzKYUr2Bs/4zU6XLmq9HsgBURm7g5pAVfyn49DgUiNgY2d4lXRlYSiCif9YBGpQleewkcqddc7g==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -7768,22 +7758,15 @@ packages:
     dependencies:
       get-nonce: 1.0.1
       invariant: 2.2.4
-      react: 18.2.0
+      react: 18.3.0-canary-8bb6ee1d3-20240125
       tslib: 2.6.2
     dev: false
-
-  /react@18.2.0:
-    resolution: {integrity: sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ==}
-    engines: {node: '>=0.10.0'}
-    dependencies:
-      loose-envify: 1.4.0
 
   /react@18.3.0-canary-8bb6ee1d3-20240125:
     resolution: {integrity: sha512-SpQ4opohgJaTNHHjdyFDlawfgRwl8boAvGpwTE8gM4dzojJ7+PoczCqouLq+g/QfFFyWESF4M3YiylHN19tOGg==}
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache@1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}
@@ -8153,16 +8136,10 @@ packages:
   /safer-buffer@2.1.2:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
 
-  /scheduler@0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
-    dependencies:
-      loose-envify: 1.4.0
-
   /scheduler@0.24.0-canary-8bb6ee1d3-20240125:
     resolution: {integrity: sha512-yD0/B8lFmvBUATckaAzzf8KKMDU0bysdH8imBlgHuW7SUVmHrx2H8GFn8a9/i2vFYK8jLHlZHSaJXL5lKuY2nA==}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /semver@5.7.2:
     resolution: {integrity: sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==}
@@ -8770,7 +8747,6 @@ packages:
 
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
-    requiresBuild: true
 
   /tsup@8.0.1(typescript@5.3.3):
     resolution: {integrity: sha512-hvW7gUSG96j53ZTSlT4j/KL0q1Q2l6TqGBFc6/mu/L46IoNWqLLUzLRLP1R8Q7xrJTmkDxxDoojV5uCVs1sVOg==}
