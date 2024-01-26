@@ -1,11 +1,12 @@
 import { Outlet } from '@remix-run/react';
+import { BaseLayout } from '~/components/layout/BaseLayout';
 
 export default function Layout() {
   return (
     <>
-      <div className={'desktop:max-w-6xl mx-auto min-h-[calc(100vh-13rem)] p-4'}>
+      <BaseLayout className={'min-h-[calc(100vh-13rem)] p-4'}>
         <Outlet />
-      </div>
+      </BaseLayout>
       <footer className={'mt-12 border-t py-4 text-center'}>
         <p>Released under the MIT License</p>
         <p className={'mt-1'}>

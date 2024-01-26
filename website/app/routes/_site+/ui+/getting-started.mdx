@@ -1,0 +1,48 @@
+---
+title: 入门指南
+---
+
+按照以下步骤快速开始使用组件库。
+
+## 安装
+
+通过以下任一方式安装 Resolid Remix UI 基础包：
+
+```shell
+## NPM
+npm install @resolid-remix/ui
+## PNPM
+pnpm add @resolid-remix/ui
+## Yarn
+yarn add @resolid-remix/ui
+```
+
+通过以下任一方式将 Resolid Remix UI Tailwind CSS 预设作为开发依赖项安装：
+
+```shell
+## NPM
+npm install -D @resolid-remix/tailwind
+## PNPM
+pnpm add -D @resolid-remix/tailwind
+## Yarn
+yarn add -D @resolid-remix/tailwind
+```
+
+## 添加 Tailwind CSS 预设
+
+确保您已经安装了 [Tailwind CSS](https://tailwindcss.com/docs/guides/solidjs) ，然后在 `tailwind.config.cjs` 文件内：
+
+1. 在 `content` 数组中添加 Resolid Remix UI 路径，以便将类应用于组件。
+2. 要求 Tailwind CSS 的预设。
+
+```javascript
+module.exports = {
+  presets: [require('@resolid-remix/tailwind')()],
+  content: ['./node_modules/@resolid-remix/ui/dist/*.{js,cjs}', './src/**/*.{html,js,jsx,ts,tsx,mdx}'],
+  theme: {},
+};
+```
+
+## 使用组件
+
+导入您需要的组件并开始构建应用程序。
