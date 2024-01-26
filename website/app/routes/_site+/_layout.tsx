@@ -1,14 +1,15 @@
 import { Link, Outlet } from '@remix-run/react';
 
-import { Button, clsx, noScrollbarsClassName } from '@resolid-remix/ui';
+import { Button, clsx, noScrollbarsClassName, Tooltip, useColorModeState } from '@resolid-remix/ui';
 import { useState, type MouseEventHandler } from 'react';
 import { Close } from '~/assets/icons/Close';
 import { Github } from '~/assets/icons/Github';
 import { Menu } from '~/assets/icons/Menu';
-import { System } from '~/assets/icons/System';
 import { UserCircle } from '~/assets/icons/UserCircle';
+import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
+import { ThemeSwitcher } from '~/components/ThemeSwitcher';
 
 export default function Layout() {
   return (
@@ -34,13 +35,13 @@ const HeaderNav = () => {
         {opened ? <Close size={'sm'} /> : <Menu size={'sm'} />}
       </button>
       <Link to={''}>
-        <img width={130} height={30} alt={'Resolid Remix'} src={ResolidBanner} />
+        <HeaderBanner />
       </Link>
       <div className={'flex items-center gap-4'}>
         <div
           className={clsx(
             'absolute inset-x-0 top-[calc(4rem+1px)] z-20 h-screen bg-bg-default p-0 tablet:relative tablet:top-0 tablet:block tablet:h-auto tablet:bg-inherit',
-            opened ? 'block' : 'hidden',
+            opened ? 'block' : 'hidden'
           )}
         >
           <HeaderNavMenu onClick={() => setOpened(false)} />
@@ -49,23 +50,29 @@ const HeaderNav = () => {
           <Button aspectSquare variant={'subtle'} color={'neutral'}>
             <UserCircle size={'sm'} />
           </Button>
-          <Button aspectSquare variant={'subtle'} color={'neutral'}>
-            <System size={'sm'} />
-          </Button>
-          <Button aspectSquare variant={'subtle'} color={'neutral'} asChild>
-            <a
-              aria-label={'Go to Resolid Remix on Github'}
-              rel="noreferrer"
-              target="_blank"
-              href={'https://github.com/huijiewei/resolid-remix'}
-            >
-              <Github size={'sm'} />
-            </a>
-          </Button>
+          <ThemeSwitcher />
+          <Tooltip placement={'bottom'} content={'访问 Github 上的 Resolid Remix'}>
+            <Button aspectSquare variant={'subtle'} color={'neutral'} asChild>
+              <a
+                aria-label={'Go to Resolid Remix on Github'}
+                rel="noreferrer"
+                target="_blank"
+                href={'https://github.com/huijiewei/resolid-remix'}
+              >
+                <Github size={'sm'} />
+              </a>
+            </Button>
+          </Tooltip>
         </div>
       </div>
     </nav>
   );
+};
+
+const HeaderBanner = () => {
+  const { darkMode } = useColorModeState();
+
+  return <img height={30} width={130} alt={'Resolid Remix'} src={darkMode ? ResolidBannerDark : ResolidBanner} />;
 };
 
 const HeaderNavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {
@@ -80,7 +87,7 @@ const HeaderNavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorEleme
         { name: '组件库', href: 'ui' },
         { name: '论坛', href: 'forum' },
         { name: '博客', href: 'blog' },
-        { name: '关于', href: 'about' },
+        { name: '关于', href: 'about' }
       ].map((menu) => {
         return (
           <li key={menu.name}>
