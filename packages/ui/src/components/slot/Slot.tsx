@@ -6,21 +6,22 @@ import {
   isValidElement,
   type ComponentPropsWithoutRef,
   type FunctionComponentElement,
-  type HTMLAttributes,
   type JSX,
-  type ReactNode,
+  type ReactNode, type HTMLAttributes
 } from 'react';
 import { mergeRefs } from '../../hooks';
 
+export type EmptyProps = Record<never, never>;
+
 export type Props<
   T extends keyof JSX.IntrinsicElements,
-  P extends object = never,
+  P extends object = EmptyProps,
   O extends string | number | symbol = never,
 > = Overwrite<Omit<ComponentPropsWithoutRef<T>, O>, P>;
 
 export type AsChildProps<
   T extends keyof JSX.IntrinsicElements,
-  P extends object = never,
+  P extends object = EmptyProps,
   O extends string | number | symbol = never,
 > = Props<T, P, O> & {
   asChild?: boolean;
@@ -87,3 +88,4 @@ const mergeProps = <T extends HTMLAttributes<Element>>(base: T, overrides: T) =>
 
   return props;
 };
+
