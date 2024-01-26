@@ -6,7 +6,7 @@ export default {
   presets: [resolidRemix.preset()],
   content: [
     './app/**/*.{js,ts,tsx}',
-    './node_modules/@resolid-remix/ui/dist/**/*.{js,cjs,mjs}',
+    './node_modules/@resolid-remix/ui/dist/*.{js,cjs,mjs}',
     './node_modules/@resolid-remix/ui/src/**/*.{ts,tsx}',
   ],
   theme: {},
