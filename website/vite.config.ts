@@ -1,5 +1,7 @@
 import mdx from '@mdx-js/rollup';
 import { unstable_vitePlugin as remix } from '@remix-run/dev';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
 import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
@@ -23,7 +25,18 @@ export default defineConfig({
       },
     }),
     mdx({
-      rehypePlugins: [],
+      rehypePlugins: [
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: 'append',
+            headingProperties: { className: 'group scroll-mt-20' },
+            properties: { className: 'ml-2 text-green-500 opacity-0 transition-opacity group-hover:opacity-100' },
+            content: { type: 'text', value: '#' },
+          },
+        ],
+      ],
       remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
     }),
     Inspect(),

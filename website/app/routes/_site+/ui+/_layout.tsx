@@ -24,7 +24,7 @@ const menus: Menu[] = [
         path: 'introduction',
       },
       {
-        label: '入门',
+        label: '入门指南',
         path: 'getting-started',
       },
       {

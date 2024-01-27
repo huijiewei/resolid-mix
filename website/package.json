@@ -46,6 +46,8 @@
     "esbuild": "^0.19.12",
     "postcss": "^8.4.33",
     "postcss-load-config": "^5.0.2",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-slug": "^6.0.0",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.0",
     "remark-mdx-frontmatter": "^4.0.0",
