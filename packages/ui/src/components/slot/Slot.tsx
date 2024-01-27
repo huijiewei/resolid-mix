@@ -6,8 +6,9 @@ import {
   isValidElement,
   type ComponentPropsWithoutRef,
   type FunctionComponentElement,
+  type HTMLAttributes,
   type JSX,
-  type ReactNode, type HTMLAttributes
+  type ReactNode,
 } from 'react';
 import { mergeRefs } from '../../hooks';
 
@@ -88,4 +89,3 @@ const mergeProps = <T extends HTMLAttributes<Element>>(base: T, overrides: T) =>
 
   return props;
 };
-

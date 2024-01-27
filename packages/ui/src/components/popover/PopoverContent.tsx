@@ -41,7 +41,7 @@ export const PopoverContent = forwardRef<HTMLDivElement, Props<'div'>>((props, r
               })}
             >
               <div
-                className={clsx('border-bg-muted bg-bg-default relative rounded border shadow outline-none', className)}
+                className={clsx('relative rounded border border-bg-muted bg-bg-default shadow outline-none', className)}
               >
                 {children}
               </div>

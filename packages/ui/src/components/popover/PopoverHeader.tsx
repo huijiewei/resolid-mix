@@ -10,7 +10,7 @@ export const PopoverHeader = forwardRef<HTMLDivElement, Props<'header', EmptyPro
   const { labelId } = useFloatingAria();
 
   return (
-    <header id={labelId} ref={ref} className={clsx('border-b-bg-subtle border-b px-3 py-2', className)} {...rest}>
+    <header id={labelId} ref={ref} className={clsx('border-b border-b-bg-subtle px-3 py-2', className)} {...rest}>
       {children}
     </header>
   );

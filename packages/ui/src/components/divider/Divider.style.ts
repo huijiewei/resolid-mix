@@ -20,7 +20,7 @@ export const dividerStyles = classed('m-0 border-0', {
       false: 'w-full',
     },
     label: {
-      true: 'flex items-center text-xs before:content-[""] after:content-[""] before:shrink before:h-0 before:mr-2 after:shrink after:ml-2 after:h-0',
+      true: 'flex items-center text-xs before:mr-2 before:h-0 before:shrink before:content-[""] after:ml-2 after:h-0 after:shrink after:content-[""]',
       false: '',
     },
     position: {

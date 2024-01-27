@@ -17,8 +17,8 @@ export const buttonStyles = classed(
         danger: 'focus-visible:ring-bg-danger-emphasis/35',
       },
       variant: {
-        solid: 'text-fg-emphasized border-transparent',
-        outline: 'bg-bg-default border-current',
+        solid: 'border-transparent text-fg-emphasized',
+        outline: 'border-current bg-bg-default',
         light: 'border-transparent',
         subtle: 'border-transparent bg-bg-default',
         link: 'border-transparent underline underline-offset-2',
