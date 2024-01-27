@@ -22,7 +22,7 @@
     "@tanem/react-nprogress": "^5.0.51",
     "dotenv": "^16.4.1",
     "drizzle-orm": "^0.29.3",
-    "hono": "^3.12.7",
+    "hono": "^3.12.8",
     "isbot": "^4.4.0",
     "mysql2": "^3.9.0",
     "react": "canary",
