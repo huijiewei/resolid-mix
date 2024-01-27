@@ -1,8 +1,10 @@
+import { MDXProvider } from '@mdx-js/react';
 import { Outlet, useLocation } from '@remix-run/react';
 import { clsx } from '@resolid-remix/ui';
 import { debounce, isBrowser } from '@resolid-remix/utils';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { LazySpinner } from '~/components/LazySpinner';
+import { components } from '~/extensions/mdx/components';
 
 type TocItem = {
   id: string;
@@ -101,7 +103,9 @@ const Toc = () => {
   }, [activeId, items]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (!isBrowser()) {
+      return;
+    }
 
     const callback = debounce(() => {
       if (!active.current) {
@@ -154,10 +158,12 @@ const Toc = () => {
 export default function Layout() {
   return (
     <div className={'flex justify-between'}>
-      <article className={'prose w-full max-w-none dark:prose-invert desktop:w-[calc(100%-11rem)]'}>
-        <Suspense fallback={<LazySpinner />}>
-          <Outlet />
-        </Suspense>
+      <article className={'prose w-full max-w-none pt-4 dark:prose-invert desktop:w-[calc(100%-11rem)]'}>
+        <MDXProvider components={components}>
+          <Suspense fallback={<LazySpinner />}>
+            <Outlet />
+          </Suspense>
+        </MDXProvider>
       </article>
       <nav className={'hidden w-40 desktop:block'}>
         <ul className={'sticky top-20 space-y-1 border-s'}>

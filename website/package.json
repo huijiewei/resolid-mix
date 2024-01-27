@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.0",
+    "@mdx-js/react": "^3.0.0",
     "@mdx-js/rollup": "^3.0.0",
     "@node-rs/bcrypt": "^1.9.2",
     "@remix-run/dev": "^2.5.1",
@@ -37,6 +38,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
+    "@shikijs/rehype": "1.0.0-beta.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",

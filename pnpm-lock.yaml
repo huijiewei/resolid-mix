@@ -154,6 +154,9 @@ importers:
       '@faker-js/faker':
         specifier: ^8.4.0
         version: 8.4.0
+      '@mdx-js/react':
+        specifier: ^3.0.0
+        version: 3.0.0(@types/react@18.2.48)(react@18.3.0-canary-763612647-20240126)
       '@mdx-js/rollup':
         specifier: ^3.0.0
         version: 3.0.0(rollup@4.9.6)
@@ -175,6 +178,9 @@ importers:
       '@rollup/plugin-node-resolve':
         specifier: ^15.2.3
         version: 15.2.3(rollup@4.9.6)
+      '@shikijs/rehype':
+        specifier: 1.0.0-beta.0
+        version: 1.0.0-beta.0
       '@tailwindcss/typography':
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.4.1)
@@ -1627,6 +1633,17 @@ packages:
       - supports-color
     dev: true
 
+  /@mdx-js/react@3.0.0(@types/react@18.2.48)(react@18.3.0-canary-763612647-20240126):
+    resolution: {integrity: sha512-nDctevR9KyYFyV+m+/+S4cpzCWHqj+iHDHq3QrsWezcC+B17uZdIWgCguESUkwFhM3n/56KxWVE3V6EokrmONQ==}
+    peerDependencies:
+      '@types/react': '>=16'
+      react: '>=16'
+    dependencies:
+      '@types/mdx': 2.0.10
+      '@types/react': 18.2.48
+      react: 18.3.0-canary-763612647-20240126
+    dev: true
+
   /@mdx-js/rollup@3.0.0(rollup@4.9.6):
     resolution: {integrity: sha512-ITvGiwPGEBW+D7CCnpSA9brzAosIWHAi4y+Air8wgfLnez8aWue50avHtWMfnFLCp7vt+JQ9UM8nwfuQuuydxw==}
     peerDependencies:
@@ -2264,6 +2281,27 @@ packages:
     dev: true
     optional: true
 
+  /@shikijs/core@1.0.0-beta.0:
+    resolution: {integrity: sha512-uicyrkx379Q5sxQuGV3kduHPWIAkjxmeA5A4J6syscx8wiEyIV06i/Q6s9GeKLCb857Hi90H8e/FoFSbcjnZsw==}
+    dev: true
+
+  /@shikijs/rehype@1.0.0-beta.0:
+    resolution: {integrity: sha512-b2jjH1HJfQ4zxvUJaxMnubxINngvvOXpZZBlW50aYUaMgVFu5vbIJbkXRF4lYCYOtbCxeLf7FCxDLcUqScH8pA==}
+    dependencies:
+      '@shikijs/transformers': 1.0.0-beta.0
+      '@types/hast': 3.0.3
+      hast-util-to-string: 3.0.0
+      shiki: 1.0.0-beta.0
+      unified: 11.0.4
+      unist-util-visit: 5.0.0
+    dev: true
+
+  /@shikijs/transformers@1.0.0-beta.0:
+    resolution: {integrity: sha512-OvIO6RxQ7YaQhp34uXVKUPZDRdTcGwBgX3zn26haSvqPwrTQcxdPgT47sr4u3sz1+RwN3RO9AGxCJFRKNpB+Qw==}
+    dependencies:
+      shiki: 1.0.0-beta.0
+    dev: true
+
   /@tailwindcss/typography@0.5.10(tailwindcss@3.4.1):
     resolution: {integrity: sha512-Pe8BuPJQJd3FfRnm6H0ulKIGoMEQS+Vq01R6M5aCrFB/ccR/shT+0kXLjouGC1gFLm9hopTFN+DMP0pfwRWzPw==}
     peerDependencies:
@@ -2577,8 +2615,8 @@ packages:
       - supports-color
     dev: true
 
-  /@vanilla-extract/css@1.14.0:
-    resolution: {integrity: sha512-rYfm7JciWZ8PFzBM/HDiE2GLnKI3xJ6/vdmVJ5BSgcCZ5CxRlM9Cjqclni9lGzF3eMOijnUhCd/KV8TOzyzbMA==}
+  /@vanilla-extract/css@1.14.1:
+    resolution: {integrity: sha512-V4JUuHNjZgl64NGfkDJePqizkNgiSpphODtZEs4cCPuxLAzwOUJYATGpejwimJr1n529kq4DEKWexW22LMBokw==}
     dependencies:
       '@emotion/hash': 0.9.1
       '@vanilla-extract/private': 1.0.3
@@ -2599,7 +2637,7 @@ packages:
       '@babel/core': 7.23.9
       '@babel/plugin-syntax-typescript': 7.23.3(@babel/core@7.23.9)
       '@vanilla-extract/babel-plugin-debug-ids': 1.0.4
-      '@vanilla-extract/css': 1.14.0
+      '@vanilla-extract/css': 1.14.1
       esbuild: 0.19.12
       eval: 0.1.8
       find-up: 5.0.0
@@ -8278,6 +8316,12 @@ packages:
   /shebang-regex@3.0.0:
     resolution: {integrity: sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==}
     engines: {node: '>=8'}
+    dev: true
+
+  /shiki@1.0.0-beta.0:
+    resolution: {integrity: sha512-CcP0IhEDQ3LWfJC44cfxfId9pjJi9Nephl8DxgrL4tKWprI/oz6deZyL0vB+XWxhTx/1uonzWQKaSQPwKx5dTA==}
+    dependencies:
+      '@shikijs/core': 1.0.0-beta.0
     dev: true
 
   /side-channel@1.0.4:

@@ -1,5 +1,6 @@
 import mdx from '@mdx-js/rollup';
 import { unstable_vitePlugin as remix } from '@remix-run/dev';
+import rehypeShiki from '@shikijs/rehype';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
@@ -25,6 +26,7 @@ export default defineConfig({
       },
     }),
     mdx({
+      providerImportSource: '@mdx-js/react',
       rehypePlugins: [
         rehypeSlug,
         [
@@ -37,6 +39,12 @@ export default defineConfig({
             test: (element: Element) => {
               return element.tagName != 'h1';
             },
+          },
+        ],
+        [
+          rehypeShiki,
+          {
+            theme: 'github-dark',
           },
         ],
       ],
