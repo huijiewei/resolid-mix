@@ -89,65 +89,14 @@ const preset = (config: PresetConfig | undefined = {}): Partial<Config> => {
       borderRadius,
       fontWeight,
     },
-    corePlugins: {
-      preflight: false,
-    },
     plugins: [
       plugin(({ addBase, addUtilities, addVariant, theme }) => {
         addBase({
-          '*, *::before, *::after': {
-            boxSizing: 'border-box',
-            borderWidth: '0',
-            borderStyle: 'solid',
-            borderColor: `rgb(var(--${cssVarPrefix}-border-default))`,
-          },
-          '*': {
-            margin: '0',
-          },
-          html: {
-            textSizeAdjust: '100%',
-          },
           body: {
-            fontFamily: theme('fontFamily.sans'),
             fontSize: theme('fontSize.base'),
             lineHeight: theme('fontSize.base[1]', 'lineHeight.normal'),
             color: `rgb(var(--${cssVarPrefix}-fg-default))`,
             backgroundColor: `rgb(var(--${cssVarPrefix}-bg-default))`,
-          },
-          'img, picture, video, canvas, svg': {
-            display: 'block',
-            verticalAlign: 'middle',
-          },
-          'button, input, optgroup, select, textarea': {
-            font: 'inherit',
-            color: 'inherit',
-          },
-          'p, h1, h2, h3, h4, h5, h6': {
-            overflowWrap: 'break-word',
-            font: 'inherit',
-          },
-          'ol, ul, menu': {
-            listStyle: 'none',
-            margin: '0',
-            padding: '0',
-          },
-          'code, kbd, samp, pre': {
-            fontFamily: theme('fontFamily.mono'),
-            fontFeatureSettings: theme('fontFamily.mono[1].fontFeatureSettings', 'normal'),
-            fontVariationSettings: theme('fontFamily.mono[1].fontVariationSettings', 'normal'),
-          },
-          a: {
-            color: 'inherit',
-            textDecoration: 'inherit',
-          },
-          'button, [role=button]': { cursor: 'pointer' },
-          'button, [type=button], [type=reset], [type=submit]': {
-            appearance: 'button',
-            backgroundColor: 'transparent',
-            backgroundImage: 'none',
-          },
-          '#root, #__next': {
-            isolation: 'isolate',
           },
         });
         addUtilities(resolved.utilities);

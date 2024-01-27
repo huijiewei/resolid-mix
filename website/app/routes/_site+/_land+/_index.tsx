@@ -10,19 +10,19 @@ export const meta: MetaFunction = () => {
 
 export default function _index() {
   return (
-    <main className={'mx-auto max-w-3xl'}>
-      <p
+    <main className={'prose mx-auto max-w-3xl'}>
+      <h1
         className={
           'mt-20 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-center text-[5rem] font-[800] leading-normal text-transparent'
         }
       >
         Resolid Remix
-      </p>
-      <p className={'mt-10 text-center text-lg'}>
+      </h1>
+      <p>
         这是一个很有趣的 Remix 全栈演示站点，Remix 是一个全栈 Web 框架，可让您专注于用户界面并通过 Web
         标准进行工作，以提供快速、流畅且有弹性的用户体验。人们会喜欢使用你的东西。
       </p>
-      <p className={'mt-10 flex flex-row justify-center gap-9'}>
+      <div className={'not-prose mt-10 flex flex-row justify-center gap-9'}>
         <Button size={'xl'} asChild>
           <HistoryLink to={'/ui'}>快速开始</HistoryLink>
         </Button>
@@ -32,7 +32,7 @@ export default function _index() {
             Github
           </a>
         </Button>
-      </p>
+      </div>
     </main>
   );
 }

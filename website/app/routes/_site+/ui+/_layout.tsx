@@ -209,7 +209,7 @@ export default function Layout() {
     <BaseLayout>
       <AsideLayout>
         <AsideLayoutSide menus={menus} />
-        <AsideLayoutMain className={clsx('prose max-w-none', navigating && 'opacity-25 transition-opacity delay-300')}>
+        <AsideLayoutMain className={clsx(navigating && 'opacity-25 transition-opacity delay-300')}>
           <Suspense fallback={null}>
             <Outlet />
           </Suspense>
