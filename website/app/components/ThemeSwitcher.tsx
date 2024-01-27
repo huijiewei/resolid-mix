@@ -56,7 +56,7 @@ export const ThemeSwitcher = () => {
           return (
             <DropdownMenuItem
               key={key}
-              className={clsx('my-1', colorMode == key && 'text-link')}
+              className={clsx('my-1', colorMode == key && 'text-link-default')}
               onClick={() => {
                 setColorMode(key as ColorMode);
               }}

@@ -154,7 +154,7 @@ const Toc = () => {
 export default function Layout() {
   return (
     <div className={'flex justify-between'}>
-      <article className={'prose w-full max-w-none desktop:w-[calc(100%-11rem)]'}>
+      <article className={'prose w-full max-w-none dark:prose-invert desktop:w-[calc(100%-11rem)]'}>
         <Suspense fallback={<LazySpinner />}>
           <Outlet />
         </Suspense>

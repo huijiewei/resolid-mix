@@ -4,7 +4,7 @@ import { HistoryLink } from '~/components/HistoryLink';
 
 export default function _index() {
   return (
-    <main className={'prose mx-auto max-w-3xl'}>
+    <main className={'prose mx-auto max-w-3xl dark:prose-invert'}>
       <h1
         className={
           'mt-20 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-center text-[5rem] font-[800] leading-normal text-transparent'

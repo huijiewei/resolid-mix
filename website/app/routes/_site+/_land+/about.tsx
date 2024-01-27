@@ -4,7 +4,7 @@ export const meta = () => {
 
 export default function About() {
   return (
-    <div className={'prose mx-auto mt-8'}>
+    <div className={'prose mx-auto mt-8 dark:prose-invert'}>
       <h1 className={'text-center'}>关于 Resolid Remix</h1>
       <p>
         这是一个很有趣的 Remix 全栈演示站点，Remix 是一个全栈 Web 框架，可让您专注于用户界面并通过 Web
