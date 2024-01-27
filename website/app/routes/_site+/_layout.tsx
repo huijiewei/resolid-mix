@@ -1,6 +1,6 @@
+import type { MetaFunction } from '@remix-run/node';
 import { Link, Outlet } from '@remix-run/react';
-
-import { Button, clsx, noScrollbarsClassName, Tooltip, useColorModeState } from '@resolid-remix/ui';
+import { Button, Tooltip, clsx, noScrollbarsClassName, useColorModeState } from '@resolid-remix/ui';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Close } from '~/assets/icons/Close';
 import { Github } from '~/assets/icons/Github';
@@ -11,6 +11,11 @@ import ResolidBanner from '~/assets/images/resolid-banner.svg';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
 import { LazySpinner } from '~/components/LazySpinner';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
+
+// noinspection JSUnusedGlobalSymbols
+export const meta: MetaFunction = () => {
+  return [{ title: 'Resolid Remix' }, { name: 'description', content: 'Welcome to Remix!' }];
+};
 
 export default function Layout() {
   return (
@@ -58,7 +63,7 @@ const HeaderNav = () => {
             <Button aspectSquare variant={'subtle'} color={'neutral'} asChild>
               <a
                 aria-label={'Go to Resolid Remix on Github'}
-                rel="noreferrer"
+                rel="noreferrer noopener"
                 target="_blank"
                 href={'https://github.com/huijiewei/resolid-remix'}
               >

@@ -1,12 +1,6 @@
-import { type MetaFunction } from '@remix-run/node';
 import { Button } from '@resolid-remix/ui';
 import { Github } from '~/assets/icons/Github';
 import { HistoryLink } from '~/components/HistoryLink';
-
-// noinspection JSUnusedGlobalSymbols
-export const meta: MetaFunction = () => {
-  return [{ title: 'Resolid Remix' }, { name: 'description', content: 'Welcome to Remix!' }];
-};
 
 export default function _index() {
   return (
@@ -18,7 +12,7 @@ export default function _index() {
       >
         Resolid Remix
       </h1>
-      <p>
+      <p className={'text-center'}>
         这是一个很有趣的 Remix 全栈演示站点，Remix 是一个全栈 Web 框架，可让您专注于用户界面并通过 Web
         标准进行工作，以提供快速、流畅且有弹性的用户体验。人们会喜欢使用你的东西。
       </p>
@@ -27,7 +21,7 @@ export default function _index() {
           <HistoryLink to={'/ui'}>快速开始</HistoryLink>
         </Button>
         <Button size={'xl'} variant={'outline'} color={'neutral'} asChild>
-          <a target={'_blank'} rel={'noopener noreferrer'} href={'https://github.com/huijiewei/resolid-remix'}>
+          <a rel="noreferrer noopener" target="_blank" href={'https://github.com/huijiewei/resolid-remix'}>
             <Github className={'mr-2'} />
             Github
           </a>

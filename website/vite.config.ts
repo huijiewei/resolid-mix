@@ -31,9 +31,12 @@ export default defineConfig({
           rehypeAutolinkHeadings,
           {
             behavior: 'append',
-            headingProperties: { className: 'group scroll-mt-20' },
+            headingProperties: { className: 'group scroll-mt-20 reHeadings' },
             properties: { className: 'ml-2 text-green-500 opacity-0 transition-opacity group-hover:opacity-100' },
             content: { type: 'text', value: '#' },
+            test: (element: Element) => {
+              return element.tagName != 'h1';
+            },
           },
         ],
       ],
