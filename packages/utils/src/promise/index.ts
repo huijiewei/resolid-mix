@@ -9,12 +9,19 @@ export const to = async <T, E = Error>(promise: Promise<T>): Promise<[E, undefin
 };
 
 export const debounce = (fn: () => void, delay: number): (() => void) => {
+  let timeoutId: NodeJS.Timeout;
   let invoked = false;
+
   return () => {
-    invoked = true;
-    setTimeout(() => {
-      if (invoked) fn();
-      invoked = false;
-    }, delay);
+    if (timeoutId) {
+      clearTimeout(timeoutId);
+    }
+
+    if (!invoked) {
+      fn();
+      (invoked = true) && setTimeout(() => (invoked = false), delay);
+    } else {
+      timeoutId = setTimeout(fn, delay);
+    }
   };
 };
