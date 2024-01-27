@@ -1,7 +1,7 @@
 import { Link, Outlet } from '@remix-run/react';
 
 import { Button, clsx, noScrollbarsClassName, Tooltip, useColorModeState } from '@resolid-remix/ui';
-import { useState, type MouseEventHandler } from 'react';
+import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Close } from '~/assets/icons/Close';
 import { Github } from '~/assets/icons/Github';
 import { Menu } from '~/assets/icons/Menu';
@@ -9,6 +9,7 @@ import { UserCircle } from '~/assets/icons/UserCircle';
 import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
+import { LazySpinner } from '~/components/LazySpinner';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
 
 export default function Layout() {
@@ -20,7 +21,9 @@ export default function Layout() {
         <HeaderNav />
       </header>
       <div className={'pt-16'}>
-        <Outlet />
+        <Suspense fallback={<LazySpinner height={'calc(100vh - 5em)'} />}>
+          <Outlet />
+        </Suspense>
       </div>
     </>
   );
@@ -41,7 +44,7 @@ const HeaderNav = () => {
         <div
           className={clsx(
             'absolute inset-x-0 top-[calc(4rem+1px)] z-20 h-screen bg-bg-default p-0 tablet:relative tablet:top-0 tablet:block tablet:h-auto tablet:bg-inherit',
-            opened ? 'block' : 'hidden'
+            opened ? 'block' : 'hidden',
           )}
         >
           <HeaderNavMenu onClick={() => setOpened(false)} />
@@ -87,7 +90,7 @@ const HeaderNavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorEleme
         { name: '组件库', href: 'ui' },
         { name: '论坛', href: 'forum' },
         { name: '博客', href: 'blog' },
-        { name: '关于', href: 'about' }
+        { name: '关于', href: 'about' },
       ].map((menu) => {
         return (
           <li key={menu.name}>

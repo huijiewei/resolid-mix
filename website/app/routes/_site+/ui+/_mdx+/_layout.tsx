@@ -1,11 +1,12 @@
 import { Outlet } from '@remix-run/react';
 import { Suspense } from 'react';
+import { LazySpinner } from '~/components/LazySpinner';
 
 export default function Layout() {
   return (
     <div className={'flex justify-between'}>
       <article className={'prose w-full max-w-none desktop:w-[calc(100%-11rem)]'}>
-        <Suspense fallback={null}>
+        <Suspense fallback={<LazySpinner />}>
           <Outlet />
         </Suspense>
       </article>

@@ -1,19 +1,40 @@
+import type { MetaFunction } from '@remix-run/node';
 import { Outlet, useNavigation } from '@remix-run/react';
 import { clsx } from '@resolid-remix/ui';
 import { Suspense } from 'react';
+import { LazySpinner } from '~/components/LazySpinner';
 import { AsideLayout } from '~/components/layout/AsideLayout';
 import { AsideLayoutMain } from '~/components/layout/AsideLayoutMain';
 import type { Menu } from '~/components/layout/AsideLayoutMenu';
 import { AsideLayoutSide } from '~/components/layout/AsideLayoutSide';
 import { BaseLayout } from '~/components/layout/BaseLayout';
 
-export const meta = () => {
+// noinspection JSUnusedGlobalSymbols
+export const meta: MetaFunction = () => {
   return [
     {
       title: '组件库',
     },
   ];
 };
+
+export default function Layout() {
+  const navigation = useNavigation();
+  const navigating = navigation.location && !navigation.formData;
+
+  return (
+    <BaseLayout>
+      <AsideLayout>
+        <AsideLayoutSide menus={menus} />
+        <AsideLayoutMain className={clsx(navigating && 'opacity-25 transition-opacity delay-300')}>
+          <Suspense fallback={<LazySpinner />}>
+            <Outlet />
+          </Suspense>
+        </AsideLayoutMain>
+      </AsideLayout>
+    </BaseLayout>
+  );
+}
 
 const menus: Menu[] = [
   {
@@ -200,21 +221,3 @@ const menus: Menu[] = [
     ],
   },
 ];
-
-export default function Layout() {
-  const navigation = useNavigation();
-  const navigating = navigation.location && !navigation.formData;
-
-  return (
-    <BaseLayout>
-      <AsideLayout>
-        <AsideLayoutSide menus={menus} />
-        <AsideLayoutMain className={clsx(navigating && 'opacity-25 transition-opacity delay-300')}>
-          <Suspense fallback={null}>
-            <Outlet />
-          </Suspense>
-        </AsideLayoutMain>
-      </AsideLayout>
-    </BaseLayout>
-  );
-}

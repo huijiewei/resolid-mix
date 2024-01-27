@@ -1,4 +1,4 @@
-import type { MetaFunction } from '@remix-run/node';
+import { type MetaFunction } from '@remix-run/node';
 import { Button } from '@resolid-remix/ui';
 import { Github } from '~/assets/icons/Github';
 import { HistoryLink } from '~/components/HistoryLink';
