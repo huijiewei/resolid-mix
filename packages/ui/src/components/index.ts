@@ -9,5 +9,6 @@ export * from './provider/ColorModeScript';
 export * from './provider/ResolidProvider';
 export * from './provider/useColorMode';
 export * from './slot/Slot';
+export * from './spinner/Spinner';
 export * from './tooltip/Tooltip';
 export * from './visually-hidden/VisuallyHidden';
