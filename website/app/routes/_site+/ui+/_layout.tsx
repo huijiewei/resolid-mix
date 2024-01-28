@@ -1,4 +1,3 @@
-import type { MetaFunction } from '@remix-run/node';
 import { Outlet, useNavigation } from '@remix-run/react';
 import { clsx } from '@resolid-remix/ui';
 import { Suspense } from 'react';
@@ -8,15 +7,16 @@ import { AsideLayoutMain } from '~/components/layout/AsideLayoutMain';
 import type { Menu } from '~/components/layout/AsideLayoutMenu';
 import { AsideLayoutSide } from '~/components/layout/AsideLayoutSide';
 import { BaseLayout } from '~/components/layout/BaseLayout';
+import { mergeMeta } from '~/extensions/meta/mergeMeta';
 
 // noinspection JSUnusedGlobalSymbols
-export const meta: MetaFunction = () => {
+export const meta = mergeMeta(() => {
   return [
     {
       title: '组件库',
     },
   ];
-};
+});
 
 export default function Layout() {
   const navigation = useNavigation();

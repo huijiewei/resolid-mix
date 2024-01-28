@@ -1,4 +1,3 @@
-import type { MetaFunction } from '@remix-run/node';
 import { Link, Outlet } from '@remix-run/react';
 import { Button, Tooltip, clsx, noScrollbarsClassName, useColorModeState } from '@resolid-remix/ui';
 import { Suspense, useState, type MouseEventHandler } from 'react';
@@ -13,7 +12,7 @@ import { LazySpinner } from '~/components/LazySpinner';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
 
 // noinspection JSUnusedGlobalSymbols
-export const meta: MetaFunction = () => {
+export const meta = () => {
   return [{ title: 'Resolid Remix' }, { name: 'description', content: 'Welcome to Remix!' }];
 };
 

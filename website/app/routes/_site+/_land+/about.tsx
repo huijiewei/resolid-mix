@@ -1,6 +1,8 @@
-export const meta = () => {
+import { mergeMeta } from '~/extensions/meta/mergeMeta';
+
+export const meta = mergeMeta(() => {
   return [{ title: '关于' }];
-};
+});
 
 export default function About() {
   return (

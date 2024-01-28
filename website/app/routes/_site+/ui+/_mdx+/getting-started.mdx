@@ -3,7 +3,11 @@ meta:
   - title: 入门指南
 ---
 
-export const meta = frontmatter.meta;
+import { mergeMeta } from '../../../../extensions/meta/mergeMeta';
+
+export const meta = mergeMeta(() => {
+  return frontmatter.meta;
+});
 
 按照以下步骤快速开始使用组件库。
 

@@ -4,7 +4,11 @@ meta:
   - description: 按钮组件用于触发动作或事件，例如提交表单、打开对话框、取消操作或执行删除操作。
 ---
 
-export const meta = frontmatter.meta;
+import { mergeMeta } from '../../../../../extensions/meta/mergeMeta';
+
+export const meta = mergeMeta(() => {
+  return frontmatter.meta;
+});
 
 # 按钮
 

@@ -1,6 +1,7 @@
 import type { MetaFunction } from '@remix-run/node';
 import { isRouteErrorResponse, useRouteError } from '@remix-run/react';
 import { NotFound } from '~/components/NotFound';
+import { mergeMeta } from '~/extensions/meta/mergeMeta';
 
 // noinspection JSUnusedGlobalSymbols
 export const loader = async () => {
@@ -8,13 +9,13 @@ export const loader = async () => {
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const meta: MetaFunction = () => {
+export const meta: MetaFunction = mergeMeta(() => {
   return [
     {
-      title: '不存在',
+      title: '页面未找到',
     },
   ];
-};
+});
 
 export default function Catchall() {
   return null;
