@@ -143,7 +143,7 @@ const Toc = () => {
     <li key={id}>
       <a
         className={clsx(
-          'border-link -ml-px block border-s py-1',
+          '-ml-px block border-s border-link py-1',
           level == 2 ? 'ps-4' : 'ps-8',
           activeId === id ? 'text-link' : 'text-fg-muted hover:border-fg-subtle hover:text-fg-subtle',
         )}
@@ -159,7 +159,7 @@ export default function Layout() {
   return (
     <div className={'flex justify-between'}>
       <article className={'prose w-full max-w-none pt-4 dark:prose-invert desktop:w-[calc(100%-11rem)]'}>
-        <MDXProvider components={components}>
+        <MDXProvider disableParentContext components={components}>
           <Suspense fallback={<LazySpinner />}>
             <Outlet />
           </Suspense>

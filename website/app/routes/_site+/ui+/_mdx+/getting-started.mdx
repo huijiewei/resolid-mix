@@ -1,13 +1,12 @@
 ---
-meta:
-  - title: 入门指南
+title: 入门指南
 ---
 
-import { mergeMeta } from '../../../../extensions/meta/mergeMeta';
+import { mergeFrontmatter } from '~/extensions/meta/mergeFrontmatter';
 
-export const meta = mergeMeta(() => {
-  return frontmatter.meta;
-});
+export const meta = mergeFrontmatter(frontmatter);
+
+# {frontmatter.title}
 
 按照以下步骤快速开始使用组件库。
 
