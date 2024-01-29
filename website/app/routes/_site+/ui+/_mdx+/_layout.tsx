@@ -145,7 +145,7 @@ const Toc = () => {
         className={clsx(
           'border-link -ml-px block border-s py-1',
           level == 2 ? 'ps-4' : 'ps-8',
-          activeId === id ? 'text-link-default' : 'text-fg-muted hover:border-fg-subtle hover:text-fg-subtle',
+          activeId === id ? 'text-link' : 'text-fg-muted hover:border-fg-subtle hover:text-fg-subtle',
         )}
         href={`${pathname}#${id}`}
       >

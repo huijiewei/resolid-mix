@@ -100,7 +100,7 @@ const HeaderNavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorEleme
           <li key={menu.name}>
             <HistoryNavLink
               className={({ isActive }) => {
-                return clsx('block p-2 text-lg hover:text-link-pressed tablet:px-4', isActive && 'text-link-default');
+                return clsx('block p-2 text-lg hover:text-link-pressed tablet:px-4', isActive && 'text-link');
               }}
               onClick={onClick}
               to={menu.href}

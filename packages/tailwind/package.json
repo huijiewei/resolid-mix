@@ -28,9 +28,7 @@
       }
     }
   },
-  "dependencies": {
-    "@resolid-remix/utils": "workspace:*"
-  },
+  "dependencies": {},
   "devDependencies": {
     "tailwindcss": "^3.4.1"
   },

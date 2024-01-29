@@ -59,9 +59,6 @@ importers:
 
   packages/tailwind:
     dependencies:
-      '@resolid-remix/utils':
-        specifier: workspace:*
-        version: link:../utils
       autoprefixer:
         specifier: '>=10'
         version: 10.4.17(postcss@8.4.33)

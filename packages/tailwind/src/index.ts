@@ -9,13 +9,17 @@ import { fontFamily } from './tokens/font-family';
 import { fontSize } from './tokens/font-size';
 import { fontWeight } from './tokens/font-weight';
 import { screens } from './tokens/screens';
-import { hexToRGB } from './utils';
+import { flattenColorPalette, rgbFromHex } from './utils';
 
 export * from './types';
-export { hexToRGB };
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type MaybeNested<K extends keyof any = string, V = string> = {
+  [key: string]: V | MaybeNested<K, V>;
+};
 
 type DefaultThemeType = 'light' | 'dark';
-type ConfigObject = Record<string, Record<string, string>>;
+type ConfigObject = Record<string, MaybeNested>;
 
 export type PresetConfig = {
   themes?: ConfigObject;
@@ -42,14 +46,16 @@ const resolveConfig = (config: ConfigObject, defaultTheme: DefaultThemeType, css
 
     resolved.utilities[cssSelector] = {};
 
-    Object.keys(config[themeName]).forEach((colorName) => {
-      const colorValue = config[themeName][colorName];
+    const flatColors = flattenColorPalette(config[themeName]);
+
+    Object.keys(flatColors).forEach((colorName) => {
+      const colorValue = flatColors[colorName];
 
       if (!colorValue) {
         return;
       }
 
-      const rgb = hexToRGB(colorValue);
+      const rgb = rgbFromHex(colorValue);
 
       const colorVariable = `--${cssVarPrefix}-${colorName}`;
 
