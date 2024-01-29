@@ -1,6 +1,7 @@
 export * from './button/Button';
 export * from './button/ButtonGroup';
 export * from './close-button/CloseButton';
+export * from './context-menu/ContextMenu';
 export * from './divider/Divider';
 export * from './dropdown-menu/DropdownMenu';
 export * from './icon/Icon';

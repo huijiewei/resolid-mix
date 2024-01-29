@@ -69,25 +69,25 @@ export type MenuProps = {
   duration?: number;
 };
 
-export const Menu = (props: PropsWithChildren<MenuProps>) => {
+export const MenuRoot = (props: PropsWithChildren<MenuProps>) => {
   const parentId = useFloatingParentNodeId();
 
   if (parentId == null) {
     return (
       <FloatingTree>
-        <MenuComponent {...props} />
+        <MenuTree {...props} />
       </FloatingTree>
     );
   }
 
-  return <MenuComponent {...props} />;
+  return <MenuTree {...props} />;
 };
 
 if (__DEV__) {
-  Menu.displayName = 'Menu';
+  MenuRoot.displayName = 'Menu';
 }
 
-const MenuComponent = (props: PropsWithChildren<MenuProps>) => {
+const MenuTree = (props: PropsWithChildren<MenuProps>) => {
   const {
     children,
     closeOnEsc = true,

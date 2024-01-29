@@ -5,7 +5,6 @@
     "baseUrl": ".",
     "jsx": "react-jsx",
     "paths": {
-      "@resolid-remix/stylex/*": ["../stylex/src/*"],
       "@resolid-remix/utils": ["../utils/src"],
     },
   },

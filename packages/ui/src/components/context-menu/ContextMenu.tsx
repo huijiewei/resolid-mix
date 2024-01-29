@@ -1,5 +1,4 @@
 import { FloatingArrow } from '../floating/FloatingArrow';
-import { FloatingTrigger } from '../floating/FloatingTrigger';
 import { MenuCheckboxItem } from '../menu/MenuCheckboxItem';
 import { MenuContent } from '../menu/MenuContent';
 import { MenuDivider } from '../menu/MenuDivider';
@@ -11,10 +10,11 @@ import { MenuItemTrigger } from '../menu/MenuItemTrigger';
 import { MenuRadioGroup } from '../menu/MenuRadioGroup';
 import { MenuRadioItem } from '../menu/MenuRadioItem';
 import { MenuRoot } from '../menu/MenuRoot';
+import { ContextMenuTrigger } from './ContextMenuTrigger';
 
-export const DropdownMenu = {
+export const ContextMenu = {
   Root: MenuRoot,
-  Trigger: FloatingTrigger,
+  Trigger: ContextMenuTrigger,
   Content: MenuContent,
   Arrow: FloatingArrow,
   Divider: MenuDivider,

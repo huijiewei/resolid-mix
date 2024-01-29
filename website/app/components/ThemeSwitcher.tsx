@@ -1,14 +1,4 @@
-import {
-  Button,
-  clsx,
-  DropdownMenu,
-  DropdownMenuArrow,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-  useColorModeDispatch,
-  useColorModeState,
-} from '@resolid-remix/ui';
+import { Button, clsx, DropdownMenu, useColorModeDispatch, useColorModeState } from '@resolid-remix/ui';
 import { useEffect, useState } from 'react';
 import { Moon } from '~/assets/icons/Moon';
 import { Sun } from '~/assets/icons/Sun';
@@ -42,19 +32,19 @@ export const ThemeSwitcher = () => {
   }, [colorMode]);
 
   return (
-    <DropdownMenu placement={'bottom'}>
-      <DropdownMenuTrigger asChild>
+    <DropdownMenu.Root placement={'bottom'}>
+      <DropdownMenu.Trigger asChild>
         <Button aria-label={'更改颜色模式'} color={'neutral'} variant={'subtle'} aspectSquare>
           <colorModeState.icon size={'sm'} />
         </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className={'z-50'}>
-        <DropdownMenuArrow />
+      </DropdownMenu.Trigger>
+      <DropdownMenu.Content className={'z-50'}>
+        <DropdownMenu.Arrow />
         {Object.keys(colorModes).map((key) => {
           const mode = colorModes[key as ColorMode];
 
           return (
-            <DropdownMenuItem
+            <DropdownMenu.Item
               key={key}
               className={clsx('my-1', colorMode == key && 'text-link')}
               onClick={() => {
@@ -63,10 +53,10 @@ export const ThemeSwitcher = () => {
             >
               <mode.icon className={'me-1.5'} />
               {mode.label}
-            </DropdownMenuItem>
+            </DropdownMenu.Item>
           );
         })}
-      </DropdownMenuContent>
-    </DropdownMenu>
+      </DropdownMenu.Content>
+    </DropdownMenu.Root>
   );
 };

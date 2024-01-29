@@ -4,13 +4,13 @@ import type { FloatingFloatingContext } from '../floating/FloatingFloatingContex
 
 export { PopoverFloatingProvider, usePopoverFloating };
 
-export type PopoverFloatingContext = FloatingFloatingContext & {
+export type PopoverContext = FloatingFloatingContext & {
   modal: boolean;
   duration: number;
   initialFocus?: number | MutableRefObject<HTMLElement | null>;
 };
 
-const [PopoverFloatingProvider, usePopoverFloating] = createContext<PopoverFloatingContext>({
+const [PopoverFloatingProvider, usePopoverFloating] = createContext<PopoverContext>({
   strict: true,
   name: 'PopoverFloatingContext',
 });

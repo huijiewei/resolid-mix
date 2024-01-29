@@ -1,4 +1,4 @@
-import { FloatingArrow as FloatingImportArrow, type FloatingArrowProps } from '@floating-ui/react';
+import { FloatingArrow as FloatingUiArrow, type FloatingArrowProps } from '@floating-ui/react';
 import { __DEV__ } from '@resolid-remix/utils';
 import { clsx } from '../../utils/classed';
 import { useFloatingArrow } from './FloatingArrowContext';
@@ -9,7 +9,7 @@ export const FloatingArrow = (props: Omit<FloatingArrowProps, 'context' | 'strok
   const arrow = useFloatingArrow();
 
   return (
-    <FloatingImportArrow
+    <FloatingUiArrow
       ref={arrow.setArrow}
       className={clsx(arrow.className, className)}
       strokeWidth={strokeWidth}

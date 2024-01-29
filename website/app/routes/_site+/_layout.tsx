@@ -58,18 +58,24 @@ const HeaderNav = () => {
             <UserCircle size={'sm'} />
           </Button>
           <ThemeSwitcher />
-          <Tooltip placement={'bottom'} content={'访问 Github 上的 Resolid Remix'}>
-            <Button aspectSquare variant={'subtle'} color={'neutral'} asChild>
-              <a
-                aria-label={'Go to Resolid Remix on Github'}
-                rel="noreferrer noopener"
-                target="_blank"
-                href={'https://github.com/huijiewei/resolid-remix'}
-              >
-                <Github size={'sm'} />
-              </a>
-            </Button>
-          </Tooltip>
+          <Tooltip.Root placement={'bottom'}>
+            <Tooltip.Trigger asChild>
+              <Button aspectSquare variant={'subtle'} color={'neutral'} asChild>
+                <a
+                  aria-label={'Go to Resolid Remix on Github'}
+                  rel="noreferrer noopener"
+                  target="_blank"
+                  href={'https://github.com/huijiewei/resolid-remix'}
+                >
+                  <Github size={'sm'} />
+                </a>
+              </Button>
+            </Tooltip.Trigger>
+            <Tooltip.Content>
+              <Tooltip.Arrow />
+              访问 Github 上的 Resolid Remix
+            </Tooltip.Content>
+          </Tooltip.Root>
         </div>
       </div>
     </nav>
