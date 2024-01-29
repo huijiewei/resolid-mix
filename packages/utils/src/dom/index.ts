@@ -1,4 +1,4 @@
-import type { Booleanish } from '../types';
+import type { Booleanish } from '../boolean';
 
 export const isBrowser = () => {
   return typeof window !== 'undefined' && !!window.document?.createElement;
