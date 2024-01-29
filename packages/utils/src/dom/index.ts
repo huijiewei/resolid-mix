@@ -1,4 +1,5 @@
 import type { Booleanish } from '../boolean';
+import { isObject } from '../object';
 
 export const isBrowser = () => {
   return typeof window !== 'undefined' && !!window.document?.createElement;
@@ -20,4 +21,9 @@ export const isButton = (element: { tagName: string; type?: string }) => {
   }
 
   return false;
+};
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isInputEvent = (value: any): value is { target: HTMLInputElement } => {
+  return value && isObject(value) && isObject(value.target);
 };
