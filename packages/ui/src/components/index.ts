@@ -1,3 +1,6 @@
+export * from './avatar/Avatar';
+export * from './avatar/AvatarBadge';
+export * from './avatar/AvatarGroup';
 export * from './button/Button';
 export * from './button/ButtonGroup';
 export * from './close-button/CloseButton';
