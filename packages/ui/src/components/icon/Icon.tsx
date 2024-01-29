@@ -1,5 +1,6 @@
 import { __DEV__, isString } from '@resolid-remix/utils';
 import type { SVGAttributes } from 'react';
+import { clsx } from '../../utils/classed';
 import type { Size } from '../../utils/types';
 
 export type IconProps = SVGAttributes<SVGElement> & { size?: number | string | Size };
@@ -14,6 +15,7 @@ const iconSizes = {
 
 export const Icon = (props: IconProps) => {
   const {
+    className,
     fill = 'none',
     viewBox = '1 1 22 22',
     stroke = 'currentColor',
@@ -32,6 +34,7 @@ export const Icon = (props: IconProps) => {
 
   return (
     <svg
+      className={clsx('inline self-center', className)}
       fill={fill}
       width={width ?? sizeValue}
       height={height ?? sizeValue}
