@@ -6,6 +6,7 @@ export * from './divider/Divider';
 export * from './dropdown-menu/DropdownMenu';
 export * from './icon/Icon';
 export * from './image/Image';
+export * from './modal/Modal';
 export * from './portal/Portal';
 export * from './provider/ColorModeScript';
 export * from './provider/ResolidProvider';

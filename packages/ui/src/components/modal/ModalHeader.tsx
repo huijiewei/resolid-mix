@@ -3,18 +3,18 @@ import { clsx } from '../../utils/classed';
 import { useFloatingAria } from '../floating/FloatingAriaContext';
 import type { EmptyProps, Props } from '../slot/Slot';
 
-export const PopoverHeader = (props: Props<'header', EmptyProps, 'id'>) => {
+export const ModalHeader = (props: Props<'header', EmptyProps, 'id'>) => {
   const { children, className, ...rest } = props;
 
   const { labelId } = useFloatingAria();
 
   return (
-    <header id={labelId} className={clsx('border-b border-b-bg-subtle px-3 py-2', className)} {...rest}>
+    <header id={labelId} className={clsx('flex-0 p-3 text-lg font-bold', className)} {...rest}>
       {children}
     </header>
   );
 };
 
 if (__DEV__) {
-  PopoverHeader.displayName = 'PopoverHeader';
+  ModalHeader.displayName = 'ModalHeader';
 }
