@@ -54,7 +54,7 @@ const HeaderNav = () => {
           <HeaderNavMenu onClick={() => setOpened(false)} />
         </div>
         <div className={'flex flex-row items-center gap-1'}>
-          <Button aspectSquare variant={'subtle'} color={'neutral'}>
+          <Button aria-label={'用户登录注册'} aspectSquare variant={'subtle'} color={'neutral'}>
             <UserCircle size={'sm'} />
           </Button>
           <ThemeSwitcher />
