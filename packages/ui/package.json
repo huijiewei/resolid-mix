@@ -29,20 +29,20 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.8",
-    "@resolid-remix/utils": "workspace:*",
+    "@resolid-remix/utils": "workspace:^",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.0",
     "react-remove-scroll-bar": "^2.3.4"
   },
   "devDependencies": {
-    "@resolid-remix/tailwind": "workspace:*",
-    "react": "canary",
-    "react-dom": "canary"
+    "@resolid-remix/tailwind": "workspace:^",
+    "react": "18.3.0-canary-763612647-20240126",
+    "react-dom": "18.3.0-canary-763612647-20240126"
   },
   "peerDependencies": {
-    "@resolid-remix/tailwind": "*",
-    "react": ">=18",
-    "react-dom": ">=18"
+    "@resolid-remix/tailwind": "workspace:^",
+    "react": ">=18.2.0",
+    "react-dom": ">=18.2.0"
   },
   "repository": {
     "type": "git",

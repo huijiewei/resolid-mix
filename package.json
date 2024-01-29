@@ -40,5 +40,11 @@
   "engines": {
     "node": ">=20.0.0"
   },
+  "pnpm": {
+    "overrides": {
+      "react": "18.3.0-canary-763612647-20240126",
+      "react-dom": "18.3.0-canary-763612647-20240126"
+    }
+  },
   "packageManager": "pnpm@8.15.0"
 }
