@@ -7,12 +7,9 @@ import { ButtonGroupProvider, type ButtonGroupContext } from './ButtonGroupConte
 export type ButtonGroupProps = ButtonGroupContext;
 
 export const ButtonGroup = (props: Props<'div', ButtonGroupProps, 'role'>) => {
-  const { children, vertical = false, disabled, size, color, variant, className, ...rest } = props;
+  const { children, vertical = false, size, color, variant, className, ...rest } = props;
 
-  const context = useMemo(
-    () => ({ size, color, variant, disabled, vertical }),
-    [size, color, variant, disabled, vertical],
-  );
+  const context = useMemo(() => ({ size, color, variant, vertical }), [size, color, variant, vertical]);
 
   return (
     <div role={'group'} className={clsx('inline-flex', vertical ? 'flex-col' : 'flex-row', className)} {...rest}>

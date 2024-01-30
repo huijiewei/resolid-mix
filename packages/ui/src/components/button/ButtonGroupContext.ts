@@ -3,33 +3,27 @@ import type { ButtonStyleProps } from './Button.styles';
 
 export type ButtonBaseProps = {
   /**
-   * Size
+   * 大小
    * @default 'md'
    */
   size?: ButtonStyleProps['size'];
 
   /**
-   * Color
+   * 颜色
    * @default 'primary'
    */
   color?: ButtonStyleProps['color'];
 
   /**
-   * Variant
+   * 形式
    * @default 'solid'
    */
   variant?: ButtonStyleProps['variant'];
-
-  /**
-   * Disabled
-   * @default false
-   */
-  disabled?: boolean;
 };
 
 export type ButtonGroupContext = ButtonBaseProps & {
   /**
-   * Vertical
+   * 是否垂直
    * @default false
    */
   vertical?: boolean;

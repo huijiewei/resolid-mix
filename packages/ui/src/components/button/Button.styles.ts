@@ -30,6 +30,12 @@ export const buttonStyles = classed(
         lg: 'h-9',
         xl: 'h-10 text-lg',
       },
+      disabled: {
+        true: 'cursor-not-allowed opacity-80 grayscale-[20%]',
+      },
+      loading: {
+        true: 'cursor-wait opacity-80 grayscale-[20%]',
+      },
       fullWidth: {
         true: 'w-full',
         false: 'w-auto',
@@ -43,6 +49,7 @@ export const buttonStyles = classed(
       color: 'primary',
       size: 'md',
       variant: 'solid',
+      disabled: false,
       fullWidth: false,
       aspectSquare: false,
     },
@@ -50,7 +57,14 @@ export const buttonStyles = classed(
       {
         color: 'primary',
         variant: 'solid',
-        className: 'bg-bg-primary-emphasis hover:bg-bg-primary-emphasis-hovered active:bg-bg-primary-emphasis-pressed',
+        className: 'bg-bg-primary-emphasis',
+      },
+      {
+        color: 'primary',
+        variant: 'solid',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-primary-emphasis-hovered active:bg-bg-primary-emphasis-pressed',
       },
       {
         color: 'primary',
@@ -60,27 +74,47 @@ export const buttonStyles = classed(
       {
         color: 'primary',
         variant: 'outline',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-primary active:bg-bg-primary-hovered',
       },
       {
         color: 'primary',
         variant: 'light',
-        className: 'bg-bg-primary hover:bg-bg-primary-hovered active:bg-bg-primary-pressed',
+        className: 'bg-bg-primary',
+      },
+      {
+        color: 'primary',
+        variant: 'light',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-primary-hovered active:bg-bg-primary-pressed',
       },
       {
         color: 'primary',
         variant: 'subtle',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-primary active:bg-bg-primary-hovered',
       },
       {
         color: 'primary',
         variant: 'link',
+        disabled: false,
+        loading: false,
         className: 'hover:text-fg-primary-hovered active:text-fg-primary-pressed',
       },
       {
         color: 'neutral',
         variant: 'solid',
-        className: 'bg-bg-neutral-emphasis hover:bg-bg-neutral-emphasis-hovered active:bg-bg-neutral-emphasis-pressed',
+        className: 'bg-bg-neutral-emphasis',
+      },
+      {
+        color: 'neutral',
+        variant: 'solid',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-neutral-emphasis-hovered active:bg-bg-neutral-emphasis-pressed',
       },
       {
         color: 'neutral',
@@ -90,27 +124,47 @@ export const buttonStyles = classed(
       {
         color: 'neutral',
         variant: 'outline',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-neutral active:bg-bg-neutral-hovered',
       },
       {
         color: 'neutral',
         variant: 'light',
-        className: 'bg-bg-neutral hover:bg-bg-neutral-hovered active:bg-bg-neutral-pressed',
+        className: 'bg-bg-neutral',
+      },
+      {
+        color: 'neutral',
+        variant: 'light',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-neutral-hovered active:bg-bg-neutral-pressed',
       },
       {
         color: 'neutral',
         variant: 'subtle',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-neutral active:bg-bg-neutral-hovered',
       },
       {
         color: 'neutral',
         variant: 'link',
+        disabled: false,
+        loading: false,
         className: 'hover:text-fg-neutral-hovered active:text-fg-neutral-pressed',
       },
       {
         color: 'success',
         variant: 'solid',
-        className: 'bg-bg-success-emphasis hover:bg-bg-success-emphasis-hovered active:bg-bg-success-emphasis-pressed',
+        className: 'bg-bg-success-emphasis',
+      },
+      {
+        color: 'success',
+        variant: 'solid',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-success-emphasis-hovered active:bg-bg-success-emphasis-pressed',
       },
       {
         color: 'success',
@@ -120,6 +174,8 @@ export const buttonStyles = classed(
       {
         color: 'success',
         variant: 'outline',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-success active:bg-bg-success-hovered',
       },
       {
@@ -130,17 +186,28 @@ export const buttonStyles = classed(
       {
         color: 'success',
         variant: 'subtle',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-success active:bg-bg-success-hovered',
       },
       {
         color: 'success',
         variant: 'link',
+        disabled: false,
+        loading: false,
         className: 'hover:text-fg-success-hovered active:text-fg-success-pressed',
       },
       {
         color: 'warning',
         variant: 'solid',
-        className: 'bg-bg-warning-emphasis hover:bg-bg-warning-emphasis-hovered active:bg-bg-warning-emphasis-pressed',
+        className: 'bg-bg-warning-emphasis',
+      },
+      {
+        color: 'warning',
+        variant: 'solid',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-warning-emphasis-hovered active:bg-bg-warning-emphasis-pressed',
       },
       {
         color: 'warning',
@@ -150,27 +217,47 @@ export const buttonStyles = classed(
       {
         color: 'warning',
         variant: 'outline',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-warning active:bg-bg-warning-hovered',
       },
       {
         color: 'warning',
         variant: 'light',
-        className: 'bg-bg-warning hover:bg-bg-warning-hovered active:bg-bg-warning-pressed',
+        className: 'bg-bg-warning',
+      },
+      {
+        color: 'warning',
+        variant: 'light',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-warning-hovered active:bg-bg-warning-pressed',
       },
       {
         color: 'warning',
         variant: 'subtle',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-warning active:bg-bg-warning-hovered',
       },
       {
         color: 'warning',
         variant: 'link',
+        disabled: false,
+        loading: false,
         className: 'hover:text-fg-warning-hovered active:text-fg-warning-pressed',
       },
       {
         color: 'danger',
         variant: 'solid',
-        className: 'bg-bg-danger-emphasis hover:bg-bg-danger-emphasis-hovered active:bg-bg-danger-emphasis-pressed',
+        className: 'bg-bg-danger-emphasis',
+      },
+      {
+        color: 'danger',
+        variant: 'solid',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-danger-emphasis-hovered active:bg-bg-danger-emphasis-pressed',
       },
       {
         color: 'danger',
@@ -180,21 +267,34 @@ export const buttonStyles = classed(
       {
         color: 'danger',
         variant: 'outline',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-danger active:bg-bg-danger-hovered',
       },
       {
         color: 'danger',
         variant: 'light',
-        className: 'bg-bg-danger hover:bg-bg-danger-hovered active:bg-bg-danger-pressed',
+        className: 'bg-bg-danger',
+      },
+      {
+        color: 'danger',
+        variant: 'light',
+        disabled: false,
+        loading: false,
+        className: 'hover:bg-bg-danger-hovered active:bg-bg-danger-pressed',
       },
       {
         color: 'danger',
         variant: 'subtle',
+        disabled: false,
+        loading: false,
         className: 'hover:bg-bg-danger active:bg-bg-danger-hovered',
       },
       {
         color: 'danger',
         variant: 'link',
+        disabled: false,
+        loading: false,
         className: 'hover:text-fg-danger-hovered active:text-fg-danger-pressed',
       },
       {

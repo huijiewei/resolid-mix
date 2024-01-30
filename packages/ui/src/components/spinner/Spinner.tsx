@@ -26,7 +26,7 @@ export type SpinnerProps = {
 };
 
 export const Spinner = forwardRef<HTMLSpanElement, Props<'span', SpinnerProps>>((props, ref) => {
-  const { label = 'Loading', className, size = 'md', color = 'primary', ...rest } = props;
+  const { label = '加载中', className, size = 'md', color = 'primary', ...rest } = props;
 
   return (
     <span ref={ref} className={clsx(spinnerStyles({ color, size }), className)} {...rest}>

@@ -1,13 +1,60 @@
-import { __DEV__ } from '@resolid-remix/utils';
-import { forwardRef } from 'react';
+import { __DEV__, dataAttr } from '@resolid-remix/utils';
+import { forwardRef, type JSX } from 'react';
 import { clsx } from '../../utils/classed';
 import { Slot, type AsChildProps } from '../slot/Slot';
-import { buttonStyles, type ButtonStyleProps } from './Button.styles';
-import { useButtonGroup } from './ButtonGroupContext';
+import { buttonStyles } from './Button.styles';
+import { useButtonGroup, type ButtonBaseProps } from './ButtonGroupContext';
+import { ButtonSpinner } from './ButtonSpinner';
 
-export type ButtonProps = {
+export type ButtonProps = ButtonBaseProps & {
+  /**
+   * 是否激活
+   * @default false
+   */
+  active?: boolean;
+
+  /**
+   * 是否禁用
+   * @default false
+   */
   disabled?: boolean;
-} & ButtonStyleProps;
+
+  /**
+   * 是否全宽度
+   * @default false
+   */
+  fullWidth?: boolean;
+
+  /**
+   * 是否方形按钮
+   * @default false
+   */
+  aspectSquare?: boolean;
+
+  /**
+   * 是否加载中
+   * @default false
+   */
+  loading?: boolean;
+
+  /**
+   * 加载文本
+   * @default ''
+   */
+  loadingText?: string;
+
+  /**
+   * 加载器
+   * @default Spinner
+   */
+  spinner?: JSX.Element;
+
+  /**
+   * 加载器位置
+   * @default 'start'
+   */
+  spinnerPlacement?: 'start' | 'end';
+};
 
 export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', ButtonProps>>((props, ref) => {
   const group = useButtonGroup();
@@ -18,9 +65,14 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', Butto
     size = group?.size ?? 'md',
     variant = group?.variant ?? 'solid',
     type,
-    disabled,
-    fullWidth,
-    aspectSquare,
+    active = false,
+    disabled = false,
+    fullWidth = false,
+    aspectSquare = false,
+    loading = false,
+    loadingText,
+    spinner,
+    spinnerPlacement = 'start',
     className,
     children,
     ...rest
@@ -31,7 +83,7 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', Butto
   return (
     <Comp
       className={clsx(
-        buttonStyles({ variant, size, color, aspectSquare, fullWidth }),
+        buttonStyles({ variant, size, color, disabled, loading, aspectSquare, fullWidth }),
         group
           ? group.vertical
             ? 'border-y-[0.5px] first:rounded-t first:border-t last:rounded-b last:border-b'
@@ -41,10 +93,25 @@ export const Button = forwardRef<HTMLButtonElement, AsChildProps<'button', Butto
       )}
       type={type ?? asChild ? undefined : 'button'}
       ref={ref}
-      disabled={disabled}
+      disabled={Boolean(disabled) || loading}
+      data-active={dataAttr(active)}
       {...rest}
     >
-      {children}
+      {loading ? (
+        <div
+          className={clsx(
+            'relative inline-flex items-center justify-center gap-2',
+            loadingText && spinnerPlacement == 'end' && 'flex-row-reverse',
+          )}
+        >
+          <ButtonSpinner label={loadingText} size={size}>
+            {spinner}
+          </ButtonSpinner>
+          {loadingText || <span className={'opacity-0'}>{children}</span>}
+        </div>
+      ) : (
+        children
+      )}
     </Comp>
   );
 });
