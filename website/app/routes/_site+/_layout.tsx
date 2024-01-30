@@ -142,7 +142,7 @@ const HeaderNavUser = () => {
   if (user) {
     return (
       <DropdownMenu.Root placement={'bottom'}>
-        <DropdownMenu.Trigger>
+        <DropdownMenu.Trigger asChild>
           <Button aspectSquare variant={'subtle'} color={'neutral'}>
             <Avatar size={26} src={user.avatar} name={user.nickname} />
           </Button>
@@ -193,11 +193,17 @@ const HeaderNavUser = () => {
 
   return (
     <Tooltip.Root placement={'bottom'}>
-      <Button asChild aspectSquare aria-label={'用户登录或注册'} color={'neutral'} variant={'subtle'}>
-        <HistoryLink to={to}>
-          <UserCircle size={'sm'} />
-        </HistoryLink>
-      </Button>
+      <Tooltip.Trigger asChild>
+        <Button asChild aspectSquare aria-label={'用户登录或注册'} color={'neutral'} variant={'subtle'}>
+          <HistoryLink to={to}>
+            <UserCircle size={'sm'} />
+          </HistoryLink>
+        </Button>
+      </Tooltip.Trigger>
+      <Tooltip.Content>
+        <Tooltip.Arrow />
+        用户登录或注册
+      </Tooltip.Content>
     </Tooltip.Root>
   );
 };

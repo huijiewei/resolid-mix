@@ -17,7 +17,7 @@ export const AuthSignupForm = () => {
 
   const {
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     control,
   } = useRemixForm<AuthSignupFormData>({
     mode: 'onSubmit',
@@ -138,7 +138,7 @@ export const AuthSignupForm = () => {
           />
         </div>
         <div className={'text-center'}>
-          <Button size={'lg'} fullWidth type={'submit'}>
+          <Button loading={isSubmitting} size={'lg'} fullWidth type={'submit'}>
             注册
           </Button>
         </div>

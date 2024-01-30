@@ -2,15 +2,25 @@ import type { ActionFunctionArgs } from '@remix-run/server-runtime';
 import { getValidatedFormData } from 'remix-hook-form';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
 import { AuthForgotPasswordForm } from '~/extensions/auth/AuthForgotPasswordForm';
-import { authLoginResolver, type AuthLoginFormData } from '~/extensions/auth/AuthLoginResolver';
+import type { AuthForgotPasswordFormData } from '~/extensions/auth/AuthForgotPasswordResolver';
+import { authLoginResolver } from '~/extensions/auth/AuthLoginResolver';
+import { trunstileVerifyServer } from '~/extensions/turnstile/trunstileVerify.server';
 import { problem, success } from '~/foundation/http.server';
 import { checkExistByEmail } from '~/modules/user/userService.server';
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const { errors, data } = await getValidatedFormData<AuthLoginFormData>(request, authLoginResolver);
+  const { errors, data } = await getValidatedFormData<AuthForgotPasswordFormData>(request, authLoginResolver);
 
   if (errors) {
     return problem(errors);
+  }
+
+  const captcha = await trunstileVerifyServer(data?.token);
+
+  if (!captcha.success) {
+    return problem({
+      captcha: { message: captcha.error ?? '验证码错误' },
+    });
   }
 
   if (!(await checkExistByEmail(data?.email))) {

@@ -1,5 +1,7 @@
+import type { TurnstileInstance } from '@marsidev/react-turnstile';
 import { Form, useSearchParams } from '@remix-run/react';
 import { Button, Input } from '@resolid-remix/ui';
+import { useEffect, useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { useRemixForm } from 'remix-hook-form';
 import { FormError } from '~/components/FormError';
@@ -9,19 +11,32 @@ import {
   type AuthForgotPasswordFormData,
 } from '~/extensions/auth/AuthForgotPasswordResolver';
 import { AuthModalAction, useAuthModalDispatch } from '~/extensions/auth/AuthModalContext';
+import { useTypeActionData } from '~/extensions/remix/useData';
+import { TurnstileWidget } from '~/extensions/turnstile/TurnstileWidget';
+import type { action } from '~/routes/_site+/_land+/forgot-password';
 
 export const AuthForgotPasswordForm = () => {
   const [params] = useSearchParams();
   const setAuthModalAction = useAuthModalDispatch();
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const captchaRef = useRef<TurnstileInstance>(null);
+  const data = useTypeActionData<{ success: boolean }, typeof action>();
 
   const {
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     control,
   } = useRemixForm<AuthForgotPasswordFormData>({
     mode: 'onSubmit',
     resolver: authForgotPasswordResolver,
   });
+
+  useEffect(() => {
+    if (!data?.success) {
+      setCaptchaVerified(false);
+      captchaRef.current?.reset();
+    }
+  }, [data]);
 
   return (
     <div className={'flex flex-col gap-2'}>
@@ -49,8 +64,22 @@ export const AuthForgotPasswordForm = () => {
           />
           <FormError message={errors.email?.message} />
         </div>
+        <Controller
+          name={'token'}
+          control={control}
+          render={({ field: { onChange } }) => (
+            <TurnstileWidget
+              ref={captchaRef}
+              onSuccess={(token) => {
+                onChange(token);
+                setCaptchaVerified(true);
+              }}
+              options={{ responseField: false }}
+            />
+          )}
+        />
         <div className={'text-center'}>
-          <Button fullWidth size={'lg'} type={'submit'}>
+          <Button loading={isSubmitting} disabled={!captchaVerified} fullWidth size={'lg'} type={'submit'}>
             发送
           </Button>
         </div>

@@ -17,7 +17,7 @@ export const AuthLoginForm = () => {
 
   const {
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitting },
     control,
   } = useRemixForm<AuthLoginFormData>({
     mode: 'onSubmit',
@@ -74,7 +74,7 @@ export const AuthLoginForm = () => {
           />
           <FormError message={errors.password?.message} />
         </div>
-        <div className={'flex flex-row justify-between'}>
+        <div className={'flex flex-row items-center justify-between'}>
           <Controller
             name={'rememberMe'}
             control={control}
@@ -101,8 +101,8 @@ export const AuthLoginForm = () => {
             </HistoryLink>
           )}
         </div>
-        <div className={'text-center'}>
-          <Button size={'lg'} fullWidth type={'submit'}>
+        <div className={'flex flex-row gap-1 text-center'}>
+          <Button fullWidth loading={isSubmitting} size={'lg'} type={'submit'}>
             登录
           </Button>
         </div>
