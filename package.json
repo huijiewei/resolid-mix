@@ -9,10 +9,10 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "prepare": "lefthook install",
-    "lint": "pnpm run -r --if-present lint",
     "format": "prettier --write .",
+    "lint": "pnpm run -r --if-present lint",
+    "test": "pnpm test -r --if-present",
     "website:dev": "pnpm run --filter website dev",
-    "website:build": "pnpm run --filter website build",
     "website:serve": "pnpm run --filter website serve",
     "website:deploy": "pnpm run --filter website... build",
     "drizzle": "pnpm run --filter website drizzle",
@@ -33,7 +33,6 @@
     "prettier": "^3.2.4",
     "prettier-plugin-organize-imports": "^3.2.4",
     "prettier-plugin-tailwindcss": "^0.5.11",
-    "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
   "repository": "https://github.com/huijiewei/resolid-remix.git",

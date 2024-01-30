@@ -22,16 +22,6 @@ export default defineConfig(({ command }) => {
 
   const config: UserConfig = {
     plugins: [
-      remix({
-        future: {
-          v3_fetcherPersist: true,
-          v3_relativeSplatPath: true,
-        },
-        ignoredRouteFiles: ['**/*'],
-        routes: async (defineRoutes) => {
-          return flatRoutes('routes', defineRoutes, { ignoredRouteFiles: ['**/.*'] });
-        },
-      }),
       mdx({
         providerImportSource: '@mdx-js/react',
         rehypePlugins: [
@@ -57,10 +47,20 @@ export default defineConfig(({ command }) => {
         ],
         remarkPlugins: [remarkFrontmatter, remarkMdxFrontmatter, remarkGfm],
       }),
-      Inspect(),
+      remix({
+        future: {
+          v3_fetcherPersist: true,
+          v3_relativeSplatPath: true,
+        },
+        ignoredRouteFiles: ['**/*'],
+        routes: async (defineRoutes) => {
+          return flatRoutes('routes', defineRoutes, { ignoredRouteFiles: ['**/.*'] });
+        },
+      }),
       !isBuild && tsconfigPaths(),
+      !isBuild && Inspect(),
       deployBuild({ entryPoints: ['plugins/node-deploy/entry.ts'] }),
-    ],
+    ].filter(Boolean),
     build: {
       minify: true,
     },
