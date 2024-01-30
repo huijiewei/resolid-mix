@@ -9,6 +9,7 @@
 [![React](https://img.shields.io/badge/React-20232A?style=flat&logo=react&logoColor=white)](https://react.dev)
 [![Remix Run](https://img.shields.io/badge/Remix-000000?style=flat&logo=remix&logoColor=white)](https://remix.run)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Drizzle ORM](https://img.shields.io/badge/Drizzle_ORM-C5F74F?style=flat&logo=drizzle&logoColor=black)](https://orm.drizzle.team/)
 [![NodeJS](https://img.shields.io/badge/Node.js-339933?style=flat&logo=nodedotjs&logoColor=white)](https://nodejs.org)
 [![PNPM](https://img.shields.io/badge/PNPM-F28D1A?style=flat&logo=pnpm&logoColor=white)](https://pnpm.io)
 [![Vite](https://img.shields.io/badge/Vite-B73BFE?style=flat&logo=vite&logoColor=FFD62E)](https://vitejs.dev)

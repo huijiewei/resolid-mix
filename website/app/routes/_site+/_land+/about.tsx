@@ -40,6 +40,11 @@ export default function About() {
         Hono - [炎] 在日语中表示火焰🔥，是一个面向 Edge 的小型、简单且超快速的 Web 框架。它适用于任何 JavaScript
         运行时环境：Cloudflare Workers、Fastly Compute、Deno、Bun、Vercel、Netlify、AWS Lambda、Lambda@Edge 和 Node.js。
       </p>
+      <h3>Drizzle ORM</h3>
+      <p>
+        Drizzle ORM 是一个带有头部🐲的无头 TypeScript ORM。
+        它看起来简单而直观，能够在项目的第1000天保持高性能，允许你按照自己的方式进行操作，并在需要时提供支持。
+      </p>
       <h3>Node.js</h3>
       <p>
         Node.js 是一个开源且跨平台的 JavaScript 运行环境。它是几乎任何类型项目的热门工具！ Node.js 运行的是 V8
