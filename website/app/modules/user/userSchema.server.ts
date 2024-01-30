@@ -41,42 +41,6 @@ export const userGroups = resolidMysqlTable('user_group', {
 export type UserGroupSelect = typeof userGroups.$inferSelect;
 export type UserGroupInsert = typeof userGroups.$inferInsert;
 
-export const userAccounts = resolidMysqlTable(
-  'user_accounts',
-  {
-    id: int('id').autoincrement().primaryKey(),
-    userId: int('userId').notNull().default(0),
-    type: varchar('type', { length: 32 }).notNull().default(''),
-    provider: varchar('provider', { length: 32 }).notNull().default(''),
-    providerAccountId: varchar('providerAccountId', { length: 191 }).notNull().default(''),
-    refreshToken: varchar('refreshToken', { length: 191 }).notNull().default(''),
-    accessToken: varchar('accessToken', { length: 191 }).notNull().default(''),
-    expiresIn: int('expiresIn').notNull().default(0),
-    tokenType: varchar('tokenType', { length: 32 }).notNull().default(''),
-    scope: varchar('scope', { length: 32 }).notNull().default(''),
-    idToken: varchar('idToken', { length: 191 }).notNull().default(''),
-    sessionState: varchar('sessionState', { length: 191 }).notNull().default(''),
-  },
-  (userAccounts) => ({
-    providerIndex: unique('providerIndex').on(userAccounts.provider, userAccounts.providerAccountId),
-    userIdIndex: index('userIdIndex').on(userAccounts.userId),
-  }),
-);
-
-export const userSessions = resolidMysqlTable(
-  'user_session',
-  {
-    id: int('id').autoincrement().primaryKey(),
-    userId: int('userId').notNull().default(0),
-    token: varchar('token', { length: 191 }).notNull().default(''),
-    expiredAt: datetime('expiredAt').notNull(),
-  },
-  (userSessions) => ({
-    tokenIndex: unique('tokenIndex').on(userSessions.token),
-    userIdIndex: index('userIdIndex').on(userSessions.userId),
-  }),
-);
-
 export const usersRelations = relations(users, ({ one }) => ({
   userGroup: one(userGroups, {
     fields: [users.userGroupId],

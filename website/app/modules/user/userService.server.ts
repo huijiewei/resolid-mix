@@ -1,7 +1,6 @@
-import { desc, eq, inArray } from 'drizzle-orm';
-import { randomBytes } from 'node:crypto';
+import { desc, eq } from 'drizzle-orm';
 import { db } from '~/foundation/db.server';
-import { userSessions, users, type UserInsert, type UserSelect, type UserSelectWithGroup } from './userSchema.server';
+import { users, type UserInsert, type UserSelect, type UserSelectWithGroup } from './userSchema.server';
 
 export const getUserByLast = async (): Promise<UserSelect | null> => {
   const result = await db.select().from(users).orderBy(desc(users.id)).limit(1);
@@ -9,9 +8,9 @@ export const getUserByLast = async (): Promise<UserSelect | null> => {
   return result[0] ?? null;
 };
 
-export const getUserByEmail = async (email: string): Promise<UserSelectWithGroup | null> => {
+export const getUserById = async (id: number): Promise<UserSelectWithGroup | null> => {
   const user = await db.query.users.findFirst({
-    where: eq(users.email, email),
+    where: eq(users.id, id),
     with: {
       userGroup: true,
     },
@@ -20,36 +19,9 @@ export const getUserByEmail = async (email: string): Promise<UserSelectWithGroup
   return user ?? null;
 };
 
-export const updateUserSession = async (
-  userId: number,
-  expires: Date,
-  token: string | null = null,
-): Promise<string> => {
-  if (token) {
-    await db.update(userSessions).set({ userId: userId, expiredAt: expires }).where(eq(userSessions.token, token));
-  }
-
-  token = Buffer.from(randomBytes(32)).toString('hex');
-
-  await db.insert(userSessions).values({
-    userId: userId,
-    token: token,
-    expiredAt: expires,
-  });
-
-  return token;
-};
-
-export const removeUserSession = async (token: string) => {
-  await db.delete(userSessions).where(eq(userSessions.token, token));
-};
-
-export const getUserBySessionToken = async (token: string): Promise<UserSelectWithGroup | null> => {
+export const getUserByEmail = async (email: string): Promise<UserSelectWithGroup | null> => {
   const user = await db.query.users.findFirst({
-    where: inArray(
-      users.id,
-      db.select({ data: userSessions.userId }).from(userSessions).where(eq(userSessions.token, token)),
-    ),
+    where: eq(users.email, email),
     with: {
       userGroup: true,
     },

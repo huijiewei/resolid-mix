@@ -6,7 +6,7 @@ import { authLoginResolver } from '~/extensions/auth/AuthLoginResolver';
 import { AuthSignupForm } from '~/extensions/auth/AuthSignupForm';
 import type { AuthSignupFormData } from '~/extensions/auth/AuthSignupResolver';
 import { problem, success } from '~/foundation/http.server';
-import { commitSession, getSession, omitUser } from '~/foundation/session.server';
+import { commitSession, createUserSession, omitUser } from '~/foundation/session.server';
 import { checkExistByEmail, checkExistByUsername, createUser } from '~/modules/user/userService.server';
 
 export const action = async ({ request }: ActionFunctionArgs) => {
@@ -35,8 +35,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     userGroupId: 2,
   });
 
-  const session = await getSession(request.headers.get('Cookie'));
-  session.set('id', user.id);
+  const session = await createUserSession(request, user.id);
 
   return success(omitUser(user), {
     headers: {

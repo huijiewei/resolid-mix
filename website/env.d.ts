@@ -19,6 +19,7 @@ declare global {
       RR_DB_USER: string;
       RR_DB_PASSWORD: string;
       RR_DB_DATABASE: string;
+      RR_COOKIE_SECRET: string;
       RR_TURNSTILE_SECRET: string;
     }
   }
