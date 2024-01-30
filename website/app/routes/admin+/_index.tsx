@@ -1,4 +1,3 @@
-import { Outlet } from '@remix-run/react';
 import { Button } from '@resolid-remix/ui';
 
 export default function _index() {
@@ -9,7 +8,6 @@ export default function _index() {
       <p>
         <Button color={'success'}>Button</Button>
       </p>
-      <Outlet />
     </>
   );
 }

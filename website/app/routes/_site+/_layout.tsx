@@ -1,15 +1,29 @@
-import { Link, Outlet } from '@remix-run/react';
-import { Button, Tooltip, clsx, noScrollbarsClassName, useColorModeState } from '@resolid-remix/ui';
+import { Link, Outlet, useFetcher, useLocation } from '@remix-run/react';
+import {
+  Avatar,
+  Button,
+  DropdownMenu,
+  Tooltip,
+  clsx,
+  noScrollbarsClassName,
+  useColorModeState,
+} from '@resolid-remix/ui';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import { Close } from '~/assets/icons/Close';
+import { Dashboard } from '~/assets/icons/Dashboard';
 import { Github } from '~/assets/icons/Github';
+import { Logout } from '~/assets/icons/Logout';
 import { Menu } from '~/assets/icons/Menu';
+import { Settings } from '~/assets/icons/Settings';
 import { UserCircle } from '~/assets/icons/UserCircle';
 import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
+import { HistoryLink } from '~/components/HistoryLink';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
 import { LazySpinner } from '~/components/LazySpinner';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
+import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/extensions/auth/AuthUserContext';
+import { userIsAdmin } from '~/modules/user/userUtils';
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = () => {
@@ -54,9 +68,7 @@ const HeaderNav = () => {
           <HeaderNavMenu onClick={() => setOpened(false)} />
         </div>
         <div className={'flex flex-row items-center gap-1'}>
-          <Button aria-label={'用户登录注册'} aspectSquare variant={'subtle'} color={'neutral'}>
-            <UserCircle size={'sm'} />
-          </Button>
+          <HeaderNavUser />
           <ThemeSwitcher />
           <Tooltip.Root placement={'bottom'}>
             <Tooltip.Trigger asChild>
@@ -118,5 +130,74 @@ const HeaderNavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorEleme
         );
       })}
     </ul>
+  );
+};
+
+const HeaderNavUser = () => {
+  const user = useAuthUserState();
+  const { resetUser } = useAuthUserDispatch();
+  const location = useLocation();
+  const fetcher = useFetcher();
+
+  if (user) {
+    return (
+      <DropdownMenu.Root placement={'bottom'}>
+        <DropdownMenu.Trigger>
+          <Button aspectSquare variant={'subtle'} color={'neutral'}>
+            <Avatar size={26} src={user.avatar} name={user.nickname} />
+          </Button>
+        </DropdownMenu.Trigger>
+        <DropdownMenu.Content className={'z-50'}>
+          <DropdownMenu.Arrow />
+          <DropdownMenu.Item disabled>{user.email}</DropdownMenu.Item>
+          <DropdownMenu.Item asChild>
+            <HistoryLink to={`user/${user.username}`}>
+              <UserCircle className={'me-1.5'} />
+              个人主页
+            </HistoryLink>
+          </DropdownMenu.Item>
+          <DropdownMenu.Item asChild>
+            <HistoryLink to={'settings'}>
+              <Settings className={'me-1.5'} />
+              用户设置
+            </HistoryLink>
+          </DropdownMenu.Item>
+          {userIsAdmin(user) && (
+            <DropdownMenu.Item asChild>
+              <HistoryLink to={'/admin'} target={'_blank'}>
+                <Dashboard className={'me-1.5'} />
+                管理面板
+              </HistoryLink>
+            </DropdownMenu.Item>
+          )}
+          <DropdownMenu.Divider />
+          <DropdownMenu.Item
+            onClick={() => {
+              fetcher.submit(null, {
+                method: 'post',
+                action: '/logout',
+              });
+
+              resetUser();
+            }}
+          >
+            <Logout className={'me-1.5'} />
+            退出登录
+          </DropdownMenu.Item>
+        </DropdownMenu.Content>
+      </DropdownMenu.Root>
+    );
+  }
+
+  const to = getLoginTo('login', location);
+
+  return (
+    <Tooltip.Root placement={'bottom'}>
+      <Button asChild aspectSquare aria-label={'用户登录或注册'} color={'neutral'} variant={'subtle'}>
+        <HistoryLink to={to}>
+          <UserCircle size={'sm'} />
+        </HistoryLink>
+      </Button>
+    </Tooltip.Root>
   );
 };

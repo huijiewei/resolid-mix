@@ -12,7 +12,8 @@
     "resolid": "tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hono/node-server": "^1.5.0",
+    "@hono/node-server": "^1.7.0",
+    "@hookform/resolvers": "^3.3.4",
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
@@ -26,7 +27,10 @@
     "isbot": "^4.4.0",
     "mysql2": "^3.9.1",
     "react": "18.3.0-canary-763612647-20240126",
-    "react-dom": "18.3.0-canary-763612647-20240126"
+    "react-dom": "18.3.0-canary-763612647-20240126",
+    "react-hook-form": "^7.49.3",
+    "remix-hook-form": "^4.0.1",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.0",

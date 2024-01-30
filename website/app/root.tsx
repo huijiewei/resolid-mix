@@ -1,11 +1,25 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
-
+import type { LoaderFunctionArgs } from '@remix-run/server-runtime';
 import { ColorModeScript, ResolidProvider } from '@resolid-remix/ui';
 import { RouteProgressBar } from '~/components/RouteProgressBar';
+import { AuthProvider } from '~/extensions/auth/AuthProvider';
+import { AuthUserProvider } from '~/extensions/auth/AuthUserProvider';
+import { useTypeLoaderData } from '~/extensions/remix/useData';
+import { getSessionUser, type SessionUser } from '~/foundation/session.server';
+
 import './root.css';
+
+export const loader = async ({ request }: LoaderFunctionArgs) => {
+  return await getSessionUser(request);
+};
+
+// noinspection JSUnusedGlobalSymbols
+export const shouldRevalidate = () => false;
 
 // noinspection JSUnusedGlobalSymbols
 export default function App() {
+  const user = useTypeLoaderData<SessionUser, typeof loader>();
+
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
@@ -22,7 +36,11 @@ export default function App() {
       <body className={'min-h-screen overflow-y-scroll antialiased'}>
         <RouteProgressBar />
         <ResolidProvider>
-          <Outlet />
+          <AuthUserProvider user={user}>
+            <AuthProvider>
+              <Outlet />
+            </AuthProvider>
+          </AuthUserProvider>
         </ResolidProvider>
         <ScrollRestoration />
         <Scripts />
