@@ -11,5 +11,6 @@ export * from './use-isomorphic-effect';
 export * from './use-local-storage';
 export * from './use-media-query';
 export * from './use-merge-refs';
+export * from './use-move';
 export * from './use-previous';
 export * from './use-timeout';
