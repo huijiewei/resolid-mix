@@ -7,30 +7,30 @@ import { useRadioGroup, type RadioBaseProps } from './RadioGroupContext';
 
 export type RadioProps = RadioBaseProps & {
   /**
-   * Value
+   * 值
    */
   value?: string | number;
 
   /**
-   * Required
+   * 是否必选
    * @default false
    */
   required?: boolean;
 
   /**
-   * Invalid
+   * 是否无效
    * @default false
    */
   invalid?: boolean;
 
   /**
-   * Spacing
+   * 间距
    * @default '0.5em'
    */
   spacing?: string | number;
 
   /**
-   * onChange callback
+   * onChange 回调
    */
   onChange?: (checked: boolean) => void;
 };
@@ -71,7 +71,7 @@ const radioColorStyles = {
   },
 };
 
-export const Radio = forwardRef<HTMLInputElement, Props<'input', RadioProps>>((props, ref) => {
+export const Radio = forwardRef<HTMLInputElement, Props<'input', RadioProps, 'role' | 'type'>>((props, ref) => {
   const group = useRadioGroup();
 
   const {

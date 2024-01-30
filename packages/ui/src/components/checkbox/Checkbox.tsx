@@ -16,24 +16,24 @@ import { CheckboxIcon } from './CheckboxIcon';
 
 export type CheckboxProps = CheckboxBaseProps & {
   /**
-   * Value
+   * 值
    */
   value?: string | number;
 
   /**
-   * Required
+   * 是否必选
    * @default false
    */
   required?: boolean;
 
   /**
-   * Invalid
+   * 是否无效
    * @default false
    */
   invalid?: boolean;
 
   /**
-   * Spacing
+   * 间距
    * @default '0.5em'
    */
   spacing?: string | number;
@@ -45,13 +45,13 @@ export type CheckboxProps = CheckboxBaseProps & {
   indeterminate?: boolean;
 
   /**
-   * Icon
+   * 图标
    * @default CheckboxIcon
    */
   icon?: ReactElement;
 
   /**
-   * onChange callback
+   * onChange 回调
    */
   onChange?: (checked: boolean) => void;
 };
@@ -92,7 +92,7 @@ const checkboxColorStyles = {
   },
 };
 
-export const Checkbox = forwardRef<HTMLInputElement, Props<'input', CheckboxProps>>((props, ref) => {
+export const Checkbox = forwardRef<HTMLInputElement, Props<'input', CheckboxProps, 'role' | 'type'>>((props, ref) => {
   const group = useCheckboxGroup();
 
   const {
