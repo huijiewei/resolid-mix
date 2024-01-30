@@ -43,8 +43,8 @@
   "packageManager": "pnpm@8.15.1",
   "pnpm": {
     "overrides": {
-      "react": "18.3.0-canary-763612647-20240126",
-      "react-dom": "18.3.0-canary-763612647-20240126",
+      "react": "18.3.0-canary-971b62f47-20240129",
+      "react-dom": "18.3.0-canary-971b62f47-20240129",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
       "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@latest",
