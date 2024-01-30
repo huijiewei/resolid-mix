@@ -130,6 +130,9 @@ importers:
       '@hookform/resolvers':
         specifier: ^3.3.4
         version: 3.3.4(react-hook-form@7.49.3)
+      '@marsidev/react-turnstile':
+        specifier: ^0.5.1
+        version: 0.5.1(react-dom@18.3.0-canary-763612647-20240126)(react@18.3.0-canary-763612647-20240126)
       '@remix-run/node':
         specifier: ^2.5.1
         version: 2.5.1(typescript@5.3.3)
@@ -1617,6 +1620,16 @@ packages:
   /@jspm/core@2.0.1:
     resolution: {integrity: sha512-Lg3PnLp0QXpxwLIAuuJboLeRaIhrgJjeuh797QADg3xz8wGLugQOS5DpsE8A6i6Adgzf+bacllkKZG3J0tGfDw==}
     dev: true
+
+  /@marsidev/react-turnstile@0.5.1(react-dom@18.3.0-canary-763612647-20240126)(react@18.3.0-canary-763612647-20240126):
+    resolution: {integrity: sha512-/Uu6lYpt9ebUOU8bUfJg7qp2ufJg3Mqf1G/TT1iXg9NN/3zH+3bOCWL9Lsm9JhVY4Ts66ftZw7EwFB3tKpw5rA==}
+    peerDependencies:
+      react: 18.3.0-canary-763612647-20240126
+      react-dom: 18.3.0-canary-763612647-20240126
+    dependencies:
+      react: 18.3.0-canary-763612647-20240126
+      react-dom: 18.3.0-canary-763612647-20240126(react@18.3.0-canary-763612647-20240126)
+    dev: false
 
   /@mdx-js/mdx@2.3.0:
     resolution: {integrity: sha512-jLuwRlz8DQfQNiUCJR50Y09CGPq3fLtmtUQfVrj79E0JWu3dvsVcxVIcfhR5h0iXu+/z++zDrYeiJqifRynJkA==}

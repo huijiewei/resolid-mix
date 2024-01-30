@@ -9,11 +9,13 @@
     "dev": "remix vite:dev",
     "start": "remix-serve ./build/server/index.js",
     "serve": "NODE_ENV=production node ./build/server/serve.mjs",
+    "drizzle": "drizzle-kit",
     "resolid": "tsx ./cli/index.ts"
   },
   "dependencies": {
     "@hono/node-server": "^1.7.0",
     "@hookform/resolvers": "^3.3.4",
+    "@marsidev/react-turnstile": "^0.5.1",
     "@remix-run/node": "^2.5.1",
     "@remix-run/react": "^2.5.1",
     "@remix-run/serve": "^2.5.1",
