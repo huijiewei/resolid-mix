@@ -5,6 +5,8 @@ import { Hono } from 'hono';
 import { createMiddleware } from 'hono/factory';
 import os from 'node:os';
 
+import 'dotenv/config';
+
 // @ts-expect-error Cannot find module
 import * as build from './index.js';
 
