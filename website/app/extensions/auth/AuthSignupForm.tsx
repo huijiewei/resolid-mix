@@ -126,11 +126,11 @@ export const AuthSignupForm = () => {
             render={({ field: { name, onChange } }) => (
               <Checkbox id={name} name={name} invalid={Boolean(errors.agreeTerms?.message)} onChange={onChange}>
                 同意
-                <HistoryLink className={'text-link hover:text-link-hovered'} target={'_blank'} to={'/terms'}>
+                <HistoryLink className={'text-link hover:text-link-hovered'} target={'_blank'} to={'/terms-service'}>
                   服务协议
                 </HistoryLink>
                 并已阅读
-                <HistoryLink className={'text-link hover:text-link-hovered'} target={'_blank'} to={'/privacy'}>
+                <HistoryLink className={'text-link hover:text-link-hovered'} target={'_blank'} to={'/privacy-policy'}>
                   隐私声明
                 </HistoryLink>
               </Checkbox>
