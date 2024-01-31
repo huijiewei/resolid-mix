@@ -22,7 +22,7 @@
     "@commitlint/cli": "^18.6.0",
     "@commitlint/config-conventional": "^18.6.0",
     "@types/eslint": "^8.56.2",
-    "@types/node": "^20.11.10",
+    "@types/node": "^20.11.13",
     "@typescript-eslint/eslint-plugin": "^6.20.0",
     "@typescript-eslint/parser": "^6.20.0",
     "eslint": "^8.56.0",
@@ -42,8 +42,10 @@
   "packageManager": "pnpm@8.15.1",
   "pnpm": {
     "overrides": {
-      "react": "18.3.0-canary-971b62f47-20240129",
-      "react-dom": "18.3.0-canary-971b62f47-20240129",
+      "esbuild": "^0.20.0",
+      "react": "18.3.0-canary-247738465-20240130",
+      "react-dom": "18.3.0-canary-247738465-20240130",
+      "react-is": "18.3.0-canary-247738465-20240130",
       "array-includes": "npm:@nolyfill/array-includes@latest",
       "array.prototype.flat": "npm:@nolyfill/array.prototype.flat@latest",
       "array.prototype.flatmap": "npm:@nolyfill/array.prototype.flatmap@latest",
@@ -61,7 +63,8 @@
       "object.values": "npm:@nolyfill/object.values@latest",
       "side-channel": "npm:@nolyfill/side-channel@latest",
       "string.prototype.matchall": "npm:@nolyfill/string.prototype.matchall@latest",
-      "which-typed-array": "npm:@nolyfill/which-typed-array@latest"
+      "which-typed-array": "npm:@nolyfill/which-typed-array@latest",
+      "deep-equal": "npm:@nolyfill/deep-equal@latest"
     }
   }
 }

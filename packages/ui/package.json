@@ -37,10 +37,10 @@
   },
   "devDependencies": {
     "@resolid-remix/tailwind": "workspace:^",
-    "@testing-library/react": "^14.1.2",
-    "react": "18.3.0-canary-971b62f47-20240129",
-    "react-dom": "18.3.0-canary-971b62f47-20240129",
+    "@testing-library/react": "^14.2.0",
     "jsdom": "^24.0.0",
+    "react": "18.3.0-canary-247738465-20240130",
+    "react-dom": "18.3.0-canary-247738465-20240130",
     "tsup": "^8.0.1",
     "vitest": "^1.2.2"
   },
