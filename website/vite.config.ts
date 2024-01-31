@@ -68,7 +68,7 @@ export default defineConfig(({ command }) => {
       alias: [isBuild && { find: '~', replacement: resolve(__dirname, './app') }].filter(Boolean) as AliasOptions,
     },
     ssr: {
-      external: ['@node-rs/bcrypt'],
+      external: ['@node-rs/bcrypt', 'better-sqlite3'],
     },
     optimizeDeps: {
       exclude: ['@node-rs/bcrypt'],
