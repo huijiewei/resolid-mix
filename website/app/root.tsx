@@ -21,7 +21,7 @@ export const shouldRevalidate = () => false;
 export const links: LinksFunction = () => {
   return [
     {
-      rel: 'preload',
+      rel: 'prefetch',
       href: commonIcon,
       as: 'image',
       type: 'image/svg+xml',
