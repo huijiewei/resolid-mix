@@ -1,6 +1,7 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
-import type { LoaderFunctionArgs } from '@remix-run/server-runtime';
+import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/server-runtime';
 import { ColorModeScript, ResolidProvider } from '@resolid-remix/ui';
+import commonIcon from '~/assets/icons/common.svg';
 import { RouteProgressBar } from '~/components/RouteProgressBar';
 import { AuthProvider } from '~/extensions/auth/AuthProvider';
 import { AuthUserProvider } from '~/extensions/auth/AuthUserProvider';
@@ -15,6 +16,18 @@ export const loader = async ({ request }: LoaderFunctionArgs) => {
 
 // noinspection JSUnusedGlobalSymbols
 export const shouldRevalidate = () => false;
+
+// noinspection JSUnusedGlobalSymbols
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: 'preload',
+      href: commonIcon,
+      as: 'image',
+      type: 'image/svg+xml',
+    },
+  ];
+};
 
 // noinspection JSUnusedGlobalSymbols
 export default function App() {

@@ -9,18 +9,12 @@ import {
   useColorModeState,
 } from '@resolid-remix/ui';
 import { Suspense, useState, type MouseEventHandler } from 'react';
-import { Close } from '~/assets/icons/Close';
-import { Dashboard } from '~/assets/icons/Dashboard';
-import { Github } from '~/assets/icons/Github';
-import { Logout } from '~/assets/icons/Logout';
-import { Menu } from '~/assets/icons/Menu';
-import { Settings } from '~/assets/icons/Settings';
-import { UserCircle } from '~/assets/icons/UserCircle';
 import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
 import { HistoryLink } from '~/components/HistoryLink';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
 import { LazySpinner } from '~/components/LazySpinner';
+import { SpriteIcon } from '~/components/SpriteIcon';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
 import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/extensions/auth/AuthUserContext';
 import { userIsAdmin } from '~/modules/user/userUtils';
@@ -53,7 +47,7 @@ const HeaderNav = () => {
   return (
     <nav className={'mx-auto flex h-16 items-center justify-between px-4 desktop:max-w-6xl'}>
       <button title={'导航菜单'} className={'p-2 tablet:hidden'} onClick={() => setOpened((prev) => !prev)}>
-        {opened ? <Close size={'sm'} /> : <Menu size={'sm'} />}
+        {opened ? <SpriteIcon name={'close'} size={'24'} /> : <SpriteIcon name={'menu'} size={'24'} />}
       </button>
       <Link to={''}>
         <HeaderBanner />
@@ -79,7 +73,7 @@ const HeaderNav = () => {
                   target="_blank"
                   href={'https://github.com/huijiewei/resolid-remix'}
                 >
-                  <Github size={'sm'} />
+                  <SpriteIcon size={22} name={'github'} />
                 </a>
               </Button>
             </Tooltip.Trigger>
@@ -152,20 +146,20 @@ const HeaderNavUser = () => {
           <DropdownMenu.Item disabled>{user.email}</DropdownMenu.Item>
           <DropdownMenu.Item asChild>
             <HistoryLink to={`user/${user.username}`}>
-              <UserCircle className={'me-1.5'} />
+              <SpriteIcon size={'1em'} name={'user'} className={'me-1.5'} />
               个人主页
             </HistoryLink>
           </DropdownMenu.Item>
           <DropdownMenu.Item asChild>
             <HistoryLink to={'settings'}>
-              <Settings className={'me-1.5'} />
+              <SpriteIcon size={'1em'} name={'setting'} className={'me-1.5'} />
               用户设置
             </HistoryLink>
           </DropdownMenu.Item>
           {userIsAdmin(user) && (
             <DropdownMenu.Item asChild>
               <HistoryLink to={'/admin'} target={'_blank'}>
-                <Dashboard className={'me-1.5'} />
+                <SpriteIcon name={'dashboard'} size={'1em'} className={'me-1.5'} />
                 管理面板
               </HistoryLink>
             </DropdownMenu.Item>
@@ -181,7 +175,7 @@ const HeaderNavUser = () => {
               resetUser();
             }}
           >
-            <Logout className={'me-1.5'} />
+            <SpriteIcon size={'1em'} name={'logout'} className={'me-1.5'} />
             退出登录
           </DropdownMenu.Item>
         </DropdownMenu.Content>
@@ -196,7 +190,7 @@ const HeaderNavUser = () => {
       <Tooltip.Trigger asChild>
         <Button asChild aspectSquare aria-label={'用户登录或注册'} color={'neutral'} variant={'subtle'}>
           <HistoryLink to={to}>
-            <UserCircle size={'sm'} />
+            <SpriteIcon name={'user'} size={22} />
           </HistoryLink>
         </Button>
       </Tooltip.Trigger>

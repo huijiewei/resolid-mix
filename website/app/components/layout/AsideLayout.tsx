@@ -1,10 +1,10 @@
 import { useState, type PropsWithChildren } from 'react';
-import { Menu } from '~/assets/icons/Menu';
 import {
   AsideLayoutDispatchProvider,
   AsideLayoutStateProvider,
   useAsideLayoutDispatch,
 } from '~/components/layout/AsideLayoutContext';
+import { SpriteIcon } from '~/components/SpriteIcon';
 
 const AsideBar = () => {
   const setOpen = useAsideLayoutDispatch();
@@ -16,7 +16,7 @@ const AsideBar = () => {
       }
     >
       <button onClick={() => setOpen(true)} className={'flex items-center gap-1 p-2'}>
-        <Menu />
+        <SpriteIcon name={'menu'} />
         <span>导航</span>
       </button>
     </div>

@@ -1,6 +1,6 @@
 import { Button } from '@resolid-remix/ui';
-import { Github } from '~/assets/icons/Github';
 import { HistoryLink } from '~/components/HistoryLink';
+import { SpriteIcon } from '~/components/SpriteIcon';
 
 export default function _index() {
   return (
@@ -22,7 +22,7 @@ export default function _index() {
         </Button>
         <Button size={'xl'} variant={'outline'} color={'neutral'} asChild>
           <a rel="noreferrer noopener" target="_blank" href={'https://github.com/huijiewei/resolid-remix'}>
-            <Github className={'mr-2'} />
+            <SpriteIcon name={'github'} className={'me-2'} />
             Github
           </a>
         </Button>

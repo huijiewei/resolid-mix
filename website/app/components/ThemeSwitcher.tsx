@@ -1,21 +1,19 @@
 import { Button, clsx, DropdownMenu, useColorModeDispatch, useColorModeState } from '@resolid-remix/ui';
 import { useEffect, useState } from 'react';
-import { Moon } from '~/assets/icons/Moon';
-import { Sun } from '~/assets/icons/Sun';
-import { System } from '~/assets/icons/System';
+import { SpriteIcon } from '~/components/SpriteIcon';
 
 const colorModes = {
   light: {
     label: '亮色模式',
-    icon: Sun,
+    icon: 'sun',
   },
   dark: {
     label: '暗色模式',
-    icon: Moon,
+    icon: 'moon',
   },
   system: {
     label: '跟随系统',
-    icon: System,
+    icon: 'auto',
   },
 };
 
@@ -35,7 +33,7 @@ export const ThemeSwitcher = () => {
     <DropdownMenu.Root placement={'bottom'}>
       <DropdownMenu.Trigger asChild>
         <Button aria-label={'更改颜色模式'} color={'neutral'} variant={'subtle'} aspectSquare>
-          <colorModeState.icon size={'sm'} />
+          <SpriteIcon name={colorModeState.icon} size={22} />
         </Button>
       </DropdownMenu.Trigger>
       <DropdownMenu.Content className={'z-50'}>
@@ -51,7 +49,7 @@ export const ThemeSwitcher = () => {
                 setColorMode(key as ColorMode);
               }}
             >
-              <mode.icon className={'me-1.5'} />
+              <SpriteIcon name={mode.icon} className={'me-1.5'} />
               {mode.label}
             </DropdownMenu.Item>
           );

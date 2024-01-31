@@ -31,7 +31,7 @@ export const MenuItem = forwardRef<HTMLButtonElement, AsChildProps<'button', Men
         type={Comp == 'button' ? 'button' : undefined}
         disabled={disabled}
         className={clsx(
-          'flex w-full cursor-default items-center rounded px-2 py-1 outline-none transition-colors',
+          'flex w-full cursor-default items-center rounded px-2 py-1.5 outline-none transition-colors',
           'focus:bg-bg-subtle disabled:text-fg-muted',
           className,
         )}
