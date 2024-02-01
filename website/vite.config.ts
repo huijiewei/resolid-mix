@@ -12,7 +12,7 @@ import { flatRoutes } from 'remix-flat-routes';
 import { defineConfig, type AliasOptions, type UserConfig } from 'vite';
 import Inspect from 'vite-plugin-inspect';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import { deployBuild } from './plugins/node-deploy/build';
+import { nodeBuild } from './misc/node-hono/build';
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig(({ command }) => {
@@ -59,7 +59,7 @@ export default defineConfig(({ command }) => {
       }),
       !isBuild && tsconfigPaths(),
       !isBuild && Inspect(),
-      deployBuild({ entryPoints: ['plugins/node-deploy/entry.ts'] }),
+      isBuild && nodeBuild({ entryPoint: 'misc/node-hono/entry.ts' }),
     ].filter(Boolean),
     build: {
       minify: true,

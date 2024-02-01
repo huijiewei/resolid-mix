@@ -33,7 +33,7 @@
     "mysql2": "^3.9.1",
     "react": "18.3.0-canary-247738465-20240130",
     "react-dom": "18.3.0-canary-247738465-20240130",
-    "react-hook-form": "^7.49.3",
+    "react-hook-form": "^7.50.0",
     "remix-hook-form": "^4.0.1",
     "zod": "^3.22.4"
   },
@@ -50,7 +50,7 @@
     "@shikijs/rehype": "1.0.0-beta.2",
     "@tailwindcss/typography": "^0.5.10",
     "@types/better-sqlite3": "^7.6.9",
-    "@types/react": "^18.2.49",
+    "@types/react": "^18.2.50",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.17",
     "commander": "^11.1.0",

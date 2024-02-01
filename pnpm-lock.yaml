@@ -154,7 +154,7 @@ importers:
         version: 1.7.0
       '@hookform/resolvers':
         specifier: ^3.3.4
-        version: 3.3.4(react-hook-form@7.49.3)
+        version: 3.3.4(react-hook-form@7.50.0)
       '@marsidev/react-turnstile':
         specifier: ^0.5.1
         version: 0.5.1(react-dom@18.3.0-canary-247738465-20240130)(react@18.3.0-canary-247738465-20240130)
@@ -190,7 +190,7 @@ importers:
         version: 16.4.1
       drizzle-orm:
         specifier: ^0.29.3
-        version: 0.29.3(@types/better-sqlite3@7.6.9)(@types/react@18.2.49)(better-sqlite3@9.3.0)(mysql2@3.9.1)(react@18.3.0-canary-247738465-20240130)
+        version: 0.29.3(@types/better-sqlite3@7.6.9)(@types/react@18.2.50)(better-sqlite3@9.3.0)(mysql2@3.9.1)(react@18.3.0-canary-247738465-20240130)
       hono:
         specifier: ^3.12.9
         version: 3.12.9
@@ -207,11 +207,11 @@ importers:
         specifier: 18.3.0-canary-247738465-20240130
         version: 18.3.0-canary-247738465-20240130(react@18.3.0-canary-247738465-20240130)
       react-hook-form:
-        specifier: ^7.49.3
-        version: 7.49.3(react@18.3.0-canary-247738465-20240130)
+        specifier: ^7.50.0
+        version: 7.50.0(react@18.3.0-canary-247738465-20240130)
       remix-hook-form:
         specifier: ^4.0.1
-        version: 4.0.1(@remix-run/react@2.5.1)(react-dom@18.3.0-canary-247738465-20240130)(react-hook-form@7.49.3)(react@18.3.0-canary-247738465-20240130)
+        version: 4.0.1(@remix-run/react@2.5.1)(react-dom@18.3.0-canary-247738465-20240130)(react-hook-form@7.50.0)(react@18.3.0-canary-247738465-20240130)
       zod:
         specifier: ^3.22.4
         version: 3.22.4
@@ -221,7 +221,7 @@ importers:
         version: 8.4.0
       '@mdx-js/react':
         specifier: ^3.0.0
-        version: 3.0.0(@types/react@18.2.49)(react@18.3.0-canary-247738465-20240130)
+        version: 3.0.0(@types/react@18.2.50)(react@18.3.0-canary-247738465-20240130)
       '@mdx-js/rollup':
         specifier: ^3.0.0
         version: 3.0.0(rollup@4.9.6)
@@ -253,8 +253,8 @@ importers:
         specifier: ^7.6.9
         version: 7.6.9
       '@types/react':
-        specifier: ^18.2.49
-        version: 18.2.49
+        specifier: ^18.2.50
+        version: 18.2.50
       '@types/react-dom':
         specifier: ^18.2.18
         version: 18.2.18
@@ -1181,12 +1181,12 @@ packages:
     engines: {node: '>=18.14.1'}
     dev: false
 
-  /@hookform/resolvers@3.3.4(react-hook-form@7.49.3):
+  /@hookform/resolvers@3.3.4(react-hook-form@7.50.0):
     resolution: {integrity: sha512-o5cgpGOuJYrd+iMKvkttOclgwRW86EsWJZZRC23prf0uU2i48Htq4PuT73AVb9ionFyZrwYEITuOFGF+BydEtQ==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.49.3(react@18.3.0-canary-247738465-20240130)
+      react-hook-form: 7.50.0(react@18.3.0-canary-247738465-20240130)
     dev: false
 
   /@humanwhocodes/config-array@0.11.14:
@@ -1333,14 +1333,14 @@ packages:
       - supports-color
     dev: true
 
-  /@mdx-js/react@3.0.0(@types/react@18.2.49)(react@18.3.0-canary-247738465-20240130):
+  /@mdx-js/react@3.0.0(@types/react@18.2.50)(react@18.3.0-canary-247738465-20240130):
     resolution: {integrity: sha512-nDctevR9KyYFyV+m+/+S4cpzCWHqj+iHDHq3QrsWezcC+B17uZdIWgCguESUkwFhM3n/56KxWVE3V6EokrmONQ==}
     peerDependencies:
       '@types/react': '>=16'
       react: 18.3.0-canary-247738465-20240130
     dependencies:
       '@types/mdx': 2.0.11
-      '@types/react': 18.2.49
+      '@types/react': 18.2.50
       react: 18.3.0-canary-247738465-20240130
     dev: true
 
@@ -2311,11 +2311,11 @@ packages:
   /@types/react-dom@18.2.18:
     resolution: {integrity: sha512-TJxDm6OfAX2KJWJdMEVTwWke5Sc/E/RlnPGvGfS0W7+6ocy2xhDVQVh/KvC2Uf7kACs+gDytdusDSdWfWkaNzw==}
     dependencies:
-      '@types/react': 18.2.49
+      '@types/react': 18.2.50
     dev: true
 
-  /@types/react@18.2.49:
-    resolution: {integrity: sha512-nEJonYlS7+LUVdqRBHldXLRa7ZDeOm/rJbJwGbjmn2hqhmdO4C6vSgvhhNv2qBDhGSv2oLuUA+f5JtyUJDY6bA==}
+  /@types/react@18.2.50:
+    resolution: {integrity: sha512-y0XIDJkqp9HynS1VBktZG9mUziHTK5WZTAFDP/UfzSq+poV1drUKsr4VkjMyHTbqMz26BwgLZVYdx/EgPm7EkQ==}
     dependencies:
       '@types/prop-types': 15.7.11
       '@types/scheduler': 0.16.8
@@ -2764,7 +2764,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.22.3
-      caniuse-lite: 1.0.30001581
+      caniuse-lite: 1.0.30001582
       fraction.js: 4.3.7
       normalize-range: 0.1.2
       picocolors: 1.0.0
@@ -2873,7 +2873,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001581
+      caniuse-lite: 1.0.30001582
       electron-to-chromium: 1.4.653
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
@@ -2983,8 +2983,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /caniuse-lite@1.0.30001581:
-    resolution: {integrity: sha512-whlTkwhqV2tUmP3oYhtNfaWGYHDdS3JYFQBKXxcUR9qqPWsRhFHhoISO2Xnl/g0xyKzht9mI1LZpiNWfMzHixQ==}
+  /caniuse-lite@1.0.30001582:
+    resolution: {integrity: sha512-vsJG3V5vgfduaQGVxL53uSX/HUzxyr2eA8xCo36OLal7sRcSZbibJtLeh0qja4sFOr/QQGt4opB4tOy+eOgAxg==}
 
   /ccount@2.0.1:
     resolution: {integrity: sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==}
@@ -3588,7 +3588,7 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.29.3(@types/better-sqlite3@7.6.9)(@types/react@18.2.49)(better-sqlite3@9.3.0)(mysql2@3.9.1)(react@18.3.0-canary-247738465-20240130):
+  /drizzle-orm@0.29.3(@types/better-sqlite3@7.6.9)(@types/react@18.2.50)(better-sqlite3@9.3.0)(mysql2@3.9.1)(react@18.3.0-canary-247738465-20240130):
     resolution: {integrity: sha512-uSE027csliGSGYD0pqtM+SAQATMREb3eSM/U8s6r+Y0RFwTKwftnwwSkqx3oS65UBgqDOM0gMTl5UGNpt6lW0A==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
@@ -3660,7 +3660,7 @@ packages:
         optional: true
     dependencies:
       '@types/better-sqlite3': 7.6.9
-      '@types/react': 18.2.49
+      '@types/react': 18.2.50
       better-sqlite3: 9.3.0
       mysql2: 3.9.1
       react: 18.3.0-canary-247738465-20240130
@@ -7530,9 +7530,9 @@ packages:
       react: 18.3.0-canary-247738465-20240130
       scheduler: 0.24.0-canary-247738465-20240130
 
-  /react-hook-form@7.49.3(react@18.3.0-canary-247738465-20240130):
-    resolution: {integrity: sha512-foD6r3juidAT1cOZzpmD/gOKt7fRsDhXXZ0y28+Al1CHgX+AY1qIN9VSIIItXRq1dN68QrRwl1ORFlwjBaAqeQ==}
-    engines: {node: '>=18', pnpm: '8'}
+  /react-hook-form@7.50.0(react@18.3.0-canary-247738465-20240130):
+    resolution: {integrity: sha512-AOhuzM3RdP09ZCnq+Z0yvKGHK25yiOX5phwxjV9L7U6HMla10ezkBnvQ+Pk4GTuDfsC5P2zza3k8mawFwFLVuQ==}
+    engines: {node: '>=12.22.0'}
     peerDependencies:
       react: 18.3.0-canary-247738465-20240130
     dependencies:
@@ -7822,7 +7822,7 @@ packages:
       minimatch: 5.1.6
     dev: true
 
-  /remix-hook-form@4.0.1(@remix-run/react@2.5.1)(react-dom@18.3.0-canary-247738465-20240130)(react-hook-form@7.49.3)(react@18.3.0-canary-247738465-20240130):
+  /remix-hook-form@4.0.1(@remix-run/react@2.5.1)(react-dom@18.3.0-canary-247738465-20240130)(react-hook-form@7.50.0)(react@18.3.0-canary-247738465-20240130):
     resolution: {integrity: sha512-tHQWXRkLyNzfjr3NUL5XVfJSKWregoXWnhVOLSlso+QYT6n5ufbJgrum0YmMCGhHvRQsHQsT473tPWnOwAqybA==}
     peerDependencies:
       '@remix-run/react': ^2.0.0
@@ -7833,7 +7833,7 @@ packages:
       '@remix-run/react': 2.5.1(react-dom@18.3.0-canary-247738465-20240130)(react@18.3.0-canary-247738465-20240130)(typescript@5.3.3)
       react: 18.3.0-canary-247738465-20240130
       react-dom: 18.3.0-canary-247738465-20240130(react@18.3.0-canary-247738465-20240130)
-      react-hook-form: 7.49.3(react@18.3.0-canary-247738465-20240130)
+      react-hook-form: 7.50.0(react@18.3.0-canary-247738465-20240130)
     dev: false
 
   /require-directory@2.1.1:

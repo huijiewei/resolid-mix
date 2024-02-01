@@ -1,6 +1,6 @@
 {
   "extends": "../tsconfig.base.json",
-  "include": ["app", "cli", "plugins", "vite.config.ts", "tailwind.config.ts", "postcss.config.ts", "env.d.ts"],
+  "include": ["app", "cli", "misc", "vite.config.ts", "tailwind.config.ts", "postcss.config.ts", "env.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",
     "jsx": "react-jsx",

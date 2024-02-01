@@ -8,7 +8,7 @@ import { rollup } from 'rollup';
 import type { PackageJson } from 'type-fest';
 import type { Plugin, RollupCommonJSOptions } from 'vite';
 
-export const deployBuild = ({ entryPoints }: { entryPoints: string[] }): Plugin => {
+export const nodeBuild = ({ entryPoint }: { entryPoint: string }): Plugin => {
   let root = '';
   let outDir = '';
   let ssrExternal: string[] | undefined;
@@ -16,7 +16,7 @@ export const deployBuild = ({ entryPoints }: { entryPoints: string[] }): Plugin 
 
   // noinspection JSUnusedGlobalSymbols
   return {
-    name: 'vite-plugin-build',
+    name: 'vite-plugin-node-hono',
     apply(config, { command }) {
       return command === 'build' && !!config.build?.ssr;
     },
@@ -28,12 +28,14 @@ export const deployBuild = ({ entryPoints }: { entryPoints: string[] }): Plugin 
       commonjsOptions = config.build.commonjsOptions;
     },
     async closeBundle() {
+      console.log('bundle Node Server for production...');
+
       const outfile = join(outDir, 'entry.js');
 
       await esbuild
         .build({
           outfile: outfile,
-          entryPoints: entryPoints,
+          entryPoints: [entryPoint],
           external: ['./index.js'],
           platform: 'node',
           format: 'esm',
