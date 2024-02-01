@@ -7,7 +7,7 @@ import {
   clsx,
   noScrollbarsClassName,
   useColorModeState,
-} from '@resolid-remix/ui';
+} from '@resolid-mix/ui';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
@@ -21,7 +21,7 @@ import { userIsAdmin } from '~/modules/user/userUtils';
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = () => {
-  return [{ title: 'Resolid Remix' }, { name: 'description', content: 'Welcome to Remix!' }];
+  return [{ title: 'Resolid Mix' }, { name: 'description', content: 'Welcome to Resolid Mix!' }];
 };
 
 export default function Layout() {
@@ -68,10 +68,10 @@ const HeaderNav = () => {
             <Tooltip.Trigger asChild>
               <Button aspectSquare variant={'subtle'} color={'neutral'} asChild>
                 <a
-                  aria-label={'Go to Resolid Remix on Github'}
+                  aria-label={'Go to Resolid Mix on Github'}
                   rel="noreferrer noopener"
                   target="_blank"
-                  href={'https://github.com/huijiewei/resolid-remix'}
+                  href={'https://github.com/huijiewei/resolid-mix'}
                 >
                   <SpriteIcon size={22} name={'github'} />
                 </a>
@@ -79,7 +79,7 @@ const HeaderNav = () => {
             </Tooltip.Trigger>
             <Tooltip.Content>
               <Tooltip.Arrow />
-              访问 Github 上的 Resolid Remix
+              访问 Github 上的 Resolid Mix
             </Tooltip.Content>
           </Tooltip.Root>
         </div>
@@ -91,7 +91,7 @@ const HeaderNav = () => {
 const HeaderBanner = () => {
   const { darkMode } = useColorModeState();
 
-  return <img height={30} width={130} alt={'Resolid Remix'} src={darkMode ? ResolidBannerDark : ResolidBanner} />;
+  return <img height={30} width={130} alt={'Resolid Mix'} src={darkMode ? ResolidBannerDark : ResolidBanner} />;
 };
 
 const HeaderNavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorElement> }) => {

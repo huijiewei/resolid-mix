@@ -1,4 +1,4 @@
-import { Button } from '@resolid-remix/ui';
+import { Button } from '@resolid-mix/ui';
 import { HistoryLink } from '~/components/HistoryLink';
 import { SpriteIcon } from '~/components/SpriteIcon';
 
@@ -10,7 +10,7 @@ export default function _index() {
           'mt-20 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-center text-[5rem] font-[800] leading-normal text-transparent'
         }
       >
-        Resolid Remix
+        Resolid Mix
       </h1>
       <p className={'text-center'}>
         这是一个很有趣的 Remix 全栈演示站点，Remix 是一个全栈 Web 框架，可让您专注于用户界面并通过 Web
@@ -21,7 +21,7 @@ export default function _index() {
           <HistoryLink to={'/ui'}>快速开始</HistoryLink>
         </Button>
         <Button size={'xl'} variant={'outline'} color={'neutral'} asChild>
-          <a rel="noreferrer noopener" target="_blank" href={'https://github.com/huijiewei/resolid-remix'}>
+          <a rel="noreferrer noopener" target="_blank" href={'https://github.com/huijiewei/resolid-mix'}>
             <SpriteIcon name={'github'} className={'me-2'} />
             Github
           </a>

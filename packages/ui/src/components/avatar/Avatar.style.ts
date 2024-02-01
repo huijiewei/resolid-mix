@@ -1,4 +1,4 @@
-import { isNumber } from '@resolid-remix/utils';
+import { isNumber } from '@resolid-mix/utils';
 import { isDarkColor, randomColor } from '../../utils/color';
 import type { Size, Styled } from '../../utils/types';
 

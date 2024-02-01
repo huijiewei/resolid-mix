@@ -1,8 +1,8 @@
 <div align="center">
 <br>
-<img alt="Resolid Remix" src=".github/assets/resolid-logo.svg" height="100" />
+<img alt="Resolid Mix" src=".github/assets/resolid-logo.svg" height="100" />
 
-# Resolid Remix
+# Resolid Mix
 
 #### Get your app up and _running_ with [Remix Run](https://remix.run)!
 
@@ -19,7 +19,7 @@
 
 ## Website
 
-visit [remix.resolid.tech](https://remix.resolid.tech).
+visit [mix.resolid.tech](https://mix.resolid.tech).
 
 ## Contributing
 

@@ -1,4 +1,4 @@
-import { Modal } from '@resolid-remix/ui';
+import { Modal } from '@resolid-mix/ui';
 import { useState } from 'react';
 import { useAuthDispatch } from '~/extensions/auth/AuthContext';
 import { AuthForgotPasswordForm } from '~/extensions/auth/AuthForgotPasswordForm';

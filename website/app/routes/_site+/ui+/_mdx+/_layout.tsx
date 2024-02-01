@@ -1,7 +1,7 @@
 import { MDXProvider } from '@mdx-js/react';
 import { Outlet, useLocation } from '@remix-run/react';
-import { clsx } from '@resolid-remix/ui';
-import { debounce, isBrowser } from '@resolid-remix/utils';
+import { clsx } from '@resolid-mix/ui';
+import { debounce, isBrowser } from '@resolid-mix/utils';
 import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { LazySpinner } from '~/components/LazySpinner';
 import { components } from '~/extensions/mdx/components';

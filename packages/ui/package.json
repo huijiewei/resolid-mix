@@ -1,5 +1,5 @@
 {
-  "name": "@resolid-remix/ui",
+  "name": "@resolid-mix/ui",
   "version": "1.0.0",
   "type": "module",
   "sideEffects": false,
@@ -30,13 +30,13 @@
   },
   "dependencies": {
     "@floating-ui/react": "^0.26.8",
-    "@resolid-remix/utils": "workspace:^",
+    "@resolid-mix/utils": "workspace:^",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.0",
     "react-remove-scroll-bar": "^2.3.4"
   },
   "devDependencies": {
-    "@resolid-remix/tailwind": "workspace:^",
+    "@resolid-mix/tailwind": "workspace:^",
     "@testing-library/react": "^14.2.0",
     "jsdom": "^24.0.0",
     "react": "18.3.0-canary-247738465-20240130",
@@ -45,14 +45,15 @@
     "vitest": "^1.2.2"
   },
   "peerDependencies": {
-    "@resolid-remix/tailwind": "workspace:^",
+    "@resolid-mix/tailwind": "workspace:^",
     "react": ">=18.2.0",
     "react-dom": ">=18.2.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/huijiewei/resolid-remix",
+    "url": "https://github.com/huijiewei/resolid-mix",
     "directory": "packages/ui"
   },
+  "homepage": "https://mix.resolid.tech",
   "license": "MIT"
 }

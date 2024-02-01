@@ -1,4 +1,4 @@
-import { __DEV__, isInputEvent } from '@resolid-remix/utils';
+import { __DEV__, isInputEvent } from '@resolid-mix/utils';
 import type { PropsWithChildren } from 'react';
 import { useCallback, useMemo, type ChangeEvent } from 'react';
 import { useControllableState } from '../../hooks';

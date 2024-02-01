@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { forwardRef, type CSSProperties, type HTMLAttributeReferrerPolicy, type ReactElement } from 'react';
 import { clsx } from '../../utils/classed';
 import { toRounded } from '../../utils/radius';

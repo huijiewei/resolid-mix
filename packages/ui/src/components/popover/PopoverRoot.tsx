@@ -12,7 +12,7 @@ import {
   useRole,
   type Placement,
 } from '@floating-ui/react';
-import { __DEV__, runIfFn } from '@resolid-remix/utils';
+import { __DEV__, runIfFn } from '@resolid-mix/utils';
 import type { ReactNode, RefObject } from 'react';
 import { useId, useMemo, useRef } from 'react';
 import { useDisclosure } from '../../hooks';

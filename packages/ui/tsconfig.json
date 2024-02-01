@@ -5,7 +5,7 @@
     "baseUrl": ".",
     "jsx": "react-jsx",
     "paths": {
-      "@resolid-remix/utils": ["../utils/src"],
+      "@resolid-mix/utils": ["../utils/src"],
     },
   },
 }

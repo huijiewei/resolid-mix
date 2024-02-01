@@ -2,7 +2,7 @@ import 'dotenv/config';
 
 import { faker } from '@faker-js/faker';
 import { hashSync } from '@node-rs/bcrypt';
-import { wait } from '@resolid-remix/utils';
+import { wait } from '@resolid-mix/utils';
 import { Command } from 'commander';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
@@ -14,7 +14,7 @@ import { checkExistByEmail, checkExistByUsername, createUser, getUserByLast } fr
 
 const program = new Command();
 
-program.name('resolid-cli').description('Resolid Remix 终端工具').version('0.1.0');
+program.name('resolid-cli').description('Resolid Mix 终端工具').version('0.1.0');
 
 program
   .command('seed')

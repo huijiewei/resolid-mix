@@ -1,5 +1,5 @@
 {
-  "name": "resolid-remix",
+  "name": "resolid-mix",
   "version": "1.0.0",
   "type": "module",
   "workspaces": [
@@ -35,7 +35,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "typescript": "^5.3.3"
   },
-  "repository": "https://github.com/huijiewei/resolid-remix.git",
+  "repository": "https://github.com/huijiewei/resolid-mix.git",
   "engines": {
     "node": ">=20.0.0"
   },

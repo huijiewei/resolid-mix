@@ -1,5 +1,5 @@
 import { FloatingFocusManager } from '@floating-ui/react';
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { forwardRef, useEffect, type CSSProperties } from 'react';
 import { useMergeRefs } from '../../hooks';
 import { clsx } from '../../utils/classed';

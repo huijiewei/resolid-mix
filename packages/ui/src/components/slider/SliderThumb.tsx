@@ -1,4 +1,4 @@
-import { __DEV__, ariaAttr, clamp, runIfFn } from '@resolid-remix/utils';
+import { __DEV__, ariaAttr, clamp, runIfFn } from '@resolid-mix/utils';
 import { forwardRef, useCallback, type KeyboardEvent, type ReactNode } from 'react';
 import { useFocus, useHover, useMergeRefs } from '../../hooks';
 import { clsx } from '../../utils/classed';

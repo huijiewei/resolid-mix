@@ -1,4 +1,4 @@
-import { isBrowser } from '@resolid-remix/utils';
+import { isBrowser } from '@resolid-mix/utils';
 import { useMemo, useSyncExternalStore } from 'react';
 
 export const useMediaQuery = (query: string) => {

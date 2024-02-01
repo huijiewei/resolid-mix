@@ -1,5 +1,5 @@
 import { useLocation, useNavigate, type Path } from '@remix-run/react';
-import { Button, type ButtonProps } from '@resolid-remix/ui';
+import { Button, type ButtonProps } from '@resolid-mix/ui';
 import type { HTMLAttributes } from 'react';
 
 export type BackButtonProps = ButtonProps & { backTo?: string | Partial<Path> };

@@ -1,7 +1,7 @@
 import { useListItem } from '@floating-ui/react';
 import { forwardRef } from 'react';
 
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { useMergeRefs } from '../../hooks';
 import { clsx } from '../../utils/classed';
 import { Slot, type AsChildProps } from '../slot/Slot';

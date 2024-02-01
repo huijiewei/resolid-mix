@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { forwardRef } from 'react';
 import { clsx } from '../../utils/classed';
 import { useFloatingAria } from '../floating/FloatingAriaContext';

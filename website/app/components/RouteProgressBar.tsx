@@ -1,5 +1,5 @@
 import { useLocation, useNavigation } from '@remix-run/react';
-import { clsx } from '@resolid-remix/ui';
+import { clsx } from '@resolid-mix/ui';
 import { useNProgress } from '@tanem/react-nprogress';
 import type { CSSProperties } from 'react';
 

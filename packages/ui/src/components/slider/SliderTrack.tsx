@@ -1,4 +1,4 @@
-import { __DEV__, clamp } from '@resolid-remix/utils';
+import { __DEV__, clamp } from '@resolid-mix/utils';
 import { forwardRef, useCallback, useMemo } from 'react';
 import { clsx } from '../../utils/classed';
 import type { Props } from '../slot/Slot';

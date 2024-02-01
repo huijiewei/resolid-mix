@@ -1,4 +1,4 @@
-import { isBrowser, runIfFn, type MaybeFunction } from '@resolid-remix/utils';
+import { isBrowser, runIfFn, type MaybeFunction } from '@resolid-mix/utils';
 import { useState, type Dispatch, type SetStateAction } from 'react';
 import { useEventListener } from '../use-event-listener';
 

@@ -1,5 +1,5 @@
 import { FloatingOverlay } from '@floating-ui/react';
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { forwardRef, type CSSProperties } from 'react';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
 import { clsx } from '../../utils/classed';

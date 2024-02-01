@@ -1,4 +1,4 @@
-import { clsx } from '@resolid-remix/ui';
+import { clsx } from '@resolid-mix/ui';
 import { HistoryNavLink } from '~/components/HistoryNavLink';
 import { useAsideLayoutDispatch } from '~/components/layout/AsideLayoutContext';
 

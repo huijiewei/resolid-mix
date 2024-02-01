@@ -19,7 +19,7 @@ import {
   useListNavigation,
   useRole,
 } from '@floating-ui/react';
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { useEffect, useMemo, useRef, useState, type PropsWithChildren } from 'react';
 import { useAllowHover, useDisclosure } from '../../hooks';
 import { FloatingArrowProvider, type FloatingArrowContext } from '../floating/FloatingArrowContext';

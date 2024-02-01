@@ -1,7 +1,7 @@
 {
-  "name": "@resolid-remix/tailwind",
+  "name": "@resolid-mix/tailwind",
   "version": "1.0.0",
-  "description": "Resolid Remix UI preset for TailwindCSS.",
+  "description": "Resolid Mix UI preset for TailwindCSS.",
   "type": "module",
   "sideEffects": false,
   "publishConfig": {
@@ -40,9 +40,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/huijiewei/resolid-remix",
+    "url": "https://github.com/huijiewei/resolid-mix",
     "directory": "packages/tailwind"
   },
-  "homepage": "https://remix.resolid.tech",
+  "homepage": "https://mix.resolid.tech",
   "license": "MIT"
 }

@@ -1,5 +1,5 @@
 import { Turnstile, type TurnstileInstance, type TurnstileProps } from '@marsidev/react-turnstile';
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { forwardRef } from 'react';
 
 export const TurnstileWidget = forwardRef<TurnstileInstance, Omit<TurnstileProps, 'siteKey'>>((props, ref) => {

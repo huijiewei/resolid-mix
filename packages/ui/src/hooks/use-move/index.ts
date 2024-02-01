@@ -1,4 +1,4 @@
-import { clamp } from '@resolid-remix/utils';
+import { clamp } from '@resolid-mix/utils';
 import { useEffect, useRef, useState, type RefObject } from 'react';
 
 export type UseMovePosition = {

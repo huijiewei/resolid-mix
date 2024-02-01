@@ -1,5 +1,5 @@
 import { createCookieSessionStorage } from '@remix-run/node';
-import { omit } from '@resolid-remix/utils';
+import { omit } from '@resolid-mix/utils';
 import { cache } from '~/foundation/cache.server';
 import type { UserSelect, UserSelectWithGroup } from '~/modules/user/userSchema.server';
 import { getUserById } from '~/modules/user/userService.server';

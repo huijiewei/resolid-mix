@@ -1,5 +1,5 @@
-import { clsx, Spinner } from '@resolid-remix/ui';
-import { isNumber } from '@resolid-remix/utils';
+import { clsx, Spinner } from '@resolid-mix/ui';
+import { isNumber } from '@resolid-mix/utils';
 import type { CSSProperties, HTMLProps } from 'react';
 
 export const LazySpinner = (props: HTMLProps<HTMLDivElement>) => {

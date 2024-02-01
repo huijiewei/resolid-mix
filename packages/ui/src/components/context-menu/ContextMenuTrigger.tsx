@@ -1,4 +1,4 @@
-import { __DEV__, dataAttr } from '@resolid-remix/utils';
+import { __DEV__, dataAttr } from '@resolid-mix/utils';
 import { forwardRef, useEffect, useRef } from 'react';
 import { useMergeRefs } from '../../hooks';
 import { useFloatingDispatch } from '../floating/FloatingDispatchContext';

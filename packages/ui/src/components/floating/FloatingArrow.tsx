@@ -1,5 +1,5 @@
 import { FloatingArrow as FloatingUiArrow, type FloatingArrowProps } from '@floating-ui/react';
-import { __DEV__ } from '@resolid-remix/utils';
+import { __DEV__ } from '@resolid-mix/utils';
 import { clsx } from '../../utils/classed';
 import { useFloatingArrow } from './FloatingArrowContext';
 

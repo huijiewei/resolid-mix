@@ -1,6 +1,6 @@
 import type { LoaderFunction, MetaFunction } from '@remix-run/node';
 import type { ServerRuntimeMetaDescriptor } from '@remix-run/server-runtime';
-import { isString } from '@resolid-remix/utils';
+import { isString } from '@resolid-mix/utils';
 
 const titleJoin = ' - ';
 

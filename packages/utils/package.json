@@ -1,5 +1,5 @@
 {
-  "name": "@resolid-remix/utils",
+  "name": "@resolid-mix/utils",
   "version": "1.0.0",
   "type": "module",
   "sideEffects": false,
@@ -37,8 +37,9 @@
   "peerDependencies": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/huijiewei/resolid-remix",
+    "url": "https://github.com/huijiewei/resolid-mix",
     "directory": "packages/utils"
   },
+  "homepage": "https://mix.resolid.tech",
   "license": "MIT"
 }

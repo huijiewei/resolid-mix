@@ -1,4 +1,4 @@
-import { clsx } from '@resolid-remix/ui';
+import { clsx } from '@resolid-mix/ui';
 
 const spriteIcons = import.meta.glob('../assets/icons/*.svg', { as: 'url', eager: true });
 

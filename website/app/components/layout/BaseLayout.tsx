@@ -1,4 +1,4 @@
-import { clsx } from '@resolid-remix/ui';
+import { clsx } from '@resolid-mix/ui';
 import { type PropsWithChildren } from 'react';
 
 export const BaseLayout = ({ children, className }: PropsWithChildren<{ className?: string }>) => {

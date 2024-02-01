@@ -1,4 +1,4 @@
-import { __DEV__, isInputEvent } from '@resolid-remix/utils';
+import { __DEV__, isInputEvent } from '@resolid-mix/utils';
 import { useCallback, useMemo, type ChangeEvent, type PropsWithChildren } from 'react';
 import { useControllableState } from '../../hooks';
 import { RadioGroupProvider, type RadioGroupBaseProps } from './RadioGroupContext';

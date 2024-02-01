@@ -1,5 +1,5 @@
-import type { BorderRadius } from '@resolid-remix/tailwind';
-import { isBoolean, isNumber } from '@resolid-remix/utils';
+import type { BorderRadius } from '@resolid-mix/tailwind';
+import { isBoolean, isNumber } from '@resolid-mix/utils';
 import type { Styled } from './types';
 
 export type Radius = boolean | number | BorderRadius;

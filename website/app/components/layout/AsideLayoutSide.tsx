@@ -1,4 +1,4 @@
-import { CloseButton, clsx } from '@resolid-remix/ui';
+import { CloseButton, clsx } from '@resolid-mix/ui';
 import { useAsideLayoutDispatch, useAsideLayoutState } from '~/components/layout/AsideLayoutContext';
 import { AsideLayoutMenu, type AsideLayoutMenuProps } from './AsideLayoutMenu';
 
