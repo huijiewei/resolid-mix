@@ -1,4 +1,4 @@
-import { Button } from '@resolid-mix/ui';
+import { Button } from '@resolid/mix-ui';
 import { HistoryLink } from '~/components/HistoryLink';
 import { SpriteIcon } from '~/components/SpriteIcon';
 

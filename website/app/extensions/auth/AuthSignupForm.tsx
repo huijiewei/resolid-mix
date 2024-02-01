@@ -1,5 +1,5 @@
 import { Form, useSearchParams } from '@remix-run/react';
-import { Button, Checkbox, Input } from '@resolid-mix/ui';
+import { Button, Checkbox, Input } from '@resolid/mix-ui';
 import { Controller } from 'react-hook-form';
 import { useRemixForm } from 'remix-hook-form';
 import { FormError } from '~/components/FormError';

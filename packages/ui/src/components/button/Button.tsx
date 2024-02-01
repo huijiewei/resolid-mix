@@ -1,4 +1,4 @@
-import { __DEV__, dataAttr } from '@resolid-mix/utils';
+import { __DEV__, dataAttr } from '@resolid/mix-utils';
 import { forwardRef, type JSX } from 'react';
 import { clsx } from '../../utils/classed';
 import { Slot, type AsChildProps } from '../slot/Slot';

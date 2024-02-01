@@ -13,7 +13,7 @@ import {
   useRole,
   type Placement,
 } from '@floating-ui/react';
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { useMemo, useRef, type ReactNode } from 'react';
 import { useDisclosure } from '../../hooks';
 import type { Color } from '../../utils/types';

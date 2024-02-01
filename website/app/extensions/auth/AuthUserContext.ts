@@ -1,6 +1,6 @@
 import { createPath, type Location } from '@remix-run/react';
-import { createContext } from '@resolid-mix/ui';
-import { omit } from '@resolid-mix/utils';
+import { createContext } from '@resolid/mix-ui';
+import { omit } from '@resolid/mix-utils';
 import type { SessionUser } from '~/foundation/session.server';
 
 type AuthUserDispatchContext = {

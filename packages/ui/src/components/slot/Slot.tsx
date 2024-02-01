@@ -1,4 +1,4 @@
-import { __DEV__, hasOwnProperty, isFunction, type Overwrite } from '@resolid-mix/utils';
+import { __DEV__, hasOwnProperty, isFunction, type Overwrite } from '@resolid/mix-utils';
 import {
   Children,
   cloneElement,

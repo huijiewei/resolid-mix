@@ -1,13 +1,5 @@
 import { Link, Outlet, useFetcher, useLocation } from '@remix-run/react';
-import {
-  Avatar,
-  Button,
-  DropdownMenu,
-  Tooltip,
-  clsx,
-  noScrollbarsClassName,
-  useColorModeState,
-} from '@resolid-mix/ui';
+import { Avatar, Button, DropdownMenu, Tooltip, clsx, noScrollbarsClassName, useColorModeState } from '@resolid/mix-ui';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';

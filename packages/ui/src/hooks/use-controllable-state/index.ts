@@ -1,4 +1,4 @@
-import { runIfFn, type MaybeFunction } from '@resolid-mix/utils';
+import { runIfFn, type MaybeFunction } from '@resolid/mix-utils';
 import { useCallback, useState, type Dispatch, type SetStateAction } from 'react';
 import { useCallbackRef } from '../use-callback-ref';
 

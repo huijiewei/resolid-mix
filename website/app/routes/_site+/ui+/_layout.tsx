@@ -1,5 +1,5 @@
 import { Outlet, useNavigation } from '@remix-run/react';
-import { clsx } from '@resolid-mix/ui';
+import { clsx } from '@resolid/mix-ui';
 import { Suspense } from 'react';
 import { LazySpinner } from '~/components/LazySpinner';
 import { AsideLayout } from '~/components/layout/AsideLayout';

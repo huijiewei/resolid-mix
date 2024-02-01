@@ -1,5 +1,5 @@
 {
-  "name": "@resolid-mix/tailwind",
+  "name": "@resolid/mix-tailwind",
   "version": "1.0.0",
   "description": "Resolid Mix UI preset for TailwindCSS.",
   "type": "module",

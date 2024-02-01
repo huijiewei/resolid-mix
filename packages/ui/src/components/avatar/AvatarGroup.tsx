@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { Children, isValidElement, type CSSProperties, type ReactElement } from 'react';
 import { clsx } from '../../utils/classed';
 import { toRounded } from '../../utils/radius';

@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import type { Props } from '../slot/Slot';
 
 export const MenuGroup = (props: Props<'div'>) => {

@@ -1,4 +1,4 @@
-import { __DEV__, omit } from '@resolid-mix/utils';
+import { __DEV__, omit } from '@resolid/mix-utils';
 import { forwardRef, isValidElement, type ReactElement } from 'react';
 import type { Props } from '../slot/Slot';
 import { shouldShowFallback, useImage, type FallbackStrategy, type UseImageProps } from './useImage';

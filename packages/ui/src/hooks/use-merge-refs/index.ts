@@ -1,4 +1,4 @@
-import { isFunction } from '@resolid-mix/utils';
+import { isFunction } from '@resolid/mix-utils';
 import type { MutableRefObject, Ref, RefCallback } from 'react';
 import { useCallback } from 'react';
 

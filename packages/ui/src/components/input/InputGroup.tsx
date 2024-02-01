@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { clsx } from '../../utils/classed';
 import type { Props } from '../slot/Slot';
 import { InputGroupProvider, type InputGroupContext } from './InputGroupContext';

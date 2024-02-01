@@ -1,6 +1,6 @@
 import { useClick, useDismiss, useFloating, useInteractions, useRole, useTransitionStatus } from '@floating-ui/react';
 
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { useEffect, useId, useMemo, type PropsWithChildren } from 'react';
 import { usePrevious } from '../../hooks';
 import { FloatingAriaProvider, type FloatingAriaContext } from '../floating/FloatingAriaContext';

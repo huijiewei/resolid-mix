@@ -1,4 +1,4 @@
-import { __DEV__, ariaAttr } from '@resolid-mix/utils';
+import { __DEV__, ariaAttr } from '@resolid/mix-utils';
 import {
   cloneElement,
   forwardRef,

@@ -1,5 +1,5 @@
 import { NavLink, type NavLinkProps } from '@remix-run/react';
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { forwardRef } from 'react';
 
 export const HistoryNavLink = forwardRef<HTMLAnchorElement, NavLinkProps>((props, ref) => {

@@ -1,4 +1,4 @@
-import { isBrowser } from '@resolid-mix/utils';
+import { isBrowser } from '@resolid/mix-utils';
 import { useEffect, type RefObject } from 'react';
 import { useCallbackRef } from '../use-callback-ref';
 

@@ -1,5 +1,5 @@
 import { Link, type LinkProps } from '@remix-run/react';
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { forwardRef } from 'react';
 
 export const HistoryLink = forwardRef<HTMLAnchorElement, LinkProps>((props, ref) => {

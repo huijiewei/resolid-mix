@@ -1,4 +1,4 @@
-import { createContext } from '@resolid-mix/ui';
+import { createContext } from '@resolid/mix-ui';
 
 export enum AuthAction {
   NONE,

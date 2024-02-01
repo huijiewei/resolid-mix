@@ -1,4 +1,4 @@
-import { clsx } from '@resolid-mix/ui';
+import { clsx } from '@resolid/mix-ui';
 import type { HTMLProps } from 'react';
 
 export const AsideLayoutMain = (props: HTMLProps<HTMLDivElement>) => {

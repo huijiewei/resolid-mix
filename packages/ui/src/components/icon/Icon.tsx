@@ -1,4 +1,4 @@
-import { __DEV__, isString } from '@resolid-mix/utils';
+import { __DEV__, isString } from '@resolid/mix-utils';
 import type { SVGAttributes } from 'react';
 import { clsx } from '../../utils/classed';
 import type { Size } from '../../utils/types';

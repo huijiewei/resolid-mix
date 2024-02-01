@@ -1,4 +1,4 @@
-import { Button, clsx, DropdownMenu, useColorModeDispatch, useColorModeState } from '@resolid-mix/ui';
+import { Button, clsx, DropdownMenu, useColorModeDispatch, useColorModeState } from '@resolid/mix-ui';
 import { useEffect, useState } from 'react';
 import { SpriteIcon } from '~/components/SpriteIcon';
 

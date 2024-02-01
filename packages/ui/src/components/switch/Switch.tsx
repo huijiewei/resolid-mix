@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { forwardRef, useCallback, useRef, type CSSProperties, type ChangeEvent } from 'react';
 import { useControllableState, useFormReset, useMergeRefs } from '../../hooks';
 import { clsx } from '../../utils/classed';

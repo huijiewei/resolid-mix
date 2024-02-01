@@ -1,4 +1,4 @@
-import { createContext } from '@resolid-mix/ui';
+import { createContext } from '@resolid/mix-ui';
 import type { Dispatch, SetStateAction } from 'react';
 
 const [AsideLayoutStateProvider, useAsideLayoutState] = createContext<boolean>({

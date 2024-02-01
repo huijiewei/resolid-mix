@@ -1,5 +1,5 @@
 import { FloatingPortal } from '@floating-ui/react';
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import type { PropsWithChildren } from 'react';
 
 export type PortalProps = {

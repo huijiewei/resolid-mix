@@ -1,6 +1,6 @@
 import type { TurnstileInstance } from '@marsidev/react-turnstile';
 import { Form, useSearchParams } from '@remix-run/react';
-import { Button, Input } from '@resolid-mix/ui';
+import { Button, Input } from '@resolid/mix-ui';
 import { useEffect, useRef, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { useRemixForm } from 'remix-hook-form';

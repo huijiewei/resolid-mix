@@ -1,4 +1,4 @@
-# @resolid-mix/utils
+# @resolid/mix-utils
 
 Utils
 

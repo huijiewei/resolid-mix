@@ -1,4 +1,4 @@
-import { __DEV__, dataAttr } from '@resolid-mix/utils';
+import { __DEV__, dataAttr } from '@resolid/mix-utils';
 import { forwardRef } from 'react';
 import { useMergeRefs } from '../../hooks';
 import { Slot, type AsChildProps, type EmptyProps } from '../slot/Slot';

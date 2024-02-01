@@ -1,5 +1,5 @@
 import { FloatingFocusManager, FloatingList, useTransitionStatus } from '@floating-ui/react';
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { forwardRef, type CSSProperties } from 'react';
 import { useMergeRefs } from '../../hooks';
 import { clsx } from '../../utils/classed';

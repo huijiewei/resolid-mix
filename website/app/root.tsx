@@ -1,6 +1,6 @@
 import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/server-runtime';
-import { ColorModeScript, ResolidProvider } from '@resolid-mix/ui';
+import { ColorModeScript, ResolidProvider } from '@resolid/mix-ui';
 import commonIcon from '~/assets/icons/common.svg';
 import { RouteProgressBar } from '~/components/RouteProgressBar';
 import { AuthProvider } from '~/extensions/auth/AuthProvider';

@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { useCallbackRef } from '../../hooks';
 import type { Props } from '../slot/Slot';
 import { MenuGroup } from './MenuGroup';

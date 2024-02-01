@@ -1,4 +1,4 @@
-import { __DEV__ } from '@resolid-mix/utils';
+import { __DEV__ } from '@resolid/mix-utils';
 import { cloneElement, type SVGProps } from 'react';
 import type { ImageProps } from '../image/Image';
 import { useImage } from '../image/useImage';

@@ -1,4 +1,4 @@
-# @resolid-mix/tailwind
+# @resolid/mix-tailwind
 
 Resolid Mix UI preset for TailwindCSS.
 

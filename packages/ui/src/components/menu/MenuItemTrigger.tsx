@@ -1,5 +1,5 @@
 import { useListItem } from '@floating-ui/react';
-import { __DEV__, ariaAttr, dataAttr } from '@resolid-mix/utils';
+import { __DEV__, ariaAttr, dataAttr } from '@resolid/mix-utils';
 import { forwardRef } from 'react';
 import { useMergeRefs } from '../../hooks';
 import { clsx } from '../../utils/classed';

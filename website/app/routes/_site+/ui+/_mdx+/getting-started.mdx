@@ -16,22 +16,22 @@ export const meta = mergeFrontmatter(frontmatter);
 
 ```shell
 ## NPM
-npm install @resolid-mix/ui
+npm install @resolid/mix-ui
 ## PNPM
-pnpm add @resolid-mix/ui
+pnpm add @resolid/mix-ui
 ## Yarn
-yarn add @resolid-mix/ui
+yarn add @resolid/mix-ui
 ```
 
 通过以下任一方式将 Resolid Mix UI Tailwind CSS 预设作为开发依赖项安装：
 
 ```shell
 ## NPM
-npm install -D @resolid-mix/tailwind
+npm install -D @resolid/mix-tailwind
 ## PNPM
-pnpm add -D @resolid-mix/tailwind
+pnpm add -D @resolid/mix-tailwind
 ## Yarn
-yarn add -D @resolid-mix/tailwind
+yarn add -D @resolid/mix-tailwind
 ```
 
 ## 添加 Tailwind CSS 预设
@@ -43,8 +43,8 @@ yarn add -D @resolid-mix/tailwind
 
 ```javascript
 module.exports = {
-  presets: [require('@resolid-mix/tailwind')()],
-  content: ['./node_modules/@resolid-mix/ui/dist/*.{js,cjs}', './src/**/*.{html,js,jsx,ts,tsx,mdx}'],
+  presets: [require('@resolid/mix-tailwind')()],
+  content: ['./node_modules/@resolid/mix-ui/dist/*.{js,cjs}', './src/**/*.{html,js,jsx,ts,tsx,mdx}'],
   theme: {}
 };
 ```

@@ -6,8 +6,8 @@
     "jsx": "react-jsx",
     "paths": {
       "~/*": ["./app/*"],
-      "@resolid-mix/ui": ["../packages/ui/src"],
-      "@resolid-mix/utils": ["../packages/utils/src"],
+      "@resolid/mix-ui": ["../packages/ui/src"],
+      "@resolid/mix-utils": ["../packages/utils/src"],
     },
   },
   "ts-node": {

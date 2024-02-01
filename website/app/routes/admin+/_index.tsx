@@ -1,4 +1,4 @@
-import { Button } from '@resolid-mix/ui';
+import { Button } from '@resolid/mix-ui';
 
 export default function _index() {
   return (

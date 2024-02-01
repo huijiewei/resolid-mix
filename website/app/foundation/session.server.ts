@@ -1,5 +1,5 @@
 import { createCookieSessionStorage } from '@remix-run/node';
-import { omit } from '@resolid-mix/utils';
+import { omit } from '@resolid/mix-utils';
 import { cache } from '~/foundation/cache.server';
 import type { UserSelect, UserSelectWithGroup } from '~/modules/user/userSchema.server';
 import { getUserById } from '~/modules/user/userService.server';
@@ -16,7 +16,7 @@ const { getSession, commitSession, destroySession } = createCookieSessionStorage
     httpOnly: true,
     sameSite: 'lax',
     path: '/',
-    secrets: [process.env.RR_COOKIE_SECRET ?? 'vroc8ldharqniihf'],
+    secrets: [process.env.RX_COOKIE_SECRET!],
     secure: process.env.NODE_ENV === 'production',
   },
 });

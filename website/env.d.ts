@@ -14,13 +14,13 @@ declare global {
     // noinspection JSUnusedGlobalSymbols
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production';
-      RR_DB_HOST: string;
-      RR_DB_PORT: number;
-      RR_DB_USER: string;
-      RR_DB_PASSWORD: string;
-      RR_DB_DATABASE: string;
-      RR_COOKIE_SECRET: string;
-      RR_TURNSTILE_SECRET: string;
+      RX_DB_HOST: string;
+      RX_DB_PORT: number;
+      RX_DB_USER: string;
+      RX_DB_PASSWORD: string;
+      RX_DB_DATABASE: string;
+      RX_COOKIE_SECRET: string;
+      RX_TURNSTILE_SECRET: string;
     }
   }
 }
