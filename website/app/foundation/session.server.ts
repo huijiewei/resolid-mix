@@ -1,6 +1,5 @@
 import { createCookieSessionStorage } from '@remix-run/node';
 import { omit } from '@resolid/mix-utils';
-import { cache } from '~/foundation/cache.server';
 import type { UserSelect, UserSelectWithGroup } from '~/modules/user/userSchema.server';
 import { getUserById } from '~/modules/user/userService.server';
 
@@ -31,23 +30,7 @@ export const createUserSession = async (request: Request, userId: number) => {
 export const getSessionUser = async (request: Request) => {
   const session = await getSession(request.headers.get('Cookie'));
 
-  if (session.has('userId')) {
-    const userId = session.get('userId');
-    const userCacheKey = `userSession_${userId}`;
-    let user: UserSelectWithGroup | undefined | null = await cache.get<UserSelectWithGroup>(userCacheKey);
-
-    if (user == undefined) {
-      user = await getUserById(userId);
-
-      if (user != null) {
-        await cache.set(userCacheKey, omitUser(user));
-      }
-    }
-
-    return user;
-  }
-
-  return null;
+  return session.has('userId') ? getUserById(session.get('userId')) : null;
 };
 
 export { commitSession, destroySession, getSession };

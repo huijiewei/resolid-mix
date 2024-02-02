@@ -21,6 +21,24 @@
 
 visit [mix.resolid.tech](https://mix.resolid.tech).
 
+## How run
+
+### Install dependencies
+
+```shell
+pnpm install
+```
+
+### Set env
+
+Save or copy `.env.example` to `.env` in website folder, and edit it.
+
+### Run dev command
+
+```shell
+pnpm run website:dev
+```
+
 ## Contributing
 
 See [CONTRIBUTING.md](./CONTRIBUTING.md).

@@ -12,11 +12,12 @@
     "format": "prettier --write .",
     "lint": "pnpm run -r --if-present lint",
     "test": "pnpm test -r --if-present",
-    "website:dev": "pnpm run --filter website dev",
-    "website:serve": "pnpm run --filter website serve",
-    "website:deploy": "pnpm run --filter website... build",
-    "drizzle": "pnpm run --filter website drizzle",
-    "resolid": "pnpm run --filter website resolid"
+    "website:dev": "pnpm --filter website dev",
+    "website:serve": "pnpm --filter website serve",
+    "website:deploy": "pnpm --filter website... run build",
+    "website:vercel": "BUILD_ENV=vercel pnpm --filter website... run build",
+    "drizzle": "pnpm --filter website run drizzle",
+    "resolid": "pnpm --filter website run resolid"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.6.0",
@@ -37,7 +38,7 @@
   },
   "repository": "https://github.com/huijiewei/resolid-mix.git",
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">20.0.0"
   },
   "packageManager": "pnpm@8.15.1",
   "pnpm": {

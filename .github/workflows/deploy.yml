@@ -1,7 +1,10 @@
 name: Deploy Website
 
 on:
-  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -55,4 +58,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd /home/websites/remix/web/build/server
-            npm install
+            npm install --legacy-peer-deps

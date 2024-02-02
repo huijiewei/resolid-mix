@@ -1,14 +1,15 @@
-import common from '@rollup/plugin-commonjs';
-import json from '@rollup/plugin-json';
-import nodeResolve from '@rollup/plugin-node-resolve';
 import esbuild from 'esbuild';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { rollup } from 'rollup';
 import type { PackageJson } from 'type-fest';
 import type { Plugin, RollupCommonJSOptions } from 'vite';
+import { buildPackageJson, buildRollupConfig } from '../base/utils';
 
-export const nodeBuild = ({ entryPoint }: { entryPoint: string }): Plugin => {
+const __dirname = fileURLToPath(new URL('.', import.meta.url));
+
+export const nodeBuild = (): Plugin => {
   let root = '';
   let outDir = '';
   let ssrExternal: string[] | undefined;
@@ -35,7 +36,10 @@ export const nodeBuild = ({ entryPoint }: { entryPoint: string }): Plugin => {
       await esbuild
         .build({
           outfile: outfile,
-          entryPoints: [entryPoint],
+          entryPoints: [join(__dirname, 'entry.ts')],
+          define: {
+            'process.env.NODE_ENV': '"production"',
+          },
           external: ['./index.js'],
           platform: 'node',
           format: 'esm',
@@ -47,19 +51,7 @@ export const nodeBuild = ({ entryPoint }: { entryPoint: string }): Plugin => {
           process.exit(1);
         });
 
-      const bundle = await rollup({
-        input: outfile,
-        plugins: [
-          json(),
-          nodeResolve({
-            preferBuiltins: true,
-            exportConditions: ['node'],
-          }),
-          common({ strictRequires: true, ...commonjsOptions }),
-        ],
-        external: [...(ssrExternal ?? [])],
-        logLevel: 'silent',
-      });
+      const bundle = await rollup(buildRollupConfig(outfile, commonjsOptions, ssrExternal ?? []));
 
       await bundle.write({
         format: 'esm',
@@ -69,31 +61,10 @@ export const nodeBuild = ({ entryPoint }: { entryPoint: string }): Plugin => {
 
       await bundle.close();
 
-      const pkg = JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as PackageJson;
-
-      const distPkg = {
-        name: pkg.name,
-        type: pkg.type,
-        scripts: {
-          postinstall: pkg.scripts?.postinstall ?? '',
-        },
-        dependencies: {
-          ...Object.keys(pkg.dependencies ?? {})
-            .filter((key) => ssrExternal?.includes(key))
-            .reduce((obj: Record<string, string>, key) => {
-              obj[key] = pkg.dependencies?.[key] ?? '';
-
-              return obj;
-            }, {}),
-          ...Object.keys(pkg.devDependencies ?? {})
-            .filter((key) => ssrExternal?.includes(key))
-            .reduce((obj: Record<string, string>, key) => {
-              obj[key] = pkg.devDependencies?.[key] ?? '';
-
-              return obj;
-            }, {}),
-        },
-      };
+      const distPkg = buildPackageJson(
+        JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as PackageJson,
+        ssrExternal ?? [],
+      );
 
       writeFileSync(join(outDir, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
     },

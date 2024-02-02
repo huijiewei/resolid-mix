@@ -6,6 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "build": "remix vite:build",
+    "vercel": "BUILD_ENV=vercel remix vite:build",
     "dev": "remix vite:dev",
     "test": "vitest --run",
     "start": "remix-serve ./build/server/index.js",
@@ -14,21 +15,20 @@
     "resolid": "tsx ./cli/index.ts"
   },
   "dependencies": {
+    "@hattip/adapter-node": "^0.0.41",
     "@hono/node-server": "^1.7.0",
     "@hookform/resolvers": "^3.3.4",
     "@marsidev/react-turnstile": "^0.5.1",
     "@remix-run/node": "^2.6.0",
     "@remix-run/react": "^2.6.0",
-    "@remix-run/serve": "^2.6.0",
     "@remix-run/server-runtime": "^2.6.0",
     "@resolid/mix-ui": "workspace:^",
     "@resolid/mix-utils": "workspace:^",
     "@tanem/react-nprogress": "^5.0.51",
-    "better-sqlite3": "^9.3.0",
-    "cache-manager": "^5.4.0",
     "dotenv": "^16.4.1",
     "drizzle-orm": "^0.29.3",
-    "hono": "^3.12.9",
+    "fs-extra": "^11.2.0",
+    "hono": "^3.12.10",
     "isbot": "^4.4.0",
     "mysql2": "^3.9.1",
     "react": "18.3.0-canary-247738465-20240130",
@@ -43,15 +43,18 @@
     "@mdx-js/rollup": "^3.0.0",
     "@node-rs/bcrypt": "^1.9.2",
     "@remix-run/dev": "^2.6.0",
+    "@remix-run/serve": "^2.6.0",
     "@resolid/mix-tailwind": "workspace:^",
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@shikijs/rehype": "1.0.0-beta.3",
+    "@shikijs/rehype": "1.0.0-beta.5",
     "@tailwindcss/typography": "^0.5.10",
     "@types/better-sqlite3": "^7.6.9",
-    "@types/react": "^18.2.51",
+    "@types/fs-extra": "^11.0.4",
+    "@types/react": "^18.2.52",
     "@types/react-dom": "^18.2.18",
+    "@vercel/nft": "^0.26.3",
     "autoprefixer": "^10.4.17",
     "commander": "^11.1.0",
     "drizzle-kit": "^0.20.14",
@@ -75,6 +78,6 @@
     "vitest": "^1.2.2"
   },
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">20.0.0"
   }
 }

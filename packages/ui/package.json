@@ -29,7 +29,7 @@
     }
   },
   "dependencies": {
-    "@floating-ui/react": "^0.26.8",
+    "@floating-ui/react": "^0.26.9",
     "@resolid/mix-utils": "workspace:^",
     "@tw-classed/core": "^1.7.0",
     "clsx": "^2.1.0",

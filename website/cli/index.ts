@@ -93,7 +93,7 @@ program
     const lastUser = await getUserByLast();
 
     let fakeCreatedAtTimestamp =
-      lastUser && lastUser.id > 2000 ? lastUser.createdAt.getTime() / 1000 : new Date('2022-01-01').getTime() / 1000;
+      lastUser && lastUser.id > 2000 ? lastUser.createdAt.getTime() / 1000 : new Date('2023-01-01').getTime() / 1000;
 
     for (let i = 0; i < number; i++) {
       const firstName = faker.person.firstName();

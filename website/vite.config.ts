@@ -13,10 +13,12 @@ import { defineConfig, type AliasOptions, type UserConfig } from 'vite';
 import Inspect from 'vite-plugin-inspect';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { nodeBuild } from './misc/node-hono/build';
+import { vercelServerlessBuild } from './misc/vercel-serverless/build';
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig(({ command }) => {
   const isBuild = command == 'build';
+  const buildEnv = process.env.BUILD_ENV;
 
   const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
@@ -60,7 +62,8 @@ export default defineConfig(({ command }) => {
       }),
       !isBuild && tsconfigPaths(),
       !isBuild && Inspect(),
-      isBuild && nodeBuild({ entryPoint: 'misc/node-hono/entry.ts' }),
+      isBuild && !buildEnv && nodeBuild(),
+      isBuild && buildEnv == 'vercel' && vercelServerlessBuild(),
     ].filter(Boolean),
     build: {
       minify: true,
@@ -69,7 +72,7 @@ export default defineConfig(({ command }) => {
       alias: [isBuild && { find: '~', replacement: resolve(__dirname, './app') }].filter(Boolean) as AliasOptions,
     },
     ssr: {
-      external: ['@node-rs/bcrypt', 'better-sqlite3'],
+      external: ['@node-rs/bcrypt'],
     },
     optimizeDeps: {
       exclude: ['@node-rs/bcrypt'],

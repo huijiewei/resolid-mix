@@ -14,6 +14,7 @@ declare global {
     // noinspection JSUnusedGlobalSymbols
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production';
+      BUILD_ENV: 'vercel' | undefined;
       RX_DB_HOST: string;
       RX_DB_PORT: number;
       RX_DB_USER: string;
