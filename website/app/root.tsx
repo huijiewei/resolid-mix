@@ -1,4 +1,4 @@
-import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
+import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/server-runtime';
 import { ColorModeScript, ResolidProvider } from '@resolid/mix-ui';
 import commonIcon from '~/assets/icons/common.svg';
@@ -57,7 +57,6 @@ export default function App() {
         </ResolidProvider>
         <ScrollRestoration />
         <Scripts />
-        <LiveReload />
         <ColorModeScript />
       </body>
     </html>
