@@ -1,13 +1,10 @@
 import { nodeFileTrace } from '@vercel/nft';
-import esbuild from 'esbuild';
-import { copy, ensureDir, remove } from 'fs-extra/esm';
-import { readFileSync, readdirSync, realpathSync, writeFileSync } from 'node:fs';
+import { copyFile, cp, mkdir, readFile, readdir, realpath, rm, writeFile } from 'node:fs/promises';
 import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { rollup } from 'rollup';
 import type { PackageJson } from 'type-fest';
 import type { ConfigEnv, Plugin, RollupCommonJSOptions, UserConfig } from 'vite';
-import { buildPackageJson, buildRollupConfig } from '../base/utils';
+import { buildPackageJson, bundleServer } from '../base/utils';
 
 const __dirname = fileURLToPath(new URL('.', import.meta.url));
 
@@ -33,38 +30,10 @@ export const vercelServerlessBuild = (): Plugin => {
     async closeBundle() {
       console.log('bundle Vercel Serverless for production...');
 
-      const outfile = join(outDir, 'entry.js');
-
-      await esbuild
-        .build({
-          outfile: outfile,
-          entryPoints: [join(__dirname, 'entry.ts')],
-          define: {
-            'process.env.NODE_ENV': '"production"',
-          },
-          external: ['./index.js'],
-          platform: 'node',
-          format: 'esm',
-          packages: 'external',
-          bundle: true,
-        })
-        .catch((error: unknown) => {
-          console.error(error);
-          process.exit(1);
-        });
-
-      const bundle = await rollup(buildRollupConfig(outfile, commonjsOptions, ssrExternal ?? []));
-
-      const bundleFile = join(outDir, 'serve.mjs');
-
-      await bundle.write({
-        format: 'esm',
-        file: bundleFile,
-        inlineDynamicImports: true,
-      });
+      const bundleFile = await bundleServer(outDir, join(__dirname, 'entry.ts'), commonjsOptions, ssrExternal ?? []);
 
       const distPkg = buildPackageJson(
-        JSON.parse(readFileSync(join(root, 'package.json'), 'utf8')) as PackageJson,
+        JSON.parse(await readFile(join(root, 'package.json'), 'utf8')) as PackageJson,
         ssrExternal ?? [],
       );
 
@@ -81,24 +50,23 @@ export const vercelServerlessBuild = (): Plugin => {
       * */
 
       const vercelRoot = join(root, '.vercel');
-      await remove(vercelRoot);
+      await rm(vercelRoot, { recursive: true, force: true });
 
-      await ensureDir(vercelRoot);
-      writeFileSync(join(vercelRoot, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
+      await mkdir(vercelRoot, { recursive: true });
+      await writeFile(join(vercelRoot, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');
 
       const vercelOutput = join(vercelRoot, 'output');
-      await ensureDir(vercelOutput);
+      await mkdir(vercelOutput, { recursive: true });
 
-      await copy(join(__dirname, 'config.json'), join(vercelOutput, 'config.json'));
+      await copyFile(join(__dirname, 'config.json'), join(vercelOutput, 'config.json'));
 
       const vercelOutputStatic = join(vercelOutput, 'static');
-      await ensureDir(vercelOutputStatic);
+      await mkdir(vercelOutputStatic, { recursive: true });
+      await cp(resolve(outDir, '../client'), vercelOutputStatic, { recursive: true });
+      await rm(join(vercelOutputStatic, '.vite'), { recursive: true });
 
-      await copy(resolve(outDir, '../client'), vercelOutputStatic);
-      await remove(join(vercelOutputStatic, '.vite'));
-
-      const vercelOutputFunc = join(vercelOutput, 'functions/server.func');
-      await ensureDir(vercelOutputFunc);
+      const vercelOutputFunc = join(vercelOutput, 'functions', 'server.func');
+      await mkdir(vercelOutputFunc, { recursive: true });
 
       const traced = await nodeFileTrace([bundleFile], {
         base: root,
@@ -112,25 +80,25 @@ export const vercelServerlessBuild = (): Plugin => {
         }
 
         const dest = join(vercelOutputFunc, relative(root, source));
-        const real = realpathSync(source);
+        const real = await realpath(source);
 
         if (real.endsWith('@node-rs/bcrypt')) {
           const parent = join(real, '..');
 
-          for (const dir of readdirSync(parent).filter((d) => !d.startsWith('.'))) {
-            const realPath = realpathSync(join(parent, dir));
+          for (const dir of (await readdir(parent)).filter((d) => !d.startsWith('.'))) {
+            const realPath = await realpath(join(parent, dir));
             const realDest = join(dest, '..', dir);
 
-            await copy(realPath, realDest);
+            await cp(realPath, realDest, { recursive: true });
           }
         } else {
-          await copy(real, dest);
+          await cp(real, dest, { recursive: true });
         }
       }
 
-      await copy(join(__dirname, '.vc-config.json'), join(vercelOutputFunc, '.vc-config.json'));
+      await cp(join(__dirname, '.vc-config.json'), join(vercelOutputFunc, '.vc-config.json'));
 
-      await copy(bundleFile, join(vercelOutputFunc, 'index.mjs'));
+      await cp(bundleFile, join(vercelOutputFunc, 'index.mjs'));
     },
   };
 };

@@ -1,7 +1,9 @@
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import nodeResolve from '@rollup/plugin-node-resolve';
-import type { RollupOptions } from 'rollup';
+import esbuild from 'esbuild';
+import { join } from 'node:path';
+import { rollup } from 'rollup';
 import type { PackageJson } from 'type-fest';
 import type { RollupCommonJSOptions } from 'vite';
 
@@ -31,12 +33,33 @@ export const buildPackageJson = (pkg: PackageJson, ssrExternal: string[]): Packa
   } as PackageJson;
 };
 
-export const buildRollupConfig = (
-  outfile: string,
+export const bundleServer = async (
+  outDir: string,
+  entryPoint: string,
   commonjsOptions: RollupCommonJSOptions,
   ssrExternal: string[],
-): RollupOptions => {
-  return {
+) => {
+  const outfile = join(outDir, 'entry.js');
+
+  await esbuild
+    .build({
+      outfile: outfile,
+      entryPoints: [entryPoint],
+      define: {
+        'process.env.NODE_ENV': '"production"',
+      },
+      external: ['./index.js'],
+      platform: 'node',
+      format: 'esm',
+      packages: 'external',
+      bundle: true,
+    })
+    .catch((error: unknown) => {
+      console.error(error);
+      process.exit(1);
+    });
+
+  const bundle = await rollup({
     input: outfile,
     plugins: [
       json(),
@@ -49,5 +72,17 @@ export const buildRollupConfig = (
     ],
     external: [...(ssrExternal ?? [])],
     logLevel: 'silent',
-  };
+  });
+
+  const bundleFile = join(outDir, 'serve.mjs');
+
+  await bundle.write({
+    format: 'esm',
+    file: bundleFile,
+    inlineDynamicImports: true,
+  });
+
+  await bundle.close();
+
+  return bundleFile;
 };
