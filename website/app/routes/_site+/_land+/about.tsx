@@ -1,3 +1,4 @@
+import { SpriteIcon } from '~/components/SpriteIcon';
 import { mergeMeta } from '~/extensions/meta/mergeMeta';
 
 export const meta = mergeMeta(() => {
@@ -6,13 +7,27 @@ export const meta = mergeMeta(() => {
 
 export default function About() {
   return (
-    <div className={'prose mx-auto mt-8 dark:prose-invert'}>
+    <div className={'prose mx-auto mt-8 max-w-[70ch] dark:prose-invert'}>
       <h1 className={'text-center'}>关于 Resolid Mix</h1>
       <p>
         这是一个很有趣的 Remix 全栈演示站点，Remix 是一个全栈 Web 框架，可让您专注于用户界面并通过 Web
         标准进行工作，以提供快速、流畅且有弹性的用户体验。人们会喜欢使用你的东西。
       </p>
       <h2>技术栈</h2>
+      <div className={'flex justify-center'}>
+        <div className={'inline-flex items-center gap-5'}>
+          <SpriteIcon name={'react'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'remix'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'tailwindcss'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'typescript'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'vite'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'nodejs'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'drizzle-orm'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'postgresql'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'hono'} group={'brands'} size={'3rem'} />
+          <SpriteIcon name={'vercel'} group={'brands'} size={'3rem'} />
+        </div>
+      </div>
       <h3>React</h3>
       <p>
         React 可以改变你对所查看的设计和构建的应用的思考方式。当你使用 React
@@ -35,21 +50,35 @@ export default function About() {
         支持与其他框架或工具的集成。如有需要，您可以通过 配置部分 自定义适应你的项目。
       </p>
       <p>Vite 还提供了强大的扩展性，可通过其 插件 API 和 JavaScript API 进行扩展，并提供完整的类型支持。</p>
+      <h3>Drizzle ORM</h3>
+      <p>
+        Drizzle ORM 是一个带有头部🐲的无头 TypeScript ORM。
+        它看起来简单而直观，能够在项目的第1000天保持高性能，允许你按照自己的方式进行操作，并在需要时提供支持。
+      </p>
+      <h3>PostgreSQL</h3>
+      <p>
+        PostgreSQL 是一个功能强大的开源对象关系数据库系统，经过超过 35
+        年的积极开发，在可靠性、功能稳健性和性能方面赢得了良好的声誉。
+      </p>
       <h3>Hono</h3>
       <p>
         Hono - [炎] 在日语中表示火焰🔥，是一个面向 Edge 的小型、简单且超快速的 Web 框架。它适用于任何 JavaScript
         运行时环境：Cloudflare Workers、Fastly Compute、Deno、Bun、Vercel、Netlify、AWS Lambda、Lambda@Edge 和 Node.js。
       </p>
-      <h3>Drizzle ORM</h3>
+      <h3>HatTip</h3>
       <p>
-        Drizzle ORM 是一个带有头部🐲的无头 TypeScript ORM。
-        它看起来简单而直观，能够在项目的第1000天保持高性能，允许你按照自己的方式进行操作，并在需要时提供支持。
+        HatTip 是一组用于构建 HTTP 服务器应用程序的 JavaScript 包。它的目标是构建一个可在整个 JavaScript
+        世界中使用的通用中间件生态系统。
       </p>
       <h3>Node.js</h3>
       <p>
         Node.js 是一个开源且跨平台的 JavaScript 运行环境。它是几乎任何类型项目的热门工具！ Node.js 运行的是 V8
         JavaScript 引擎，这是 Google Chrome 浏览器的核心，但在浏览器之外运行。这使得 Node.js 具有很高的性能。
       </p>
+      <h3>Vercel</h3>
+      <p>Vercel 的前端云为开发人员提供构建、扩展和保护更快、更个性化 Web 的体验和基础设施。</p>
+      <h3>Neon</h3>
+      <p>完全托管的无服务器 Postgres，具有慷慨的免费套餐。我们将存储和计算分开，以提供自动扩展、分支和无底存储。</p>
     </div>
   );
 }
