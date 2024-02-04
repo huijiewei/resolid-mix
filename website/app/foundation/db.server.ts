@@ -10,6 +10,9 @@ const pg = postgres(
   `postgres://${process.env.RX_DB_USER}:${process.env.RX_DB_PASSWORD}@${process.env.RX_DB_HOST}/${process.env.RX_DB_DATABASE}?sslmode=require`,
   {
     max: process.env.VERCEL ? 1 : 10,
+    transform: {
+      undefined: null,
+    },
   },
 );
 
