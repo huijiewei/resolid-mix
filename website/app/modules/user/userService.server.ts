@@ -43,3 +43,7 @@ export const createUser = async (user: UserInsert) => {
 
   return inserted[0] as UserSelect;
 };
+
+export const getUserGroups = async () => {
+  return db.query.userGroups.findFirst();
+};

@@ -9,6 +9,7 @@ import { join } from 'node:path';
 import { db } from '~/foundation/db.server';
 import { districts, districtsClosure } from '~/modules/district/districtSchema.server';
 import { insertDistrict } from '~/modules/district/districtService.server';
+import { status } from '~/modules/system/systemSchema.server';
 import { userGroups, users } from '~/modules/user/userSchema.server';
 import { checkExistByEmail, checkExistByUsername, createUser, getUserByLast } from '~/modules/user/userService.server';
 
@@ -36,6 +37,11 @@ program
       username: 'admin',
       nickname: '管理账号',
       password: hashSync('123456'),
+    });
+
+    await db.insert(status).values({
+      id: 1,
+      message: '系统初始化成功',
     });
 
     console.log('初始数据填充成功!');
