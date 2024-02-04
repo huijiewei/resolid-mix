@@ -1,16 +1,17 @@
 import { clsx } from '@resolid/mix-ui';
 
-const spriteIcons = import.meta.glob('../assets/icons/*.svg', { as: 'url', eager: true });
+const spriteIcons = import.meta.glob('../assets/icons/*.svg', { query: '?url', import: 'default', eager: true });
 
 type SpriteIconProps = {
   name: string;
   size?: string | number;
+  color?: string;
   className?: string;
   group?: string;
 };
 
 export const SpriteIcon = (props: SpriteIconProps) => {
-  const { name, group = 'common', size, className } = props;
+  const { name, group = 'common', size, color, className } = props;
 
   const groupModule = `../assets/icons/${group}.svg`;
 
@@ -18,7 +19,7 @@ export const SpriteIcon = (props: SpriteIconProps) => {
 
   return (
     <svg width={sizeValue} height={sizeValue} className={clsx('inline self-center', className)}>
-      <use href={`${spriteIcons[groupModule]}#${name}`} />
+      <use color={color} href={`${spriteIcons[groupModule]}#${name}`} />
     </svg>
   );
 };
