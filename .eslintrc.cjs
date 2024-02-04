@@ -10,7 +10,7 @@ module.exports = {
     sourceType: 'module',
   },
   extends: ['eslint:recommended'],
-  ignorePatterns: ['!.*', 'runtime', 'build', 'dist', 'node_modules', 'pnpm-lock.yaml'],
+  ignorePatterns: ['!.*', '.vercel', 'runtime', 'build', 'dist', 'node_modules', 'pnpm-lock.yaml'],
   overrides: [
     {
       files: ['**/*.ts', '**/*.tsx'],

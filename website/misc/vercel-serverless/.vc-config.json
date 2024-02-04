@@ -3,5 +3,5 @@
   "runtime": "nodejs20.x",
   "launcherType": "Nodejs",
   "supportsResponseStreaming": true,
-  "regions": ["sfo1"]
+  "regions": ["sin1"]
 }

@@ -24,8 +24,8 @@ program
     await db.delete(userGroups);
 
     await db.insert(userGroups).values([
-      { id: 1, name: 'Admin' },
-      { id: 2, name: 'Member' },
+      { id: 1, name: '管理员' },
+      { id: 2, name: '普通用户' },
     ]);
 
     await db.insert(users).values({
@@ -34,7 +34,7 @@ program
       email: 'admin@resolid.tech',
       emailVerified: new Date(),
       username: 'admin',
-      nickname: 'Admin',
+      nickname: '管理账号',
       password: hashSync('123456'),
     });
 

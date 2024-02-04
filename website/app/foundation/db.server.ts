@@ -1,20 +1,15 @@
-import { drizzle } from 'drizzle-orm/mysql2';
-import mysql from 'mysql2/promise';
+import { drizzle } from 'drizzle-orm/postgres-js';
 
+import postgres from 'postgres';
 import * as userSchema from '~/modules/user/userSchema.server';
 
 process.env.TZ = 'UTC';
 
-const pool = mysql.createPool({
-  host: process.env.RX_DB_HOST,
-  port: process.env.RX_DB_PORT as unknown as number,
-  user: process.env.RX_DB_USER,
-  password: process.env.RX_DB_PASSWORD,
-  database: process.env.RX_DB_DATABASE,
-});
+const pg = postgres(
+  `postgres://${process.env.RX_DB_USER}:${process.env.RX_DB_PASSWORD}@${process.env.RX_DB_HOST}/${process.env.RX_DB_DATABASE}?sslmode=require`,
+);
 
-export const db = drizzle(pool, {
+export const db = drizzle(pg, {
   schema: { ...userSchema },
-  mode: 'planetscale',
   logger: process.env.NODE_ENV == 'development',
 });

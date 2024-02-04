@@ -39,7 +39,7 @@ export const checkExistByUsername = async (username: string) => {
 };
 
 export const createUser = async (user: UserInsert) => {
-  const inserted = await db.insert(users).values(user);
+  const inserted = await db.insert(users).values(user).returning();
 
-  return { ...user, id: inserted[0].insertId } as UserSelect;
+  return inserted[0] as UserSelect;
 };

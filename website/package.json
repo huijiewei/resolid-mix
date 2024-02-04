@@ -30,9 +30,9 @@
     "fs-extra": "^11.2.0",
     "hono": "^3.12.10",
     "isbot": "^4.4.0",
-    "mysql2": "^3.9.1",
-    "react": "18.3.0-canary-247738465-20240130",
-    "react-dom": "18.3.0-canary-247738465-20240130",
+    "postgres": "^3.4.3",
+    "react": "18.3.0-canary-4b2a1115a-20240202",
+    "react-dom": "18.3.0-canary-4b2a1115a-20240202",
     "react-hook-form": "^7.50.0",
     "remix-hook-form": "^4.0.1",
     "zod": "^3.22.4"

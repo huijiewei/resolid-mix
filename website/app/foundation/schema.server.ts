@@ -1,6 +1,6 @@
-import { mysqlTableCreator } from 'drizzle-orm/mysql-core';
+import { pgTableCreator } from 'drizzle-orm/pg-core';
 
-export const resolidMysqlTable = mysqlTableCreator((name) => {
+export const resolidTable = pgTableCreator((name) => {
   const tablePrefix = process.env.RX_DB_TABLE_PREFIX ?? '';
 
   return tablePrefix + name;

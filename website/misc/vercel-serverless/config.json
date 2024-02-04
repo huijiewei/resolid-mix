@@ -2,7 +2,7 @@
   "version": 3,
   "routes": [
     {
-      "src": "^/assets/(.*)$",
+      "src": "^/(assets|icons)/(.*)$",
       "headers": {
         "cache-control": "public, immutable, max-age=31536000"
       }
