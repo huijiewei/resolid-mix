@@ -9,7 +9,7 @@ export const loader = async () => {
       await getStatus();
 
       return { success: true, message: '数据库访问正常' };
-    } catch (e) {
+    } catch {
       return { success: false, message: '数据库访问失败' };
     }
   };

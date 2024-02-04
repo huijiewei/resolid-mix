@@ -22,6 +22,9 @@ declare global {
       RX_DB_DATABASE: string;
       RX_COOKIE_SECRET: string;
       RX_TURNSTILE_SECRET: string;
+      RX_EMAIL_BREVO_API_KEY?: string;
+      RX_EMAIL_SENDER_NAME?: string;
+      RX_EMAIL_SENDER_EMAIL?: string;
     }
   }
 }

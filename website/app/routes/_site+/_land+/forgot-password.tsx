@@ -2,14 +2,17 @@ import type { ActionFunctionArgs } from '@remix-run/server-runtime';
 import { getValidatedFormData } from 'remix-hook-form';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
 import { AuthForgotPasswordForm } from '~/extensions/auth/AuthForgotPasswordForm';
-import type { AuthForgotPasswordFormData } from '~/extensions/auth/AuthForgotPasswordResolver';
-import { authLoginResolver } from '~/extensions/auth/AuthLoginResolver';
+import {
+  authForgotPasswordResolver,
+  type AuthForgotPasswordFormData,
+} from '~/extensions/auth/AuthForgotPasswordResolver';
 import { trunstileVerifyServer } from '~/extensions/turnstile/trunstileVerify.server';
 import { problem, success } from '~/foundation/http.server';
+import { sendEmail } from '~/foundation/mail.server';
 import { checkExistByEmail } from '~/modules/user/userService.server';
 
 export const action = async ({ request }: ActionFunctionArgs) => {
-  const { errors, data } = await getValidatedFormData<AuthForgotPasswordFormData>(request, authLoginResolver);
+  const { errors, data } = await getValidatedFormData<AuthForgotPasswordFormData>(request, authForgotPasswordResolver);
 
   if (errors) {
     return problem(errors);
@@ -29,7 +32,17 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     });
   }
 
-  return success({});
+  const result = await sendEmail({ email: data.email }, '重置密码', { textContent: '测试重置密码' });
+
+  if (!result.success) {
+    return problem({
+      email: { message: result.message },
+    });
+  }
+
+  return success({
+    message: '发送邮件成功',
+  });
 };
 
 export default function ForgotPassword() {
