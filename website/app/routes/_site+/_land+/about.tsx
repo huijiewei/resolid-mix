@@ -15,7 +15,7 @@ export default function About() {
       </p>
       <h2>技术栈</h2>
       <div className={'flex justify-center'}>
-        <div className={'inline-flex items-center gap-5'}>
+        <div className={'inline-flex flex-wrap items-center justify-center gap-5'}>
           <SpriteIcon name={'react'} group={'brands'} size={'3rem'} />
           <SpriteIcon name={'remix'} group={'brands'} size={'3rem'} />
           <SpriteIcon name={'tailwindcss'} group={'brands'} size={'3rem'} />
