@@ -13,7 +13,7 @@ export const trunstileVerifyServer = async (token: string) => {
     },
     body: JSON.stringify({
       response: token,
-      secret: process.env.NXT_TURNSTILE_SECRET,
+      secret: process.env.RX_TURNSTILE_SECRET,
     }),
   });
 
