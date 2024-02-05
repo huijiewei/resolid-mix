@@ -2,22 +2,31 @@
   "version": 3,
   "routes": [
     {
-      "src": "^/(assets)/(.*)$",
-      "headers": {
-        "cache-control": "public, immutable, max-age=31536000"
-      }
-    },
-    {
-      "src": "^/(icons)/(.*)$",
+      "src": "^/(favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|manifest\\.webmanifest)$",
       "headers": {
         "cache-control": "public, max-age=3600"
-      }
+      },
+      "continue": true
+    },
+    {
+      "src": "^/icons/(.*)$",
+      "headers": {
+        "cache-control": "public, max-age=3600"
+      },
+      "continue": true
+    },
+    {
+      "src": "^/assets/(.*)$",
+      "headers": {
+        "cache-control": "public, max-age=31536000, immutable"
+      },
+      "continue": true
     },
     {
       "handle": "filesystem"
     },
     {
-      "src": ".*",
+      "src": "/(.*)",
       "dest": "_serverless"
     }
   ]
