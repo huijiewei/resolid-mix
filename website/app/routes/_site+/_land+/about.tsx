@@ -65,11 +65,6 @@ export default function About() {
         Hono - [炎] 在日语中表示火焰🔥，是一个面向 Edge 的小型、简单且超快速的 Web 框架。它适用于任何 JavaScript
         运行时环境：Cloudflare Workers、Fastly Compute、Deno、Bun、Vercel、Netlify、AWS Lambda、Lambda@Edge 和 Node.js。
       </p>
-      <h3>HatTip</h3>
-      <p>
-        HatTip 是一组用于构建 HTTP 服务器应用程序的 JavaScript 包。它的目标是构建一个可在整个 JavaScript
-        世界中使用的通用中间件生态系统。
-      </p>
       <h3>Node.js</h3>
       <p>
         Node.js 是一个开源且跨平台的 JavaScript 运行环境。它是几乎任何类型项目的热门工具！ Node.js 运行的是 V8

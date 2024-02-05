@@ -1,9 +1,12 @@
-import { createMiddleware } from '@hattip/adapter-node/native-fetch';
-import { createRequestHandler, type ServerBuild } from '@remix-run/server-runtime';
+import { handle } from '@hono/node-server/vercel';
+import { Hono } from 'hono';
+import { remix } from '../base/remix';
 
 // @ts-expect-error Cannot find module
 import * as build from './index.js';
 
-const remixHandler = createRequestHandler(build as ServerBuild, 'production');
+const app = new Hono();
 
-export default createMiddleware((ctx) => remixHandler(ctx.request));
+app.use('*', remix(build));
+
+export default handle(app);

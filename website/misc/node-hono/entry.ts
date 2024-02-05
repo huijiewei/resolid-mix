@@ -1,9 +1,9 @@
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
-import { createRequestHandler } from '@remix-run/server-runtime';
 import { Hono } from 'hono';
 import { createMiddleware } from 'hono/factory';
-import os from 'node:os';
+import { networkInterfaces } from 'node:os';
+import { remix } from '../base/remix';
 
 import 'dotenv/config';
 
@@ -21,19 +21,12 @@ const cache = (seconds: number, immutable = false) =>
     c.res.headers.set('cache-control', `public, max-age=${seconds}${immutable ? ', immutable' : ''}`);
   });
 
-const remix = () =>
-  createMiddleware(async (c) => {
-    const requestHandler = createRequestHandler(build, 'production');
-
-    return await requestHandler(c.req.raw);
-  });
-
 const app = new Hono();
 
 app
   .use('/assets/*', cache(60 * 60 * 24 * 365, true), serveStatic({ root: build.assetsBuildDirectory }))
   .use('*', cache(60 * 60), serveStatic({ root: build.assetsBuildDirectory }))
-  .use(remix());
+  .use('*', remix(build));
 
 serve(
   {
@@ -45,7 +38,7 @@ serve(
 
     const address =
       process.env.HOST ||
-      Object.values(os.networkInterfaces())
+      Object.values(networkInterfaces())
         .flat()
         .find((ip) => String(ip?.family).includes('4') && !ip?.internal)?.address;
 

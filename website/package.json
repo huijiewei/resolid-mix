@@ -15,7 +15,6 @@
     "resolid": "tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hattip/adapter-node": "^0.0.41",
     "@hono/node-server": "^1.7.0",
     "@hookform/resolvers": "^3.3.4",
     "@marsidev/react-turnstile": "^0.5.1",
@@ -76,6 +75,6 @@
     "vitest": "^1.2.2"
   },
   "engines": {
-    "node": ">20.0.0"
+    "node": "20.x"
   }
 }
