@@ -1,5 +1,6 @@
 /// <reference types="vite/client" />
-/// <reference types="@remix-run/node" />
+
+import '@remix-run/node';
 
 interface ImportMetaEnv {
   readonly VITE_TURNSTILE_KEY: string;
@@ -26,5 +27,12 @@ declare global {
       RX_EMAIL_SENDER_NAME?: string;
       RX_EMAIL_SENDER_EMAIL?: string;
     }
+  }
+}
+
+declare module '@remix-run/node' {
+  // noinspection JSUnusedGlobalSymbols
+  interface AppLoadContext {
+    readonly remoteAddress: string;
   }
 }

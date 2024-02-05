@@ -1,11 +1,11 @@
+import 'dotenv/config';
+
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
 import { Hono } from 'hono';
 import { createMiddleware } from 'hono/factory';
 import { networkInterfaces } from 'node:os';
 import { remix } from '../base/remix';
-
-import 'dotenv/config';
 
 // @ts-expect-error Cannot find module
 import * as build from './index.js';

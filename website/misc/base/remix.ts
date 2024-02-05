@@ -5,5 +5,11 @@ export const remix = (build: ServerBuild) =>
   createMiddleware(async (c) => {
     const requestHandler = createRequestHandler(build, 'production');
 
-    return await requestHandler(c.req.raw);
+    const remoteAddress = c.req.header('x-vercel-deployment-url')
+      ? c.req.header('x-forwarded-for')
+      : c.env.incoming.socket.remoteAddress;
+
+    return await requestHandler(c.req.raw, {
+      remoteAddress: remoteAddress,
+    });
   });
