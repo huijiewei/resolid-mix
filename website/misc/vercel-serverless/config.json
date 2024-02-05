@@ -17,8 +17,8 @@
       "handle": "filesystem"
     },
     {
-      "src": "/(.*)",
-      "dest": "server"
+      "src": ".*",
+      "dest": "_serverless"
     }
   ]
 }

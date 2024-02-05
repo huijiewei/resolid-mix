@@ -44,9 +44,9 @@ export const vercelServerlessBuild = (): Plugin => {
         #     config.json
         #     static/              = build/client
         #     functions/
-        #       index.func/
+        #       _serverless.func/
         #         .vc-config.json
-        #         index.js         = app/adapters/vercel-serverless.ts
+        #         index.mjs         = entry.ts
       * */
 
       const vercelRoot = join(root, '.vercel');
@@ -65,7 +65,7 @@ export const vercelServerlessBuild = (): Plugin => {
       await cp(resolve(outDir, '../client'), vercelOutputStatic, { recursive: true });
       await rm(join(vercelOutputStatic, '.vite'), { recursive: true });
 
-      const vercelOutputFunc = join(vercelOutput, 'functions', 'server.func');
+      const vercelOutputFunc = join(vercelOutput, 'functions', '_serverless.func');
       await mkdir(vercelOutputFunc, { recursive: true });
 
       const traced = await nodeFileTrace([bundleFile], {

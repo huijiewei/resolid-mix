@@ -50,6 +50,7 @@ export const bundleServer = async (
       },
       external: ['./index.js'],
       platform: 'node',
+      target: 'node20',
       format: 'esm',
       packages: 'external',
       bundle: true,
