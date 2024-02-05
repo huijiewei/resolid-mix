@@ -2,15 +2,14 @@ import { hashSync } from '@node-rs/bcrypt';
 import type { ActionFunctionArgs } from '@remix-run/server-runtime';
 import { getValidatedFormData } from 'remix-hook-form';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
-import { authLoginResolver } from '~/extensions/auth/AuthLoginResolver';
 import { AuthSignupForm } from '~/extensions/auth/AuthSignupForm';
-import type { AuthSignupFormData } from '~/extensions/auth/AuthSignupResolver';
+import { authSignupResolver, type AuthSignupFormData } from '~/extensions/auth/AuthSignupResolver';
 import { problem, success } from '~/foundation/http.server';
 import { commitSession, createUserSession, omitUser } from '~/foundation/session.server';
 import { checkExistByEmail, checkExistByUsername, createUser } from '~/modules/user/userService.server';
 
-export const action = async ({ request }: ActionFunctionArgs) => {
-  const { errors, data } = await getValidatedFormData<AuthSignupFormData>(request, authLoginResolver);
+export const action = async ({ request, context }: ActionFunctionArgs) => {
+  const { errors, data } = await getValidatedFormData<AuthSignupFormData>(request, authSignupResolver);
 
   if (errors) {
     return problem(errors);
@@ -33,6 +32,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     username: data.username,
     password: hashSync(data?.password),
     userGroupId: 2,
+    createdIp: context.remoteAddress,
   });
 
   const session = await createUserSession(request, user.id);

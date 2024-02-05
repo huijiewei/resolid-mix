@@ -38,6 +38,10 @@ export const checkExistByUsername = async (username: string) => {
   return Boolean(await db.query.users.findFirst({ where: eq(users.username, username) }));
 };
 
+export const checkExistByNickname = async (nickname: string) => {
+  return Boolean(await db.query.users.findFirst({ where: eq(users.nickname, nickname) }));
+};
+
 export const createUser = async (user: UserInsert) => {
   const inserted = await db.insert(users).values(user).returning();
 

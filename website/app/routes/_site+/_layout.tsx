@@ -9,7 +9,7 @@ import { LazySpinner } from '~/components/LazySpinner';
 import { SpriteIcon } from '~/components/SpriteIcon';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
 import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/extensions/auth/AuthUserContext';
-import { userIsAdmin } from '~/modules/user/userUtils';
+import { userDisplayName, userIsAdmin } from '~/modules/user/userUtils';
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = () => {
@@ -130,7 +130,7 @@ const HeaderNavUser = () => {
       <DropdownMenu.Root placement={'bottom'}>
         <DropdownMenu.Trigger asChild>
           <Button aspectSquare variant={'subtle'} color={'neutral'}>
-            <Avatar size={26} src={user.avatar} name={user.nickname} />
+            <Avatar size={26} src={user.avatar} name={userDisplayName(user)} />
           </Button>
         </DropdownMenu.Trigger>
         <DropdownMenu.Content className={'z-50'}>

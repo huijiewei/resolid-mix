@@ -9,10 +9,11 @@ export const users = resolidTable(
     userGroupId: integer('userGroupId').notNull().default(0),
     email: text('email').notNull().default(''),
     emailVerified: timestamp('emailVerified'),
-    username: text('username').notNull().default(''),
     password: text('password').notNull().default(''),
+    username: text('username').notNull().default(''),
     nickname: text('nickname').notNull().default(''),
     avatar: text('avatar').notNull().default(''),
+    createdIp: text('createdIp').notNull().default(''),
     createdAt: timestamp('createdAt').notNull().defaultNow(),
     updatedAt: timestamp('updatedAt'),
     deletedAt: timestamp('deletedAt'),
@@ -20,8 +21,9 @@ export const users = resolidTable(
   (users) => ({
     emailIndex: uniqueIndex('emailIndex').on(users.email),
     usernameIndex: uniqueIndex('usernameIndex').on(users.username),
-    userGroupIdIndex: index('userGroupIdIndex').on(users.userGroupId),
+    nicknameIndex: index('nicknameIndex').on(users.nickname),
     deletedAtIndex: index('deletedAtIndex').on(users.deletedAt),
+    userGroupIdIndex: index('userGroupIdIndex').on(users.userGroupId),
   }),
 );
 

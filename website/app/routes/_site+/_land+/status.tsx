@@ -1,9 +1,10 @@
 import { Await, defer, useLoaderData } from '@remix-run/react';
+import type { LoaderFunctionArgs } from '@remix-run/server-runtime';
 import { clsx } from '@resolid/mix-ui';
 import { Suspense } from 'react';
 import { getStatus } from '~/modules/system/systemService.server';
 
-export const loader = async () => {
+export const loader = async ({ request, context }: LoaderFunctionArgs) => {
   const status = async () => {
     try {
       await getStatus();
@@ -15,7 +16,13 @@ export const loader = async () => {
   };
 
   return defer({
-    ssr: { success: true, message: 'SSR 访问正常', now: Date.now() },
+    ssr: {
+      success: true,
+      message: 'SSR 访问正常',
+      now: Date.now(),
+      agent: request.headers.get('user-agent'),
+      ip: context.remoteAddress,
+    },
     db: status(),
   });
 };
@@ -44,7 +51,11 @@ export default function Status() {
           )}
         </Await>
       </Suspense>
-      <p className={'p-4 text-center'}>服务器时间: {ssr.now}</p>
+      <p className={'bg-blue-50/60 p-4'}>
+        客户端地址: {ssr.ip}
+        <br />
+        服务器时间: {new Date(ssr.now).toLocaleString()}
+      </p>
     </div>
   );
 }
