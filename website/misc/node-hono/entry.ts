@@ -12,6 +12,10 @@ import * as build from './index.js';
 
 const cache = (seconds: number, immutable = false) =>
   createMiddleware(async (c, next) => {
+    if (!c.req.path.match(/\.[a-zA-Z0-9]+$/)) {
+      return next();
+    }
+
     await next();
 
     if (!c.res.ok) {
