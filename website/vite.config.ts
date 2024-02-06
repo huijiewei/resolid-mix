@@ -14,6 +14,7 @@ import Inspect from 'vite-plugin-inspect';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { nodeBuild } from './misc/node-hono/build';
 import { vercelServerlessBuild } from './misc/vercel-serverless/build';
+import { chunkSplitPlugin } from './misc/vite-split-chunk/splitChunk';
 
 // noinspection JSUnusedGlobalSymbols
 export default defineConfig(({ command }) => {
@@ -64,6 +65,27 @@ export default defineConfig(({ command }) => {
       !isBuild && Inspect(),
       isBuild && !buildEnv && nodeBuild(),
       isBuild && buildEnv == 'vercel' && vercelServerlessBuild(),
+      chunkSplitPlugin({
+        manualChunks: (id) => {
+          if (
+            id.includes('/node_modules/react/') ||
+            id.includes('/node_modules/react-dom/') ||
+            id.includes('/node_modules/react-is/') ||
+            id.includes('/node_modules/scheduler/') ||
+            id.includes('/node_modules/prop-types/')
+          ) {
+            return 'react';
+          }
+
+          if (id.includes('/node_modules/')) {
+            return 'vendor';
+          }
+
+          if (id.includes('/node_modules/@resolid/') || id.includes('/packages/')) {
+            return 'resolid';
+          }
+        },
+      }),
     ].filter(Boolean),
     build: {
       minify: true,
