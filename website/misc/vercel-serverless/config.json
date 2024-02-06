@@ -4,14 +4,14 @@
     {
       "src": "^/(favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|manifest\\.webmanifest)$",
       "headers": {
-        "cache-control": "public, max-age=3600"
+        "cache-control": "public, max-age=86400"
       },
       "continue": true
     },
     {
       "src": "^/icons/(.*)$",
       "headers": {
-        "cache-control": "public, max-age=3600"
+        "cache-control": "public, max-age=31536000, immutable"
       },
       "continue": true
     },

@@ -7,14 +7,14 @@ export default function _index() {
     <main className={'prose mx-auto max-w-3xl dark:prose-invert'}>
       <h1
         className={
-          'mt-20 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-center text-[5rem] font-[800] leading-normal text-transparent'
+          'mt-20 bg-gradient-to-r from-purple-400 via-blue-400 to-green-400 bg-clip-text text-center text-[4rem] font-[800] leading-normal text-transparent laptop:text-[5rem]'
         }
       >
         Resolid Mix
       </h1>
       <p className={'text-center'}>
-        这是一个很有趣的 Remix 全栈演示站点，Remix 是一个全栈 Web 框架，可让您专注于用户界面并通过 Web
-        标准进行工作，以提供快速、流畅且有弹性的用户体验。人们会喜欢使用你的东西。
+        Resolid Mix 是一个引人入胜的 Remix 全栈站点。旨在展示使用 Remix、React、Tailwind CSS、Vite、Drizzle
+        ORM、PostgreSQL、Hono、Node.js 和 Vercel 等现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。
       </p>
       <div className={'not-prose mt-10 flex flex-row justify-center gap-9'}>
         <Button size={'xl'} asChild>

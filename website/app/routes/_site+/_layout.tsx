@@ -13,7 +13,14 @@ import { userDisplayName, userIsAdmin } from '~/modules/user/userUtils';
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = () => {
-  return [{ title: 'Resolid Mix' }, { name: 'description', content: 'Welcome to Resolid Mix!' }];
+  return [
+    { title: 'Resolid Mix' },
+    {
+      name: 'description',
+      content:
+        '一个引人入胜的 Remix 全栈站点，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。',
+    },
+  ];
 };
 
 export default function Layout() {
