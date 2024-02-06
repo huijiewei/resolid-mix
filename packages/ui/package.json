@@ -14,18 +14,10 @@
     "test": "vitest --run",
     "build": "tsup"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
   "exports": {
     ".": {
-      "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
-      },
-      "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
-      }
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "dependencies": {
@@ -48,6 +40,9 @@
     "@resolid/mix-tailwind": "workspace:^",
     "react": ">=18.2.0",
     "react-dom": ">=18.2.0"
+  },
+  "engines": {
+    "node": "20.x"
   },
   "repository": {
     "type": "git",
