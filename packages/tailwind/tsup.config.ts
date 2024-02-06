@@ -9,6 +9,5 @@ export default defineConfig({
   noExternal: Object.keys(dependencies),
   dts: true,
   treeshake: true,
-  minify: true,
   clean: true,
 });
