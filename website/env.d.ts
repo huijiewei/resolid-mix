@@ -1,6 +1,5 @@
 /// <reference types="vite/client" />
-
-import '@remix-run/node';
+/// <reference types="@remix-run/node" />
 
 interface ImportMetaEnv {
   readonly VITE_TURNSTILE_KEY: string;
@@ -16,6 +15,7 @@ declare global {
     interface ProcessEnv {
       NODE_ENV: 'development' | 'production';
       BUILD_ENV: 'vercel' | undefined;
+      RX_RUNTIME: 'vercel' | 'node' | undefined;
       RX_DB_HOST: string;
       RX_DB_PORT: number;
       RX_DB_USER: string;
@@ -26,11 +26,16 @@ declare global {
       RX_EMAIL_BREVO_API_KEY?: string;
       RX_EMAIL_SENDER_NAME?: string;
       RX_EMAIL_SENDER_EMAIL?: string;
+      RX_AXIOM_TOKEN?: string;
+      RX_AXIOM_ORG_ID?: string;
+      RX_AXIOM_DATASET?: string;
     }
   }
 }
 
-declare module '@remix-run/node' {
+import '@remix-run/server-runtime';
+
+declare module '@remix-run/server-runtime' {
   // noinspection JSUnusedGlobalSymbols
   interface AppLoadContext {
     readonly remoteAddress: string;
