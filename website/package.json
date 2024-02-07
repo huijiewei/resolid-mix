@@ -47,7 +47,7 @@
     "@rollup/plugin-commonjs": "^25.0.7",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
-    "@shikijs/rehype": "1.0.0-beta.6",
+    "@shikijs/rehype": "1.0.0-rc.0",
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.18",
