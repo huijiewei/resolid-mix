@@ -14,14 +14,14 @@
   ],
   "screenshots" : [
     {
-      "src": "/icons/screenshot-1.webp",
+      "src": "/images/screenshot-1.webp",
       "sizes": "1652x1080",
       "type": "image/webp",
       "form_factor": "wide",
       "label": "Resolid Mix 主页"
     },
     {
-      "src": "/icons/screenshot-2.webp",
+      "src": "/images/screenshot-2.webp",
       "sizes": "565x1080",
       "type": "image/webp",
       "form_factor": "narrow",
