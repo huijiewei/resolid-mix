@@ -1,5 +1,5 @@
 import { clsx } from '@resolid/mix-ui';
-import { HistoryNavLink } from '~/components/HistoryNavLink';
+import { HistoryNavLink } from '~/components/HistoryLink';
 import { useAsideLayoutDispatch } from '~/components/layout/AsideLayoutContext';
 
 export type Menu = {

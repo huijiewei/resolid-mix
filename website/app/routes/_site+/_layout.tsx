@@ -3,25 +3,12 @@ import { Avatar, Button, DropdownMenu, Tooltip, clsx, noScrollbarsClassName, use
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
-import { HistoryLink } from '~/components/HistoryLink';
-import { HistoryNavLink } from '~/components/HistoryNavLink';
+import { HistoryLink, HistoryNavLink } from '~/components/HistoryLink';
 import { LazySpinner } from '~/components/LazySpinner';
 import { SpriteIcon } from '~/components/SpriteIcon';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
 import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/extensions/auth/AuthUserContext';
 import { userDisplayName, userIsAdmin } from '~/modules/user/userUtils';
-
-// noinspection JSUnusedGlobalSymbols
-export const meta = () => {
-  return [
-    { title: 'Resolid Mix' },
-    {
-      name: 'description',
-      content:
-        '一个引人入胜的 Remix 全栈站点，展示使用现代 Web 技术构建高性能、可扩展和用户友好的 Web 应用程序的最佳实践。',
-    },
-  ];
-};
 
 export default function Layout() {
   return (
@@ -182,13 +169,11 @@ const HeaderNavUser = () => {
     );
   }
 
-  const to = getLoginTo('login', location);
-
   return (
     <Tooltip.Root placement={'bottom'}>
       <Tooltip.Trigger asChild>
         <Button asChild aspectSquare aria-label={'用户登录或注册'} color={'neutral'} variant={'subtle'}>
-          <HistoryLink to={to}>
+          <HistoryLink to={getLoginTo('login', location)}>
             <SpriteIcon name={'user'} size={22} />
           </HistoryLink>
         </Button>

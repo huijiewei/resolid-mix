@@ -1,4 +1,4 @@
-import { mergeMeta } from '~/extensions/meta/mergeMeta';
+import { mergeMeta } from '~/extensions/remix/mergeMeta';
 
 export const meta = mergeMeta(() => {
   return [{ title: '隐私声明' }];

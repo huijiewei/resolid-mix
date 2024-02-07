@@ -1,5 +1,5 @@
 import { ErrorComponent } from '~/components/ErrorComponent';
-import { mergeMeta } from '~/extensions/meta/mergeMeta';
+import { mergeMeta } from '~/extensions/remix/mergeMeta';
 
 // noinspection JSUnusedGlobalSymbols
 export const loader = async () => {

@@ -7,7 +7,7 @@ import { AsideLayoutMain } from '~/components/layout/AsideLayoutMain';
 import type { Menu } from '~/components/layout/AsideLayoutMenu';
 import { AsideLayoutSide } from '~/components/layout/AsideLayoutSide';
 import { BaseLayout } from '~/components/layout/BaseLayout';
-import { mergeMeta } from '~/extensions/meta/mergeMeta';
+import { mergeMeta } from '~/extensions/remix/mergeMeta';
 
 // noinspection JSUnusedGlobalSymbols
 export const meta = mergeMeta(() => {

@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { mergeMeta } from '~/extensions/meta/mergeMeta';
+import { mergeMeta } from '~/extensions/remix/mergeMeta';
 
 describe('mergeMeta function', () => {
   test('should merge and filter metadata correctly', () => {
