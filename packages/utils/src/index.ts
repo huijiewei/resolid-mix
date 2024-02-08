@@ -2,6 +2,7 @@ export * from './boolean';
 export * from './dom';
 export * from './env';
 export * from './function';
+export * from './http';
 export * from './number';
 export * from './object';
 export * from './promise';
