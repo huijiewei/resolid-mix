@@ -101,11 +101,14 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: [isBuild && { find: '~', replacement: resolve(__dirname, './app') }].filter(Boolean) as AliasOptions,
     },
+    css: { preprocessorMaxWorkers: true },
     ssr: {
       external: ['@node-rs/bcrypt'],
     },
     optimizeDeps: {
+      holdUntilCrawlEnd: false,
       exclude: ['@node-rs/bcrypt'],
+      include: ['@mdx-js/react'],
     },
   };
 

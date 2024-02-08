@@ -11,7 +11,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 export const vercelServerlessBuild = (): Plugin => {
   let root = '';
   let outDir = '';
-  let ssrExternal: string[] | undefined;
+  let ssrExternal: string[] | boolean | undefined;
   let commonjsOptions: RollupCommonJSOptions;
 
   // noinspection JSUnusedGlobalSymbols

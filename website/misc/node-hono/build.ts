@@ -10,7 +10,7 @@ const __dirname = fileURLToPath(new URL('.', import.meta.url));
 export const nodeBuild = (): Plugin => {
   let root = '';
   let outDir = '';
-  let ssrExternal: string[] | undefined;
+  let ssrExternal: string[] | boolean | undefined;
   let commonjsOptions: RollupCommonJSOptions;
 
   // noinspection JSUnusedGlobalSymbols
@@ -29,11 +29,11 @@ export const nodeBuild = (): Plugin => {
     async closeBundle() {
       console.log('bundle Node Server for production...');
 
-      await bundleServer(outDir, join(__dirname, 'entry.ts'), commonjsOptions, ssrExternal ?? []);
+      await bundleServer(outDir, join(__dirname, 'entry.ts'), commonjsOptions, ssrExternal);
 
       const distPkg = buildPackageJson(
         JSON.parse(await readFile(join(root, 'package.json'), 'utf8')) as PackageJson,
-        ssrExternal ?? [],
+        ssrExternal,
       );
 
       await writeFile(join(outDir, 'package.json'), JSON.stringify(distPkg, null, 2), 'utf8');

@@ -7,7 +7,17 @@ import { rollup } from 'rollup';
 import type { PackageJson } from 'type-fest';
 import type { RollupCommonJSOptions } from 'vite';
 
-export const buildPackageJson = (pkg: PackageJson, ssrExternal: string[]): PackageJson => {
+const parseSsrExternal = (ssrExternal: string[] | boolean | undefined): string[] => {
+  if (Array.isArray(ssrExternal)) {
+    return ssrExternal;
+  }
+
+  return [];
+};
+
+export const buildPackageJson = (pkg: PackageJson, ssrExternal: string[] | boolean | undefined): PackageJson => {
+  const parsedSsrExternal = parseSsrExternal(ssrExternal);
+
   return {
     name: pkg.name,
     type: pkg.type,
@@ -16,14 +26,14 @@ export const buildPackageJson = (pkg: PackageJson, ssrExternal: string[]): Packa
     },
     dependencies: {
       ...Object.keys(pkg.dependencies ?? {})
-        .filter((key) => ssrExternal?.includes(key))
+        .filter((key) => parsedSsrExternal.includes(key))
         .reduce((obj: Record<string, string>, key) => {
           obj[key] = pkg.dependencies?.[key] ?? '';
 
           return obj;
         }, {}),
       ...Object.keys(pkg.devDependencies ?? {})
-        .filter((key) => ssrExternal?.includes(key))
+        .filter((key) => parsedSsrExternal.includes(key))
         .reduce((obj: Record<string, string>, key) => {
           obj[key] = pkg.devDependencies?.[key] ?? '';
 
@@ -37,7 +47,7 @@ export const bundleServer = async (
   outDir: string,
   entryPoint: string,
   commonjsOptions: RollupCommonJSOptions,
-  ssrExternal: string[],
+  ssrExternal: string[] | boolean | undefined,
 ) => {
   const outfile = join(outDir, 'entry.js');
 
@@ -71,7 +81,7 @@ export const bundleServer = async (
       }),
       commonjs({ ...commonjsOptions, strictRequires: true }),
     ],
-    external: [...(ssrExternal ?? [])],
+    external: parseSsrExternal(ssrExternal),
     logLevel: 'silent',
   });
 

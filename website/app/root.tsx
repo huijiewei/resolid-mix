@@ -1,6 +1,8 @@
+import type { MetaFunction } from '@remix-run/node';
 import { Links, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 import type { LinksFunction, LoaderFunctionArgs } from '@remix-run/server-runtime';
 import { ColorModeScript, ResolidProvider } from '@resolid/mix-ui';
+import { trimEnd } from '@resolid/mix-utils';
 import commonIcon from '~/assets/icons/common.svg';
 import { RouteProgressBar } from '~/components/RouteProgressBar';
 import { AuthProvider } from '~/extensions/auth/AuthProvider';
@@ -8,9 +10,7 @@ import { AuthUserProvider } from '~/extensions/auth/AuthUserProvider';
 import { useTypeLoaderData } from '~/extensions/remix/useData';
 import { getSessionUser, type SessionUser } from '~/foundation/session.server';
 
-import type { MetaFunction } from '@remix-run/node';
-import { trimEnd } from '@resolid/mix-utils';
-import './root.css';
+import styles from './root.css?url';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return { user: await getSessionUser(request), url: request.url };
@@ -84,6 +84,11 @@ export const shouldRevalidate = () => false;
 // noinspection JSUnusedGlobalSymbols
 export const links: LinksFunction = () => {
   return [
+    {
+      rel: 'stylesheet',
+      href: styles,
+      precedence: 'high',
+    },
     {
       rel: 'prefetch',
       href: commonIcon,
