@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useClipboard = ({ timeout = 1500, onError }: { timeout: number; onError?: (error: Error) => void }) => {
+export const useClipboard = (timeout = 2000, onError: (error: Error) => void = () => {}) => {
   const [copied, setCopied] = useState(false);
 
   const copy = async (source: string) => {
