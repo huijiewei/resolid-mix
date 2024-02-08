@@ -1,6 +1,7 @@
 {
   "version": 3,
   "routes": [
+    { "src": "^/(.*)/$", "headers": { "Location": "/$1" }, "status": 308 },
     {
       "src": "^/(favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|manifest\\.webmanifest)$",
       "headers": {
