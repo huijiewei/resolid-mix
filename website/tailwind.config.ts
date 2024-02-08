@@ -6,7 +6,7 @@ import resolidMix from '../packages/tailwind/src';
 export default <Partial<Config>>{
   presets: [resolidMix.preset()],
   content: [
-    './app/**/*.{js,ts,tsx}',
+    './app/**/*.{js,ts,tsx,mdx}',
     './node_modules/@resolid/mix-ui/dist/*.js',
     './node_modules/@resolid/mix-ui/src/**/*.{ts,tsx}',
   ],
