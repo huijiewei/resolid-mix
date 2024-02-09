@@ -6,7 +6,7 @@ settings:
 
 overrides:
   esbuild: ^0.20.0
-  vite: ^5.1.0
+  vite: ^5.1.1
   react: 18.3.0-canary-2cd19ed1d-20240207
   react-dom: 18.3.0-canary-2cd19ed1d-20240207
   react-is: 18.3.0-canary-2cd19ed1d-20240207
@@ -225,7 +225,7 @@ importers:
         version: 1.9.2
       '@remix-run/dev':
         specifier: ^2.6.0
-        version: 2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.0)
+        version: 2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.1)
       '@remix-run/serve':
         specifier: ^2.6.0
         version: 2.6.0(typescript@5.3.3)
@@ -242,8 +242,8 @@ importers:
         specifier: ^15.2.3
         version: 15.2.3(rollup@4.9.6)
       '@shikijs/rehype':
-        specifier: ^1.0.0
-        version: 1.0.0
+        specifier: ^1.1.0
+        version: 1.1.0
       '@tailwindcss/typography':
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.4.1)
@@ -305,14 +305,14 @@ importers:
         specifier: ^4.10.2
         version: 4.10.2
       vite:
-        specifier: ^5.1.0
-        version: 5.1.0(@types/node@20.11.17)
+        specifier: ^5.1.1
+        version: 5.1.1(@types/node@20.11.17)
       vite-plugin-inspect:
         specifier: ^0.8.3
-        version: 0.8.3(rollup@4.9.6)(vite@5.1.0)
+        version: 0.8.3(rollup@4.9.6)(vite@5.1.1)
       vite-tsconfig-paths:
         specifier: ^4.3.1
-        version: 4.3.1(typescript@5.3.3)(vite@5.1.0)
+        version: 4.3.1(typescript@5.3.3)(vite@5.1.1)
       vitest:
         specifier: ^1.2.2
         version: 1.2.2(@types/node@20.11.17)(jsdom@24.0.0)
@@ -1735,14 +1735,14 @@ packages:
     resolution: {integrity: sha512-2LuNTFBIO0m7kKIQvvPHN6UE63VjpmL9rnEEaOOaiSPbZK+zUOYIzBAWcED+3XYzhYsd/0mD57VdxAEqqV52CQ==}
     dev: true
 
-  /@remix-run/dev@2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.0):
+  /@remix-run/dev@2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.1):
     resolution: {integrity: sha512-wf5DoKxBwz3/84FNyFM6NKvQIOEv+Ukwj9DjXrDs6YLI6oSqw2XsJCxWN4lAbOxXuK37pBt1WAE8LzEMuyowsw==}
     engines: {node: '>=18.0.0'}
     hasBin: true
     peerDependencies:
       '@remix-run/serve': ^2.6.0
       typescript: ^5.1.0
-      vite: ^5.1.0
+      vite: ^5.1.1
       wrangler: ^3.24.0
     peerDependenciesMeta:
       '@remix-run/serve':
@@ -1808,7 +1808,7 @@ packages:
       tar-fs: 2.1.1
       tsconfig-paths: 4.2.0
       typescript: 5.3.3
-      vite: 5.1.0(@types/node@20.11.17)
+      vite: 5.1.1(@types/node@20.11.17)
       ws: 7.5.9
     transitivePeerDependencies:
       - '@types/node'
@@ -1923,7 +1923,7 @@ packages:
     peerDependencies:
       '@remix-run/dev': ^1.15.0 || ^2.0.0
     dependencies:
-      '@remix-run/dev': 2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.0)
+      '@remix-run/dev': 2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.1)
       minimatch: 7.4.6
     dev: true
 
@@ -2137,25 +2137,25 @@ packages:
     dev: true
     optional: true
 
-  /@shikijs/core@1.0.0:
-    resolution: {integrity: sha512-UMKGMZ+8b88N0/n6DWwWth1PHsOaxjW+R2u+hzSiargZWTv+l3s1l8dhuIxUSsEUPlBDKLs2CSMiFZeviKQM1w==}
+  /@shikijs/core@1.1.0:
+    resolution: {integrity: sha512-mB1uFNMpHD82I6QAi/Sk4+H070czXNqUCXvpobeLQGFQ8LM1jQHK/lbHLcucUNSDpFKxTCNJK4KbU2PjR+KJNA==}
     dev: true
 
-  /@shikijs/rehype@1.0.0:
-    resolution: {integrity: sha512-MyrmV7yyTYXc++cwfnuP2aPqYtemxk11SicOdqz9zEptEKbehpyPMcyj7jLwvZrH6kjeQ3fxFg4BIc4ZvpscaA==}
+  /@shikijs/rehype@1.1.0:
+    resolution: {integrity: sha512-hw+A8CRcmHqLBcB+zi2dsuvPIpm/XVEZ3gOCiki02sAfvXuqtakWiy2iRzYC8kr7y70dywHKVVFQIUucv+4SWQ==}
     dependencies:
-      '@shikijs/transformers': 1.0.0
+      '@shikijs/transformers': 1.1.0
       '@types/hast': 3.0.4
       hast-util-to-string: 3.0.0
-      shiki: 1.0.0
+      shiki: 1.1.0
       unified: 11.0.4
       unist-util-visit: 5.0.0
     dev: true
 
-  /@shikijs/transformers@1.0.0:
-    resolution: {integrity: sha512-US0Sc0OdH7eGL64BtfvX3XezPfqhqF5mPyBFLlbZqSpFt2/emnv9GveAWzELGsIuvXoJ6N1RjeAdmQx5Xni6BQ==}
+  /@shikijs/transformers@1.1.0:
+    resolution: {integrity: sha512-9lMaSaDaK9gjUMcwMQeG5l2RJnb7eoNqNpR8LYWy3RzUzeIB89zku+00J3FIOrptmuAaBhKLFb/aJ8tqn6NIYA==}
     dependencies:
-      shiki: 1.0.0
+      shiki: 1.1.0
     dev: true
 
   /@sinclair/typebox@0.27.8:
@@ -2537,7 +2537,7 @@ packages:
       lodash: 4.17.21
       mlly: 1.5.0
       outdent: 0.8.0
-      vite: 5.1.0(@types/node@20.11.17)
+      vite: 5.1.1(@types/node@20.11.17)
       vite-node: 1.2.2(@types/node@20.11.17)
     transitivePeerDependencies:
       - '@types/node'
@@ -2957,7 +2957,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001585
-      electron-to-chromium: 1.4.662
+      electron-to-chromium: 1.4.664
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
 
@@ -3766,8 +3766,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.662:
-    resolution: {integrity: sha512-gfl1XVWTQmPHhqEG0kN77SpUxaqPpMb9r83PT4gvKhg7P3irSxru3lW85RxvK1uI1j2CAcTWPjG/HbE0IP/Rtg==}
+  /electron-to-chromium@1.4.664:
+    resolution: {integrity: sha512-k9VKKSkOSNPvSckZgDDl/IQx45E1quMjX8QfLzUsAs/zve8AyFDK+ByRynSP/OfEfryiKHpQeMf00z0leLCc3A==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -7916,7 +7916,7 @@ packages:
     peerDependencies:
       '@remix-run/dev': ^1.15.0 || ^2
     dependencies:
-      '@remix-run/dev': 2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.0)
+      '@remix-run/dev': 2.6.0(@remix-run/serve@2.6.0)(@types/node@20.11.17)(ts-node@10.9.2)(typescript@5.3.3)(vite@5.1.1)
       '@remix-run/v1-route-convention': 0.1.4(@remix-run/dev@2.6.0)
       fs-extra: 11.2.0
       minimatch: 5.1.6
@@ -8174,10 +8174,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shiki@1.0.0:
-    resolution: {integrity: sha512-rOUGJa3yFGgOrEoiELYxraoBbag3ZWf9bpodlr05Wjm85Scx8OIX+otdSefq9Pk7L47TKEzGodSQb4L38jka6A==}
+  /shiki@1.1.0:
+    resolution: {integrity: sha512-esLKFNE2wwgAU/Ze4u/7qZRi9CwDfPq/4PQNFf7TiAN6+pbgTmibOxBS0eu1xvSW7autXP/g1bOGRGkAQK233w==}
     dependencies:
-      '@shikijs/core': 1.0.0
+      '@shikijs/core': 1.1.0
     dev: true
 
   /siginfo@2.0.0:
@@ -9092,7 +9092,7 @@ packages:
       debug: 4.3.4
       pathe: 1.1.2
       picocolors: 1.0.0
-      vite: 5.1.0(@types/node@20.11.17)
+      vite: 5.1.1(@types/node@20.11.17)
     transitivePeerDependencies:
       - '@types/node'
       - less
@@ -9104,12 +9104,12 @@ packages:
       - terser
     dev: true
 
-  /vite-plugin-inspect@0.8.3(rollup@4.9.6)(vite@5.1.0):
+  /vite-plugin-inspect@0.8.3(rollup@4.9.6)(vite@5.1.1):
     resolution: {integrity: sha512-SBVzOIdP/kwe6hjkt7LSW4D0+REqqe58AumcnCfRNw4Kt3mbS9pEBkch+nupu2PBxv2tQi69EQHQ1ZA1vgB/Og==}
     engines: {node: '>=14'}
     peerDependencies:
       '@nuxt/kit': '*'
-      vite: ^5.1.0
+      vite: ^5.1.1
     peerDependenciesMeta:
       '@nuxt/kit':
         optional: true
@@ -9123,16 +9123,16 @@ packages:
       perfect-debounce: 1.0.0
       picocolors: 1.0.0
       sirv: 2.0.4
-      vite: 5.1.0(@types/node@20.11.17)
+      vite: 5.1.1(@types/node@20.11.17)
     transitivePeerDependencies:
       - rollup
       - supports-color
     dev: true
 
-  /vite-tsconfig-paths@4.3.1(typescript@5.3.3)(vite@5.1.0):
+  /vite-tsconfig-paths@4.3.1(typescript@5.3.3)(vite@5.1.1):
     resolution: {integrity: sha512-cfgJwcGOsIxXOLU/nELPny2/LUD/lcf1IbfyeKTv2bsupVbTH/xpFtdQlBmIP1GEK2CjjLxYhFfB+QODFAx5aw==}
     peerDependencies:
-      vite: ^5.1.0
+      vite: ^5.1.1
     peerDependenciesMeta:
       vite:
         optional: true
@@ -9140,14 +9140,14 @@ packages:
       debug: 4.3.4
       globrex: 0.1.2
       tsconfck: 3.0.2(typescript@5.3.3)
-      vite: 5.1.0(@types/node@20.11.17)
+      vite: 5.1.1(@types/node@20.11.17)
     transitivePeerDependencies:
       - supports-color
       - typescript
     dev: true
 
-  /vite@5.1.0(@types/node@20.11.17):
-    resolution: {integrity: sha512-STmSFzhY4ljuhz14bg9LkMTk3d98IO6DIArnTY6MeBwiD1Za2StcQtz7fzOUnRCqrHSD5+OS2reg4HOz1eoLnw==}
+  /vite@5.1.1(@types/node@20.11.17):
+    resolution: {integrity: sha512-wclpAgY3F1tR7t9LL5CcHC41YPkQIpKUGeIuT8MdNwNZr6OqOTLs7JX5vIHAtzqLWXts0T+GDrh9pN2arneKqg==}
     engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -9227,7 +9227,7 @@ packages:
       strip-literal: 1.3.0
       tinybench: 2.6.0
       tinypool: 0.8.2
-      vite: 5.1.0(@types/node@20.11.17)
+      vite: 5.1.1(@types/node@20.11.17)
       vite-node: 1.2.2(@types/node@20.11.17)
       why-is-node-running: 2.2.2
     transitivePeerDependencies:
