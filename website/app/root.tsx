@@ -13,7 +13,11 @@ import { getSessionUser, type SessionUser } from '~/foundation/session.server';
 import styles from '~/root.css?url';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
-  return { user: await getSessionUser(request), url: request.url };
+  return {
+    user: await getSessionUser(request),
+    url: request.url,
+    iPhone: request.headers.get('user-agent')?.includes('iPhone'),
+  };
 };
 
 // noinspection JSUnusedGlobalSymbols
@@ -100,13 +104,17 @@ export const links: LinksFunction = () => {
 
 // noinspection JSUnusedGlobalSymbols
 export default function App() {
-  const { user } = useTypeLoaderData<{ user: SessionUser; url: string }, typeof loader>();
+  const { user, iPhone } = useTypeLoaderData<{ user: SessionUser; url: string; iPhone: boolean }, typeof loader>();
 
   return (
     <html lang="zh-CN" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {iPhone ? (
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        ) : (
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        )}
         <meta name="theme-color" content="#0969da" />
         <Meta />
         <link rel="icon" href="/favicon.ico" sizes="32x32" />
