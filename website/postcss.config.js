@@ -1,4 +1,4 @@
-import type { Config } from 'postcss-load-config';
+/** @type {import("postcss-load-config").Config} */
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -6,4 +6,4 @@ export default {
     tailwindcss: {},
     autoprefixer: {},
   },
-} satisfies Config;
+};
