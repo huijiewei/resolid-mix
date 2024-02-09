@@ -3,7 +3,6 @@ import { unstable_vitePlugin as remix } from '@remix-run/dev';
 import rehypeShiki from '@shikijs/rehype';
 import { resolve } from 'node:path';
 import { URL, fileURLToPath } from 'node:url';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
 import remarkFrontmatter from 'remark-frontmatter';
 import remarkGfm from 'remark-gfm';
@@ -30,21 +29,12 @@ export default defineConfig(({ command }) => {
         rehypePlugins: [
           rehypeSlug,
           [
-            rehypeAutolinkHeadings,
-            {
-              behavior: 'append',
-              headingProperties: { className: 'group scroll-mt-20 reHeadings' },
-              properties: { className: 'ml-2 text-green-500 opacity-0 transition-opacity group-hover:opacity-100' },
-              content: { type: 'text', value: '#' },
-              test: (element: Element) => {
-                return element.tagName != 'h1';
-              },
-            },
-          ],
-          [
             rehypeShiki,
             {
-              theme: 'github-dark',
+              themes: {
+                light: 'github-light',
+                dark: 'github-dark',
+              },
             },
           ],
         ],
@@ -58,7 +48,9 @@ export default defineConfig(({ command }) => {
         },
         ignoredRouteFiles: ['**/*'],
         routes: async (defineRoutes) => {
-          return flatRoutes('routes', defineRoutes, { ignoredRouteFiles: ['**/.*'] });
+          return flatRoutes('routes', defineRoutes, {
+            ignoredRouteFiles: ['**/.*', '**/__*.*'],
+          });
         },
       }),
       !isBuild && tsconfigPaths(),
@@ -89,6 +81,7 @@ export default defineConfig(({ command }) => {
     ].filter(Boolean),
     build: {
       minify: true,
+      cssMinify: true,
       rollupOptions: {
         onwarn(warning, defaultHandler) {
           if (warning.code === 'MODULE_LEVEL_DIRECTIVE' && warning.message.includes('use client')) {
@@ -101,7 +94,6 @@ export default defineConfig(({ command }) => {
     resolve: {
       alias: [isBuild && { find: '~', replacement: resolve(__dirname, './app') }].filter(Boolean) as AliasOptions,
     },
-    css: { preprocessorMaxWorkers: true },
     ssr: {
       external: ['@node-rs/bcrypt'],
     },

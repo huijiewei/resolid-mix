@@ -3,6 +3,8 @@ title: 按钮
 description: 按钮组件用于触发动作或事件，例如提交表单、打开对话框、取消操作或执行删除操作。
 ---
 
+import { Button, ButtonGroup } from '@resolid/mix-ui';
+import { SpriteIcon } from '~/components/SpriteIcon';
 import { mergeFrontmatter } from '~/extensions/remix/mergeMeta';
 
 export const meta = mergeFrontmatter(frontmatter);
@@ -26,18 +28,272 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 
 按钮有四种不同的样式变体可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`light`、`subtle` 或 `link` 中的任意一种。
 
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+    <Button>Solid</Button>
+    <Button variant={'outline'}>Outline</Button>
+    <Button variant={'light'}>Light</Button>
+    <Button variant={'subtle'}>Subtle</Button>
+    <Button variant={'link'}>Link</Button>
+  </div>
+
+```tsx
+<Button>Solid</Button>
+<Button variant={'outline'}>Outline</Button>
+<Button variant={'light'}>Light</Button>
+<Button variant={'subtle'}>Subtle</Button>
+<Button variant={'link'}>Link</Button>
+```
+
+</section>
+
 ## 颜色
 
 通过传递 `color` 属性来更改按钮的颜色。按钮支持 `primary`、`success`、`warning`、`danger` 和 `neutral` 这些颜色。
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+    <Button>Primary</Button>
+    <Button color={'success'}>Success</Button>
+    <Button color={'warning'}>Warning</Button>
+    <Button color={'danger'}>Danger</Button>
+    <Button color={'neutral'}>Neutral</Button>
+  </div>
+
+  ```tsx
+  <Button>Primary</Button>
+  <Button color={'success'}>Success</Button>
+  <Button color={'warning'}>Warning</Button>
+  <Button color={'danger'}>Danger</Button>
+  <Button color={'neutral'}>Neutral</Button>
+  ```
+
+</section>
 
 ## 大小
 
 按钮有五种可用的尺寸。通过传递 `size` 属性，可以选择使用 `xs`、`sm`、`md`、`lg` 或 `xl` 中的任意一种。
 
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+    <Button size={'xs'}>Button</Button>
+    <Button size={'sm'}>Button</Button>
+    <Button>Button</Button>
+    <Button size={'lg'}>Button</Button>
+    <Button size={'xl'}>Button</Button>
+  </div>
+
+  ```tsx
+  <Button size={'xs'}>Button</Button>
+  <Button size={'sm'}>Button</Button>
+  <Button>Button</Button>
+  <Button size={'lg'}>Button</Button>
+  <Button size={'xl'}>Button</Button>
+  ```
+
+</section>
+
 ## 图标
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+    <Button>
+      <SpriteIcon size={'1em'} className={'me-1.5'} name={'sun'} />
+      亮色模式
+    </Button>
+    <Button variant={'outline'}>
+      <SpriteIcon size={'1em'} className={'me-1.5'} name={'moon'} />
+      暗色模式
+    </Button>
+    <Button variant={'light'}>
+      菜单
+      <SpriteIcon size={'1em'} className={'ms-1.5'} name={'menu'} />
+    </Button>
+    <Button aspectSquare>
+      <SpriteIcon size={'1em'} name={'setting'} />
+    </Button>
+    <Button aspectSquare variant={'outline'} color={'neutral'}>
+      <SpriteIcon size={'1em'} name={'dashboard'} />
+    </Button>
+    <Button aspectSquare variant={'light'} color={'warning'}>
+      <SpriteIcon size={'1em'} name={'logout'} />
+    </Button>
+    <Button aspectSquare variant={'subtle'} color={'success'}>
+      <SpriteIcon size={'1em'} name={'auto'} />
+    </Button>
+  </div>
+
+  ```tsx
+  <Button>
+    <SpriteIcon size={'1em'} className={'me-1.5'} name={'sun'} />
+    亮色模式
+  </Button>
+  <Button variant={'outline'}>
+    <SpriteIcon size={'1em'} className={'me-1.5'} name={'moon'} />
+    暗色模式
+  </Button>
+  <Button variant={'light'}>
+    菜单
+    <SpriteIcon size={'1em'} className={'ms-1.5'} name={'menu'} />
+  </Button>
+  <Button aspectSquare>
+    <SpriteIcon size={'1em'} name={'setting'} />
+  </Button>
+  <Button aspectSquare variant={'outline'} color={'neutral'}>
+    <SpriteIcon size={'1em'} name={'dashboard'} />
+  </Button>
+  <Button aspectSquare variant={'light'} color={'warning'}>
+    <SpriteIcon size={'1em'} name={'logout'} />
+  </Button>
+  <Button aspectSquare variant={'subtle'} color={'success'}>
+    <SpriteIcon size={'1em'} name={'auto'} />
+  </Button>
+  ```
+
+</section>
 
 ## 加载状态
 
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+    <Button disabled>Disabled</Button>
+    <Button loading>Loading</Button>
+    <Button loading loadingText={'Loading'}>
+      Loading
+    </Button>
+    <Button active>Active</Button>
+    <Button fullWidth>Full Width</Button>
+  </div>
+
+  ```tsx
+  <Button disabled>Disabled</Button>
+  <Button loading>Loading</Button>
+  <Button loading loadingText={'Loading'}>
+    Loading
+  </Button>
+  <Button active>Active</Button>
+  <Button fullWidth>Full Width</Button>
+  ```
+
+</section>
+
 ## 按钮组
+
+<section className={'demo group'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
+    <ButtonGroup>
+      <Button>保存</Button>
+      <Button aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup disabled>
+      <Button>保存</Button>
+      <Button aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button>保存</Button>
+      <Button variant="outline" aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup>
+      <Button>保存</Button>
+      <Button color={'neutral'} aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup variant="outline">
+      <Button>保存</Button>
+      <Button aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup variant="light">
+      <Button>保存</Button>
+      <Button aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup vertical>
+      <Button>保存</Button>
+      <Button color={'success'} aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup vertical variant="outline">
+      <Button>保存</Button>
+      <Button aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+    <ButtonGroup vertical variant="light">
+      <Button>保存</Button>
+      <Button aspectSquare>
+        <SpriteIcon name={'plus'} size={'1em'} />
+      </Button>
+    </ButtonGroup>
+  </div>
+
+  ```tsx
+  <ButtonGroup>
+    <Button>保存</Button>
+    <Button aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup disabled>
+    <Button>保存</Button>
+    <Button aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup>
+    <Button>保存</Button>
+    <Button variant="outline" aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup>
+    <Button>保存</Button>
+    <Button color={'neutral'} aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup variant="outline">
+    <Button>保存</Button>
+    <Button aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup variant="light">
+    <Button>保存</Button>
+    <Button aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup vertical>
+    <Button>保存</Button>
+    <Button color={'success'} aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup vertical variant="outline">
+    <Button>保存</Button>
+    <Button aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  <ButtonGroup vertical variant="light">
+    <Button>保存</Button>
+    <Button aspectSquare>
+      <SpriteIcon name={'plus'} size={'1em'} />
+    </Button>
+  </ButtonGroup>
+  ```
+
+</section>
 
 ## 属性

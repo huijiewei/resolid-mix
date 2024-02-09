@@ -10,7 +10,7 @@ import { AuthUserProvider } from '~/extensions/auth/AuthUserProvider';
 import { useTypeLoaderData } from '~/extensions/remix/useData';
 import { getSessionUser, type SessionUser } from '~/foundation/session.server';
 
-import styles from './root.css?url';
+import styles from '~/root.css?url';
 
 export const loader = async ({ request }: LoaderFunctionArgs) => {
   return { user: await getSessionUser(request), url: request.url };
