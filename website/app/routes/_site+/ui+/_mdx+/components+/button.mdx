@@ -29,7 +29,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 按钮有四种不同的样式变体可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`light`、`subtle` 或 `link` 中的任意一种。
 
 <section className={'demo group'}>
-  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
     <Button>Solid</Button>
     <Button variant={'outline'}>Outline</Button>
     <Button variant={'light'}>Light</Button>
@@ -52,7 +52,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 通过传递 `color` 属性来更改按钮的颜色。按钮支持 `primary`、`success`、`warning`、`danger` 和 `neutral` 这些颜色。
 
 <section className={'demo group'}>
-  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
     <Button>Primary</Button>
     <Button color={'success'}>Success</Button>
     <Button color={'warning'}>Warning</Button>
@@ -75,7 +75,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 按钮有五种可用的尺寸。通过传递 `size` 属性，可以选择使用 `xs`、`sm`、`md`、`lg` 或 `xl` 中的任意一种。
 
 <section className={'demo group'}>
-  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
     <Button size={'xs'}>Button</Button>
     <Button size={'sm'}>Button</Button>
     <Button>Button</Button>
@@ -96,7 +96,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 ## 图标
 
 <section className={'demo group'}>
-  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
     <Button>
       <SpriteIcon size={'1em'} className={'me-1.5'} name={'sun'} />
       亮色模式
@@ -155,7 +155,7 @@ import { Button, ButtonGroup } from '@resolid/mix-ui';
 ## 加载状态
 
 <section className={'demo group'}>
-  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3'}>
+  <div className={'p-3 not-prose rounded-t border flex flex-row gap-3 items-center overflow-x-auto scrollbar scrollbar-thin'}>
     <Button disabled>Disabled</Button>
     <Button loading>Loading</Button>
     <Button loading loadingText={'Loading'}>

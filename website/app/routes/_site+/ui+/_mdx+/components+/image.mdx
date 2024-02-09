@@ -26,45 +26,53 @@ import { Image } from '@resolid/mix-ui';
 图片的样式可以使用非常灵活的 [Tailwind CSS](https://tailwindcss.com) 进行自定义。
 
 <section className={'demo group'}>
-  <div className={'p-3 not-prose rounded-t border grid grid-cols-4 gap-3'}>
+  <div className={'p-3 not-prose rounded-t border grid grid-cols-2 tablet:grid-cols-4 gap-3'}>
+      <Image fallback={<BlurhashCanvas
+        aspect={2/3}
+        width={192}
+        height={128}
+        hash={'oJKl?HS}8wIupJR%%LI=i_sot6xY4Tso_N$|IUnmD%n%x]WoRjS5Y6NdIAahxaoI-ns,rrs.j]WV'}
+      />} className={'w-auto'} src={'https://file.resolid.tech/images%2F01.jpg'} />
     <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
-      hash={'oJKl?HS}8wIupJR%%LI=i_sot6xY4Tso_N$|IUnmD%n%x]WoRjS5Y6NdIAahxaoI-ns,rrs.j]WV'}
-    />} className={'w-auto'} src={'https://file.resolid.tech/images%2F01.jpg'} />
-    <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
+      aspect={2/3}
+      width={192}
+      height={128}
       hash={'o9Cr_.R%03R.}r=__NxYVtNIJAt6IU%2j]9uoL$%D%X9tQr=RjR+IpR*xt%1RkNHS$n$s9S$ofxE'}
     />} className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F02.jpg'} />
     <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
+      aspect={2/3}
+      width={192}
+      height={128}
       hash={'o23b]@?wwEtRsiR$H=DhI9Rij[ac$^%itnV?WFn*RjROkCo#jsf,t3ogV[RiWAfSMwWUo#ofozj['}
     />} className={'w-auto rounded-lg'} src={'https://file.resolid.tech/images%2F03.jpg'} />
     <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
+      aspect={2/3}
+      width={192}
+      height={128}
       hash={'o03kjBT|9UR4KtO*33kErVnOs7X2DZm+x+%LrpnB:QrZF{KjOHwMKj%3$$NInmkVXcORNG;3$1K4'}
     />} className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F04.jpg'} />
     <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
+      aspect={2/3}
+      width={192}
+      height={128}
       hash={'o7G8=r00x[tS8_D%_19Y9FxZWC%M00%L_49F-;tR00~q?aS6_3D%JA%29F%LIpsl?vNHITD%ROkD'}
     />} className={'w-auto rounded'} src={'https://file.resolid.tech/images%2F05.jpg'} />
     <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
+      aspect={2/3}
+      width={192}
+      height={128}
       hash={'o7G8=r00x[tS8_D%_19Y9FxZWC%M00%L_49F-;tR00~q?aS6_3D%JA%29F%LIpsl?vNHITD%ROkD'}
     />} className={'w-auto rounded blur-sm'} src={'https://file.resolid.tech/images%2F05.jpg'} />
     <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
+      aspect={2/3}
+      width={192}
+      height={128}
       hash={'o7G8=r00x[tS8_D%_19Y9FxZWC%M00%L_49F-;tR00~q?aS6_3D%JA%29F%LIpsl?vNHITD%ROkD'}
     />} className={'w-auto rounded sepia'} src={'https://file.resolid.tech/images%2F05.jpg'} />
     <Image fallback={<BlurhashCanvas
-      width={168}
-      height={112}
+      aspect={2/3}
+      width={192}
+      height={128}
       hash={'o7G8=r00x[tS8_D%_19Y9FxZWC%M00%L_49F-;tR00~q?aS6_3D%JA%29F%LIpsl?vNHITD%ROkD'}
     />} className={'w-auto rounded grayscale'} src={'https://file.resolid.tech/images%2F05.jpg'} />
   </div>

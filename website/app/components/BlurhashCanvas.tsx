@@ -1,3 +1,4 @@
+import { clsx } from '@resolid/mix-ui';
 import { __DEV__ } from '@resolid/mix-utils';
 import { useEffect, useRef, type HTMLProps } from 'react';
 
@@ -6,28 +7,36 @@ export type BlurhashCanvasProps = {
   width: number;
   height: number;
   punch?: number;
+  aspect?: number;
 };
 
 export const BlurhashCanvas = (props: HTMLProps<HTMLCanvasElement> & BlurhashCanvasProps) => {
-  const { hash, width, height, punch, ...rest } = props;
+  const { hash, width, height, punch, aspect = 1, className, ...rest } = props;
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
     if (canvasRef.current) {
       const pixels = decodeBlurHash(hash, width, height, punch);
-
       const ctx = canvasRef.current.getContext('2d');
 
       if (ctx) {
-        const imageData = ctx.createImageData(width, height);
-        imageData.data.set(pixels);
-        ctx.putImageData(imageData, 0, 0);
+        ctx.putImageData(new ImageData(pixels, width, height), 0, 0);
       }
     }
   }, [hash, height, punch, width]);
 
-  return <canvas {...rest} height={height} width={width} ref={canvasRef} />;
+  return (
+    <div style={{ paddingBottom: `${aspect * 100}%` }} className={`relative h-0`}>
+      <canvas
+        width={width}
+        height={height}
+        className={clsx('absolute inset-0 h-full w-full', className)}
+        ref={canvasRef}
+        {...rest}
+      />
+    </div>
+  );
 };
 
 if (__DEV__) {
