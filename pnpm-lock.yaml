@@ -187,8 +187,8 @@ importers:
         specifier: ^0.29.3
         version: 0.29.3(@types/react@18.2.55)(postgres@3.4.3)(react@18.3.0-canary-2cd19ed1d-20240207)
       hono:
-        specifier: ^3.12.12
-        version: 3.12.12
+        specifier: ^4.0.0
+        version: 4.0.0
       isbot:
         specifier: ^4.4.0
         version: 4.4.0
@@ -4776,8 +4776,8 @@ packages:
       react-is: 18.3.0-canary-2cd19ed1d-20240207
     dev: false
 
-  /hono@3.12.12:
-    resolution: {integrity: sha512-5IAMJOXfpA5nT+K0MNjClchzz0IhBHs2Szl7WFAhrFOsbtQsYmNynFyJRg/a3IPsmCfxcrf8txUGiNShXpK5Rg==}
+  /hono@4.0.0:
+    resolution: {integrity: sha512-8dKhuBBpRZEodUttQhrSFJ6PQqHRjXHyeeegfxOf132pvgbf0tOb9qqb7q7eYwAWpOcYrsUOsWdJ0sQIIovhZg==}
     engines: {node: '>=16.0.0'}
     dev: false
 

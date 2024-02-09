@@ -7,6 +7,7 @@ import * as build from './index.js';
 
 const app = new Hono();
 
+// noinspection TypeScriptValidateJSTypes
 app.use('*', remix(build));
 
 export default handle(app);

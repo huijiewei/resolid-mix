@@ -27,7 +27,7 @@
     "@tanem/react-nprogress": "^5.0.51",
     "dotenv": "^16.4.1",
     "drizzle-orm": "^0.29.3",
-    "hono": "^3.12.12",
+    "hono": "^4.0.0",
     "isbot": "^4.4.0",
     "postgres": "^3.4.3",
     "react": "18.3.0-canary-2cd19ed1d-20240207",

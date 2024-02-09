@@ -2,16 +2,15 @@ import 'dotenv/config';
 
 import { serve } from '@hono/node-server';
 import { serveStatic } from '@hono/node-server/serve-static';
-import { Hono } from 'hono';
-import { createMiddleware } from 'hono/factory';
+import { Hono, type MiddlewareHandler } from 'hono';
 import { networkInterfaces } from 'node:os';
 import { remix } from '../base/remix';
 
 // @ts-expect-error Cannot find module
 import * as build from './index.js';
 
-const cache = (seconds: number, immutable = false) =>
-  createMiddleware(async (c, next) => {
+const cache = (seconds: number, immutable = false): MiddlewareHandler => {
+  return async (c, next) => {
     if (!c.req.path.match(/\.[a-zA-Z0-9]+$/)) {
       return next();
     }
@@ -23,10 +22,12 @@ const cache = (seconds: number, immutable = false) =>
     }
 
     c.res.headers.set('cache-control', `public, max-age=${seconds}${immutable ? ', immutable' : ''}`);
-  });
+  };
+};
 
 const app = new Hono();
 
+// noinspection TypeScriptValidateJSTypes
 app
   .use('/assets/*', cache(60 * 60 * 24 * 365, true), serveStatic({ root: build.assetsBuildDirectory }))
   .use('*', cache(60 * 60), serveStatic({ root: build.assetsBuildDirectory }))
