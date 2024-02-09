@@ -3,7 +3,6 @@ import { isExternalUrl } from '@resolid/mix-utils';
 import type { ComponentPropsWithoutRef } from 'react';
 import { ClipboardCopyButton } from '~/components/ClipboardCopyButton';
 import { SpriteIcon } from '~/components/SpriteIcon';
-import { reactNodeToString } from '~/extensions/utils/react';
 
 // noinspection JSUnusedGlobalSymbols
 export const components = {
@@ -52,7 +51,7 @@ export const components = {
           {children}
         </pre>
         <div className={'absolute right-1.5 top-1.5'}>
-          <ClipboardCopyButton content={reactNodeToString(children)} />
+          <ClipboardCopyButton content={children} />
         </div>
       </div>
     );

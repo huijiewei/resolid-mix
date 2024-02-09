@@ -1,3 +1,4 @@
+import { __DEV__ } from '@resolid/mix-utils';
 import { useEffect, useRef, type HTMLProps } from 'react';
 
 export type BlurhashCanvasProps = {
@@ -28,6 +29,10 @@ export const BlurhashCanvas = (props: HTMLProps<HTMLCanvasElement> & BlurhashCan
 
   return <canvas {...rest} height={height} width={width} ref={canvasRef} />;
 };
+
+if (__DEV__) {
+  BlurhashCanvas.displayName = 'BlurhashCanvas';
+}
 
 // From https://github.com/mad-gooze/fast-blurhash/blob/main/index.js
 

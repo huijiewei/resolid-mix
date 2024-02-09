@@ -1,15 +1,20 @@
 import { Tooltip, useClipboard } from '@resolid/mix-ui';
 import { __DEV__ } from '@resolid/mix-utils';
+import { isValidElement, useMemo, type ReactNode } from 'react';
 import { SpriteIcon } from '~/components/SpriteIcon';
 
-export const ClipboardCopyButton = ({ content }: { content: string }) => {
+export const ClipboardCopyButton = ({ content }: { content: ReactNode }) => {
   const { copied, copy } = useClipboard();
+
+  const code = useMemo(() => {
+    return reactNodeToString(content);
+  }, [content]);
 
   return (
     <Tooltip.Root color={copied ? 'success' : undefined}>
       <Tooltip.Trigger asChild>
         <button
-          onClick={() => copy(content)}
+          onClick={() => copy(code)}
           type={'button'}
           className={'relative appearance-none p-1 font-medium leading-none'}
         >
@@ -31,3 +36,23 @@ export const ClipboardCopyButton = ({ content }: { content: string }) => {
 if (__DEV__) {
   ClipboardCopyButton.displayName = 'ClipboardCopyButton';
 }
+
+// From https://github.com/sunknudsen/react-node-to-string/blob/master/src/index.ts
+
+const reactNodeToString = function (reactNode: ReactNode): string {
+  let string = '';
+
+  if (typeof reactNode === 'string') {
+    string = reactNode;
+  } else if (typeof reactNode === 'number') {
+    string = reactNode.toString();
+  } else if (Array.isArray(reactNode)) {
+    reactNode.forEach(function (child) {
+      string += reactNodeToString(child);
+    });
+  } else if (isValidElement(reactNode)) {
+    string += reactNodeToString(reactNode.props.children);
+  }
+
+  return string;
+};
