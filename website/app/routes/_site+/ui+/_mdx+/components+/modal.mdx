@@ -3,6 +3,7 @@ title: 模态框
 description: 模态框是一种对话框，通过覆盖在主要内容上的窗口将用户的注意力专门集中在信息上。
 ---
 
+import { ModalBasicDemo, ModalCenteredDemo, ModalUnlockScrollDemo, ModalScrollBehaviorDemo, ModalOverlayStylingDemo, ModalFocusDemo } from './modal.demo';
 import { mergeFrontmatter } from '~/extensions/remix/mergeMeta';
 
 export const meta = mergeFrontmatter(frontmatter);
@@ -25,25 +26,236 @@ import { Modal } from '@resolid/mix-ui';
 - `Modal.Body`: 包含模态框主要内容的包装器。
 - `Modal.CloseButton`: 关闭模态框的按钮。
 
+## 基础
 
-## 用法
+<section className={'group demo'}>
+  <div className={'p-3 not-prose rounded-t border'}>
+    <ModalBasicDemo />
+  </div>
 
-## 变体
+```tsx
+const ModalBasicDemo = () => {
+  const [opened, setOpened] = useState(false);
 
-按钮有四种不同的样式变体可供使用。通过传递 `variant` 属性，可以选择使用 `solid`、`outline`、`light`、`subtle` 或 `link` 中的任意一种。
+  return (
+    <>
+      <Button onClick={() => setOpened(true)}>打开模态框</Button>
+      <Modal.Root opened={opened} onClose={() => setOpened(false)}>
+        <Modal.Overlay />
+        <Modal.Content className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
+          <Modal.Header>模态框标题</Modal.Header>
+          <Modal.CloseButton />
+          <Modal.Body className={'p-3'}>模态框内容</Modal.Body>
+          <Modal.Footer className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>关闭</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal.Root>
+    </>
+  );
+};
+```
 
-## 颜色
+</section>
 
-通过传递 `color` 属性来更改按钮的颜色。按钮支持 `primary`、`success`、`warning`、`danger` 和 `neutral` 这些颜色。
+## 居中
 
-## 大小
+<section className={'group demo'}>
+  <div className={'p-3 not-prose rounded-t border'}>
+    <ModalCenteredDemo />
+  </div>
 
-按钮有五种可用的尺寸。通过传递 `size` 属性，可以选择使用 `xs`、`sm`、`md`、`lg` 或 `xl` 中的任意一种。
+```tsx
+const ModalCenteredDemo = () => {
+  const [opened, setOpened] = useState(false);
 
-## 图标
+  return (
+    <>
+      <Button onClick={() => setOpened(true)}>打开模态框</Button>
+      <Modal.Root opened={opened} centered onClose={() => setOpened(false)}>
+        <Modal.Overlay />
+        <Modal.Content className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
+          <Modal.Header>模态框标题</Modal.Header>
+          <Modal.CloseButton />
+          <Modal.Body className={'p-3'}>模态框内容</Modal.Body>
+          <Modal.Footer className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>关闭</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal.Root>
+    </>
+  );
+};
+```
 
-## 加载状态
+</section>
 
-## 按钮组
+## 解锁滚动条
+
+<section className={'group demo'}>
+  <div className={'p-3 not-prose rounded-t border'}>
+    <ModalUnlockScrollDemo />
+  </div>
+
+```tsx
+const ModalUnlockScrollDemo = () => {
+  const [opened, setOpened] = useState(false);
+
+  return (
+    <>
+      <Button onClick={() => setOpened(true)}>打开模态框</Button>
+      <Modal.Root opened={opened} lockScroll={false} onClose={() => setOpened(false)}>
+        <Modal.Overlay />
+        <Modal.Content className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
+          <Modal.Header>模态框标题</Modal.Header>
+          <Modal.CloseButton />
+          <Modal.Body className={'p-3'}>模态框内容</Modal.Body>
+          <Modal.Footer className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>关闭</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal.Root>
+    </>
+  );
+};
+```
+
+</section>
+
+## 滚动行为
+
+<section className={'group demo'}>
+  <div className={'p-3 not-prose rounded-t border'}>
+    <ModalScrollBehaviorDemo />
+  </div>
+
+```tsx
+const ModalScrollBehaviorDemo = () => {
+  const [opened, setOpened] = useState(false);
+  const [scrollBehavior, setScrollBehavior] = useState('inside');
+
+  return (
+    <>
+      <RadioGroup value={scrollBehavior} onChange={(value) => setScrollBehavior(value)}>
+        <div className={'mb-3 flex flex-row gap-5'}>
+          <Radio value="inside">内部滚动</Radio>
+          <Radio value="outside">外部滚动</Radio>
+        </div>
+      </RadioGroup>
+      <Button onClick={() => setOpened(true)}>打开模态框</Button>
+      <Modal.Root opened={opened} scrollBehavior={scrollBehavior} onClose={() => setOpened(false)}>
+        <Modal.Overlay />
+        <Modal.Content className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
+          <Modal.Header>模态框标题</Modal.Header>
+          <Modal.CloseButton />
+          <Modal.Body className={'p-3'}>模态框大量内容</Modal.Body>
+          <Modal.Footer className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>关闭</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal.Root>
+    </>
+  );
+};
+```
+
+</section>
+
+## 焦点
+
+模态框自动将焦点设置在模式中的第一个可选项元素上。但是，在某些情况下，您可能需要手动控制焦点的位置。
+
+为此提供了 2 个道具:
+
+- `initialFocus` ：模式打开时接收焦点的组件的 ref
+- `finalFocus` ：模式关闭时接收焦点的组件的 ref
+
+<section>
+  <div className={'p-3 not-prose rounded-t border flex gap-3'}>
+    <ModalFocusDemo />
+  </div>
+
+  ```tsx
+const ModalFocusDemo = () => {
+  const [opened, setOpened] = useState(false);
+  const finalRef = useRef(null);
+
+  return (
+    <>
+      <Button onClick={() => setOpened(true)}>打开模态框</Button>
+      <Button color={'neutral'} ref={finalRef}>
+        键盘关闭模态框后获得焦点
+      </Button>
+      <Modal.Root initialFocus={1} finalFocus={finalRef} opened={opened} onClose={() => setOpened(false)}>
+        <Modal.Overlay />
+        <Modal.Content className={'w-fit'}>
+          <Modal.Header>模态框标题</Modal.Header>
+          <Modal.CloseButton />
+            <Modal.Body className={'flex flex-col gap-3 p-3'}>
+              <FormExample />
+            </Modal.Body>
+            <Modal.Footer className={'flex gap-3 items-center justify-end'}>
+              <Button type={'submit'}>提交</Button>
+              <Button color={'neutral'} onClick={() => setOpened(false)}>
+                取消
+              </Button>
+            </Modal.Footer>
+        </Modal.Content>
+      </Modal.Root>
+    </>
+  );
+}
+  ```
+</section>
+
+## 叠加样式
+
+<section className={'group demo'}>
+  <div className={'p-3 not-prose rounded-t border flex gap-3'}>
+    <ModalOverlayStylingDemo />
+  </div>
+
+```tsx
+const ModalOverlayStylingDemo = () => {
+  const OverlayBlur = () => <Modal.Overlay className="backdrop-blur-sm" />;
+  const OverlayHueRotate = () => <Modal.Overlay className="backdrop-hue-rotate-30" />;
+
+  const [opened, setOpened] = useState(false);
+  const [overlay, setOverlay] = useState(<OverlayBlur />);
+
+  return (
+    <>
+      <Button
+        onClick={() => {
+          setOverlay(<OverlayBlur />);
+          setOpened(true);
+        }}
+      >
+        模糊样式
+      </Button>
+      <Button
+        onClick={() => {
+          setOverlay(<OverlayHueRotate />);
+          setOpened(true);
+        }}
+      >
+        色相变换样式
+      </Button>
+      <Modal.Root opened={opened} onClose={() => setOpened(false)}>
+        {overlay}
+        <Modal.Content className={'w-11/12 tablet:w-3/5 laptop:w-1/3'}>
+          <Modal.Header>模态框标题</Modal.Header>
+          <Modal.CloseButton />
+          <Modal.Body className={'p-3'}>模态框内容</Modal.Body>
+          <Modal.Footer className={'flex items-center justify-center gap-5'}>
+            <Button onClick={() => setOpened(false)}>关闭</Button>
+          </Modal.Footer>
+        </Modal.Content>
+      </Modal.Root>
+    </>
+  );
+};
+```
+</section>
 
 ## 属性

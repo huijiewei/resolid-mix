@@ -49,7 +49,7 @@ export default defineConfig(({ command }) => {
         ignoredRouteFiles: ['**/*'],
         routes: async (defineRoutes) => {
           return flatRoutes('routes', defineRoutes, {
-            ignoredRouteFiles: ['**/.*', '**/__*.*'],
+            ignoredRouteFiles: ['**/.*', '**/__*.*', '**/*.demo.tsx'],
           });
         },
       }),
