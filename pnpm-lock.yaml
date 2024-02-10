@@ -242,8 +242,8 @@ importers:
         specifier: ^15.2.3
         version: 15.2.3(rollup@4.9.6)
       '@shikijs/rehype':
-        specifier: ^1.1.0
-        version: 1.1.0
+        specifier: ^1.1.1
+        version: 1.1.1
       '@tailwindcss/typography':
         specifier: ^0.5.10
         version: 0.5.10(tailwindcss@3.4.1)
@@ -2137,25 +2137,25 @@ packages:
     dev: true
     optional: true
 
-  /@shikijs/core@1.1.0:
-    resolution: {integrity: sha512-mB1uFNMpHD82I6QAi/Sk4+H070czXNqUCXvpobeLQGFQ8LM1jQHK/lbHLcucUNSDpFKxTCNJK4KbU2PjR+KJNA==}
+  /@shikijs/core@1.1.1:
+    resolution: {integrity: sha512-WSHuW0i4W04+UZgim378oxHBAp4S5X3hVI2zXh+t5v2fx2u/7QXz9VNisoOD/CA4O9Lc6Zs97TrKiDbWyZua6Q==}
     dev: true
 
-  /@shikijs/rehype@1.1.0:
-    resolution: {integrity: sha512-hw+A8CRcmHqLBcB+zi2dsuvPIpm/XVEZ3gOCiki02sAfvXuqtakWiy2iRzYC8kr7y70dywHKVVFQIUucv+4SWQ==}
+  /@shikijs/rehype@1.1.1:
+    resolution: {integrity: sha512-7JJIr7v89sudUol7BwzIXSh5n7fFa8KnqUVjRmJLvQBy31gxUBF2j1kvMD32SCXZdxIy/XRIeKMgKiNCRpFPvg==}
     dependencies:
-      '@shikijs/transformers': 1.1.0
+      '@shikijs/transformers': 1.1.1
       '@types/hast': 3.0.4
       hast-util-to-string: 3.0.0
-      shiki: 1.1.0
+      shiki: 1.1.1
       unified: 11.0.4
       unist-util-visit: 5.0.0
     dev: true
 
-  /@shikijs/transformers@1.1.0:
-    resolution: {integrity: sha512-9lMaSaDaK9gjUMcwMQeG5l2RJnb7eoNqNpR8LYWy3RzUzeIB89zku+00J3FIOrptmuAaBhKLFb/aJ8tqn6NIYA==}
+  /@shikijs/transformers@1.1.1:
+    resolution: {integrity: sha512-kOGqxMWtgPxivmDB6WH/lq3oUv0FrGPleovfBCqNVYsyGwRDa01OBOqQxO6oz8a7QbdEq0fbt7CaK1yjv4epXw==}
     dependencies:
-      shiki: 1.1.0
+      shiki: 1.1.1
     dev: true
 
   /@sinclair/typebox@0.27.8:
@@ -2957,7 +2957,7 @@ packages:
     hasBin: true
     dependencies:
       caniuse-lite: 1.0.30001585
-      electron-to-chromium: 1.4.664
+      electron-to-chromium: 1.4.665
       node-releases: 2.0.14
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
 
@@ -3766,8 +3766,8 @@ packages:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
 
-  /electron-to-chromium@1.4.664:
-    resolution: {integrity: sha512-k9VKKSkOSNPvSckZgDDl/IQx45E1quMjX8QfLzUsAs/zve8AyFDK+ByRynSP/OfEfryiKHpQeMf00z0leLCc3A==}
+  /electron-to-chromium@1.4.665:
+    resolution: {integrity: sha512-UpyCWObBoD+nSZgOC2ToaIdZB0r9GhqT2WahPKiSki6ckkSuKhQNso8V2PrFcHBMleI/eqbKgVQgVC4Wni4ilw==}
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -8174,10 +8174,10 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /shiki@1.1.0:
-    resolution: {integrity: sha512-esLKFNE2wwgAU/Ze4u/7qZRi9CwDfPq/4PQNFf7TiAN6+pbgTmibOxBS0eu1xvSW7autXP/g1bOGRGkAQK233w==}
+  /shiki@1.1.1:
+    resolution: {integrity: sha512-7ksyiu01NltBvEcLq9GcguF+7RGa5lDwozjgdbiXnlkro1FtMCcrVtHUWbKuYBSOZW74gC4KlnBcgRCwK2ERAw==}
     dependencies:
-      '@shikijs/core': 1.1.0
+      '@shikijs/core': 1.1.1
     dev: true
 
   /siginfo@2.0.0:
@@ -8244,7 +8244,7 @@ packages:
     resolution: {integrity: sha512-kN9dJbvnySHULIluDHy32WHRUu3Og7B9sbY7tsFLctQkIqnMh3hErYgdMjTYuqmcXX+lK5T1lnUt3G7zNswmZA==}
     dependencies:
       spdx-expression-parse: 3.0.1
-      spdx-license-ids: 3.0.16
+      spdx-license-ids: 3.0.17
     dev: true
 
   /spdx-exceptions@2.4.0:
@@ -8255,11 +8255,11 @@ packages:
     resolution: {integrity: sha512-cbqHunsQWnJNE6KhVSMsMeH5H/L9EpymbzqTQ3uLwNCLZ1Q481oWaofqH7nO6V07xlXwY6PhQdQ2IedWx/ZK4Q==}
     dependencies:
       spdx-exceptions: 2.4.0
-      spdx-license-ids: 3.0.16
+      spdx-license-ids: 3.0.17
     dev: true
 
-  /spdx-license-ids@3.0.16:
-    resolution: {integrity: sha512-eWN+LnM3GR6gPu35WxNgbGl8rmY1AEmoMDvL/QD6zYmPWgywxWqJWNdLGT+ke8dKNWrcYgYjPpG5gbTfghP8rw==}
+  /spdx-license-ids@3.0.17:
+    resolution: {integrity: sha512-sh8PWc/ftMqAAdFiBu6Fy6JUOYjqDJBJvIhpfDMyHrr0Rbp5liZqd4TjtQ/RgfLjKFZb+LMx5hpml5qOWy0qvg==}
     dev: true
 
   /split2@3.2.2:
