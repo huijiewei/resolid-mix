@@ -1,4 +1,4 @@
-import { hashSync } from '@node-rs/bcrypt';
+import { hash } from '@node-rs/bcrypt';
 import type { ActionFunctionArgs } from '@remix-run/server-runtime';
 import { getValidatedFormData } from 'remix-hook-form';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
@@ -30,7 +30,7 @@ export const action = async ({ request, context }: ActionFunctionArgs) => {
   const user = await createUser({
     email: data.email,
     username: data.username,
-    password: hashSync(data?.password),
+    password: await hash(data?.password.normalize('NFKC')),
     userGroupId: 2,
     createdIp: context.remoteAddress,
   });

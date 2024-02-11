@@ -1,4 +1,4 @@
-import { verifySync } from '@node-rs/bcrypt';
+import { verify } from '@node-rs/bcrypt';
 import type { ActionFunctionArgs } from '@remix-run/server-runtime';
 import { getValidatedFormData } from 'remix-hook-form';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
@@ -24,7 +24,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
     });
   }
 
-  if (!verifySync(data.password, user.password)) {
+  if (!(await verify(data.password.normalize('NFKC'), user.password))) {
     return problem({
       email: null,
       password: { message: '密码错误' },
