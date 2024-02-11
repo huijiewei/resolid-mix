@@ -31,7 +31,7 @@
   "dependencies": {},
   "devDependencies": {
     "tailwindcss": "^3.4.1",
-    "tsup": "^8.0.1"
+    "tsup": "^8.0.2"
   },
   "peerDependencies": {
     "autoprefixer": ">=10.4.17",
