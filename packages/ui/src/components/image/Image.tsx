@@ -26,7 +26,8 @@ export const Image = forwardRef<HTMLImageElement, Props<'img', ImageProps>>((pro
     alt,
     fallback,
     fallbackStrategy = 'beforeOrError',
-    loading,
+    loading = 'lazy',
+    decoding = 'async',
     crossOrigin,
     referrerPolicy,
     ...rest
@@ -51,6 +52,7 @@ export const Image = forwardRef<HTMLImageElement, Props<'img', ImageProps>>((pro
       crossOrigin={crossOrigin}
       referrerPolicy={referrerPolicy}
       loading={loading}
+      decoding={decoding}
       ref={ref}
       src={src}
       srcSet={srcSet}
