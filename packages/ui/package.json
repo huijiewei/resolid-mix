@@ -31,8 +31,8 @@
     "@resolid/mix-tailwind": "workspace:^",
     "@testing-library/react": "^14.2.1",
     "jsdom": "^24.0.0",
-    "react": "18.3.0-canary-2cd19ed1d-20240207",
-    "react-dom": "18.3.0-canary-2cd19ed1d-20240207",
+    "react": "18.3.0-canary-03d6f7cf0-20240209",
+    "react-dom": "18.3.0-canary-03d6f7cf0-20240209",
     "tsup": "^8.0.2",
     "vitest": "^1.2.2"
   },

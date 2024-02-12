@@ -1,5 +1,5 @@
 /// <reference types="vite/client" />
-/// <reference types="@remix-run/node" />
+/// <reference types="@remix-run/node/globals" />
 
 interface ImportMetaEnv {
   readonly VITE_TURNSTILE_KEY: string;
