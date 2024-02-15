@@ -1,11 +1,11 @@
 import { verify } from '@node-rs/bcrypt';
-import type { ActionFunctionArgs } from '@remix-run/server-runtime';
+import { redirect, type ActionFunctionArgs } from '@remix-run/server-runtime';
 import { getValidatedFormData } from 'remix-hook-form';
 import ResolidLogo from '~/assets/images/resolid-logo.svg';
 import { AuthLoginForm } from '~/extensions/auth/AuthLoginForm';
 import { authLoginResolver, type AuthLoginFormData } from '~/extensions/auth/AuthLoginResolver';
-import { problem, success } from '~/foundation/http.server';
-import { commitSession, createUserSession, omitUser } from '~/foundation/session.server';
+import { problem } from '~/foundation/http.server';
+import { commitSession, createUserSession } from '~/foundation/session.server';
 import { getUserByEmail } from '~/modules/user/userService.server';
 
 export const action = async ({ request }: ActionFunctionArgs) => {
@@ -33,7 +33,7 @@ export const action = async ({ request }: ActionFunctionArgs) => {
 
   const session = await createUserSession(request, user.id);
 
-  return success(omitUser(user), {
+  return redirect(new URL(request.url).searchParams.get('redirect') ?? '', {
     headers: {
       'Set-Cookie': await commitSession(session, {
         maxAge: data?.rememberMe ? 60 * 60 * 24 * 7 : 60 * 60 * 30,

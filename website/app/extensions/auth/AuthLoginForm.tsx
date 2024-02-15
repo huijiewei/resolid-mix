@@ -5,15 +5,9 @@ import { useRemixForm } from 'remix-hook-form';
 import { FormError } from '~/components/FormError';
 import { HistoryLink } from '~/components/HistoryLink';
 import { authLoginResolver, type AuthLoginFormData } from '~/extensions/auth/AuthLoginResolver';
-import { AuthModalAction, useAuthModalDispatch } from '~/extensions/auth/AuthModalContext';
-import { useAuth, type AuthData } from '~/extensions/auth/useAuth';
-import { useTypeActionData } from '~/extensions/remix/useData';
-import type { action } from '~/routes/_site+/_land+/login';
 
 export const AuthLoginForm = () => {
   const [params] = useSearchParams();
-  const setAuthModalAction = useAuthModalDispatch();
-  const data = useTypeActionData<AuthData, typeof action>();
 
   const {
     handleSubmit,
@@ -23,8 +17,6 @@ export const AuthLoginForm = () => {
     mode: 'onSubmit',
     resolver: authLoginResolver,
   });
-
-  useAuth(data, params);
 
   return (
     <div className={'flex flex-col gap-2'}>
@@ -85,21 +77,12 @@ export const AuthLoginForm = () => {
             )}
           />
 
-          {setAuthModalAction ? (
-            <button
-              onClick={() => setAuthModalAction(AuthModalAction.FORGOT_PASSWORD)}
-              className={'text-link underline'}
-            >
-              忘记密码
-            </button>
-          ) : (
-            <HistoryLink
-              className={'text-link underline'}
-              to={{ pathname: '/forgot-password', search: params.toString() }}
-            >
-              忘记密码
-            </HistoryLink>
-          )}
+          <HistoryLink
+            className={'text-link underline'}
+            to={{ pathname: '/forgot-password', search: params.toString() }}
+          >
+            忘记密码
+          </HistoryLink>
         </div>
         <div className={'flex flex-row gap-1 text-center'}>
           <Button fullWidth loading={isSubmitting} size={'lg'} type={'submit'}>
@@ -109,15 +92,9 @@ export const AuthLoginForm = () => {
       </Form>
       <div className={''}>
         还没有账号?&nbsp;
-        {setAuthModalAction ? (
-          <Button onClick={() => setAuthModalAction(AuthModalAction.SIGNUP)} variant={'link'}>
-            注册
-          </Button>
-        ) : (
-          <HistoryLink className={'text-link underline'} to={{ pathname: '/signup', search: params.toString() }}>
-            注册
-          </HistoryLink>
-        )}
+        <HistoryLink className={'text-link underline'} to={{ pathname: '/signup', search: params.toString() }}>
+          注册
+        </HistoryLink>
       </div>
     </div>
   );

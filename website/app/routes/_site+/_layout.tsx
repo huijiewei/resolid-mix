@@ -1,5 +1,6 @@
-import { Link, Outlet, useFetcher, useLocation } from '@remix-run/react';
+import { Link, Outlet, createPath, useFetcher, useLocation, type Location } from '@remix-run/react';
 import { Avatar, Button, DropdownMenu, Tooltip, clsx, noScrollbarsClassName, useColorModeState } from '@resolid/mix-ui';
+import { omit } from '@resolid/mix-utils';
 import { Suspense, useState, type MouseEventHandler } from 'react';
 import ResolidBannerDark from '~/assets/images/resolid-banner-dark.svg';
 import ResolidBanner from '~/assets/images/resolid-banner.svg';
@@ -7,8 +8,10 @@ import { HistoryLink, HistoryNavLink } from '~/components/HistoryLink';
 import { LazySpinner } from '~/components/LazySpinner';
 import { SpriteIcon } from '~/components/SpriteIcon';
 import { ThemeSwitcher } from '~/components/ThemeSwitcher';
-import { getLoginTo, useAuthUserDispatch, useAuthUserState } from '~/extensions/auth/AuthUserContext';
+import { useTypeRouteLoaderData } from '~/extensions/remix/useData';
+import type { SessionUser } from '~/foundation/session.server';
 import { userDisplayName, userIsAdmin } from '~/modules/user/userUtils';
+import type { loader } from '~/root';
 
 export default function Layout() {
   return (
@@ -28,6 +31,7 @@ export default function Layout() {
 }
 
 const HeaderNav = () => {
+  const { user } = useTypeRouteLoaderData<{ user: SessionUser }, typeof loader>('root');
   const [opened, setOpened] = useState(false);
 
   return (
@@ -48,7 +52,7 @@ const HeaderNav = () => {
           <HeaderNavMenu onClick={() => setOpened(false)} />
         </div>
         <div className={'flex flex-row items-center gap-1'}>
-          <HeaderNavUser />
+          <HeaderNavUser user={user} />
           <ThemeSwitcher />
           <Tooltip.Root placement={'bottom'}>
             <Tooltip.Trigger asChild>
@@ -113,9 +117,7 @@ const HeaderNavMenu = ({ onClick }: { onClick: MouseEventHandler<HTMLAnchorEleme
   );
 };
 
-const HeaderNavUser = () => {
-  const user = useAuthUserState();
-  const { resetUser } = useAuthUserDispatch();
+const HeaderNavUser = ({ user }: { user: SessionUser }) => {
   const location = useLocation();
   const fetcher = useFetcher();
 
@@ -157,8 +159,6 @@ const HeaderNavUser = () => {
                 method: 'post',
                 action: '/logout',
               });
-
-              resetUser();
             }}
           >
             <SpriteIcon size={'1em'} name={'logout'} className={'me-1.5'} />
@@ -184,4 +184,21 @@ const HeaderNavUser = () => {
       </Tooltip.Content>
     </Tooltip.Root>
   );
+};
+
+const getLoginTo = (pathname: string, location: Location) => {
+  const to = {
+    pathname: pathname,
+    search: location.search,
+  };
+
+  if (
+    !location.pathname.endsWith('login') &&
+    !location.pathname.endsWith('signup') &&
+    !location.pathname.endsWith('forgot-password')
+  ) {
+    to.search = new URLSearchParams({ redirect: createPath(omit(location, ['hash'])) }).toString();
+  }
+
+  return to;
 };

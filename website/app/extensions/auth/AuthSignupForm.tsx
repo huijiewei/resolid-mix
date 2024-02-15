@@ -4,16 +4,10 @@ import { Controller } from 'react-hook-form';
 import { useRemixForm } from 'remix-hook-form';
 import { FormError } from '~/components/FormError';
 import { HistoryLink } from '~/components/HistoryLink';
-import { AuthModalAction, useAuthModalDispatch } from '~/extensions/auth/AuthModalContext';
 import { authSignupResolver, type AuthSignupFormData } from '~/extensions/auth/AuthSignupResolver';
-import { useAuth, type AuthData } from '~/extensions/auth/useAuth';
-import { useTypeActionData } from '~/extensions/remix/useData';
-import type { action } from '~/routes/_site+/_land+/signup';
 
 export const AuthSignupForm = () => {
   const [params] = useSearchParams();
-  const setAuthModalAction = useAuthModalDispatch();
-  const data = useTypeActionData<AuthData, typeof action>();
 
   const {
     handleSubmit,
@@ -23,8 +17,6 @@ export const AuthSignupForm = () => {
     mode: 'onSubmit',
     resolver: authSignupResolver,
   });
-
-  useAuth(data, params);
 
   return (
     <div className={'flex flex-col gap-2'}>
@@ -145,15 +137,9 @@ export const AuthSignupForm = () => {
       </Form>
       <div className={''}>
         已有账号?&nbsp;
-        {setAuthModalAction ? (
-          <Button onClick={() => setAuthModalAction(AuthModalAction.LOGIN)} variant={'link'}>
-            登录
-          </Button>
-        ) : (
-          <HistoryLink className={'text-link underline'} to={{ pathname: '/login', search: params.toString() }}>
-            登录
-          </HistoryLink>
-        )}
+        <HistoryLink className={'text-link underline'} to={{ pathname: '/login', search: params.toString() }}>
+          登录
+        </HistoryLink>
       </div>
     </div>
   );

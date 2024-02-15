@@ -5,8 +5,6 @@ import { ColorModeScript, ResolidProvider } from '@resolid/mix-ui';
 import { trimEnd } from '@resolid/mix-utils';
 import commonIcon from '~/assets/icons/common.svg';
 import { RouteProgressBar } from '~/components/RouteProgressBar';
-import { AuthProvider } from '~/extensions/auth/AuthProvider';
-import { AuthUserProvider } from '~/extensions/auth/AuthUserProvider';
 import { useTypeLoaderData } from '~/extensions/remix/useData';
 import { getSessionUser, type SessionUser } from '~/foundation/session.server';
 
@@ -83,9 +81,6 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 // noinspection JSUnusedGlobalSymbols
-export const shouldRevalidate = () => false;
-
-// noinspection JSUnusedGlobalSymbols
 export const links: LinksFunction = () => {
   return [
     {
@@ -104,7 +99,7 @@ export const links: LinksFunction = () => {
 
 // noinspection JSUnusedGlobalSymbols
 export default function App() {
-  const { user, iPhone } = useTypeLoaderData<{ user: SessionUser; url: string; iPhone: boolean }, typeof loader>();
+  const { iPhone } = useTypeLoaderData<{ user: SessionUser; url: string; iPhone: boolean }, typeof loader>();
 
   return (
     <html lang="zh-CN" suppressHydrationWarning>
@@ -126,11 +121,7 @@ export default function App() {
       <body className={'min-h-screen overflow-y-scroll antialiased'}>
         <RouteProgressBar />
         <ResolidProvider>
-          <AuthUserProvider user={user}>
-            <AuthProvider>
-              <Outlet />
-            </AuthProvider>
-          </AuthUserProvider>
+          <Outlet />
         </ResolidProvider>
         <ScrollRestoration />
         <Scripts />

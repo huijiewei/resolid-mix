@@ -10,14 +10,12 @@ import {
   authForgotPasswordResolver,
   type AuthForgotPasswordFormData,
 } from '~/extensions/auth/AuthForgotPasswordResolver';
-import { AuthModalAction, useAuthModalDispatch } from '~/extensions/auth/AuthModalContext';
 import { useTypeActionData } from '~/extensions/remix/useData';
 import { TurnstileWidget } from '~/extensions/turnstile/TurnstileWidget';
 import type { action } from '~/routes/_site+/_land+/forgot-password';
 
 export const AuthForgotPasswordForm = () => {
   const [params] = useSearchParams();
-  const setAuthModalAction = useAuthModalDispatch();
   const [captchaVerified, setCaptchaVerified] = useState(false);
   const captchaRef = useRef<TurnstileInstance>(null);
   const data = useTypeActionData<{ success: boolean }, typeof action>();
@@ -85,15 +83,9 @@ export const AuthForgotPasswordForm = () => {
         </div>
       </Form>
       <div className={''}>
-        {setAuthModalAction ? (
-          <Button onClick={() => setAuthModalAction(AuthModalAction.LOGIN)} variant={'link'}>
-            返回登录
-          </Button>
-        ) : (
-          <HistoryLink className={'text-link underline'} to={{ pathname: '/login', search: params.toString() }}>
-            返回登录
-          </HistoryLink>
-        )}
+        <HistoryLink className={'text-link underline'} to={{ pathname: '/login', search: params.toString() }}>
+          返回登录
+        </HistoryLink>
       </div>
     </div>
   );
