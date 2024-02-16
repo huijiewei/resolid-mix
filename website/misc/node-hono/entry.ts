@@ -27,7 +27,6 @@ const cache = (seconds: number, immutable = false): MiddlewareHandler => {
 
 const app = new Hono();
 
-// noinspection TypeScriptValidateJSTypes
 app
   .use('/assets/*', cache(60 * 60 * 24 * 365, true), serveStatic({ root: build.assetsBuildDirectory }))
   .use('*', cache(60 * 60), serveStatic({ root: build.assetsBuildDirectory }))
