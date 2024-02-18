@@ -16,9 +16,9 @@
     "resolid": "tsx ./cli/index.ts"
   },
   "dependencies": {
-    "@hono/node-server": "^1.7.0",
+    "@hono/node-server": "^1.8.0",
     "@hookform/resolvers": "^3.3.4",
-    "@marsidev/react-turnstile": "^0.5.1",
+    "@marsidev/react-turnstile": "^0.5.2",
     "@remix-run/node": "^2.6.0",
     "@remix-run/react": "^2.6.0",
     "@remix-run/server-runtime": "^2.6.0",
@@ -27,7 +27,7 @@
     "@tanem/react-nprogress": "^5.0.51",
     "dotenv": "^16.4.4",
     "drizzle-orm": "^0.29.3",
-    "hono": "^4.0.3",
+    "hono": "^4.0.4",
     "isbot": "^4.4.0",
     "postgres": "^3.4.3",
     "react": "18.3.0-canary-03d6f7cf0-20240209",
@@ -49,7 +49,7 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "@shikijs/rehype": "^1.1.3",
     "@tailwindcss/typography": "^0.5.10",
-    "@types/react": "^18.2.55",
+    "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@vercel/nft": "^0.26.4",
     "autoprefixer": "^10.4.17",
@@ -72,7 +72,7 @@
     "vite": "^5.1.3",
     "vite-plugin-inspect": "^0.8.3",
     "vite-tsconfig-paths": "^4.3.1",
-    "vitest": "^1.2.2"
+    "vitest": "^1.3.0"
   },
   "engines": {
     "node": "20.x"

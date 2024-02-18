@@ -34,7 +34,7 @@
     "react": "18.3.0-canary-03d6f7cf0-20240209",
     "react-dom": "18.3.0-canary-03d6f7cf0-20240209",
     "tsup": "^8.0.2",
-    "vitest": "^1.2.2"
+    "vitest": "^1.3.0"
   },
   "peerDependencies": {
     "@resolid/mix-tailwind": "workspace:^",
